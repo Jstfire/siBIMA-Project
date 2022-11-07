@@ -39,6 +39,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/ListOrganisasi', 'ListOrganisasi::index');
 $routes->get('/PengajuanProposal', 'PengajuanProposal::index');
 $routes->get('/JadwalKegiatan', 'JadwalKegiatan::index');
+$routes->get('/Login', 'Login::index');
+$routes->get('/ListProposal', 'ListProposal::index');
 
 /*
  * --------------------------------------------------------------------
