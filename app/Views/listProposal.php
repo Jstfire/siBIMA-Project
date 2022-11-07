@@ -16,7 +16,7 @@
         include('temp/sidebar.php');
     ?>
     <div class="container-fluid mt-5 pt-3 mx-0 px-0">
-        <h1 class="m-0">List Akun</h1><hr class="m-0">
+        <h1 class="m-0">List Proposal</h1><hr class="m-0">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
