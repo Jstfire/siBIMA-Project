@@ -1,0 +1,9 @@
+.fw-bold.text-thumbnail {
+    font-size: 75px;
+    margin: 0px;
+}
+
+.desc-thumb {
+    text-align: justify;
+    text-justify: inter-word;
+}

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --color1: #182932;
+    --color2: #14303E;
+    --color3: #1F4761;
+    --color4: #3488AC;
+    --color5: #75ABBC;
+    --color6: #FDA400;
+    --color7: #FDC516;
+    --color8: #E9B249;
+    --color9: #E19E5A;
+    --color10: #E2CEA6;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+.navbar.navbar-expand-sm.navbar-dark {
+    background-color: var(--color1);
+}
+
+.btn.btn-primary.btn-lg.nav-link.fw-semibold.px-3.mx-2 {
+    background-color:var(--color3);
+}
+
+.btn.btn-primary.btn-lg.nav-link.fw-semibold.px-3.mx-2:hover {
+    background-color:var(--color5);
+}
+
+.nav-item.login a {
+    color: white;
+}
+
+.nav-item.login a:hover {
+    color: var(--color1);
+}
+
+.btn.btn-primary {
+    background-color: var(--color1);
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--color3);
+}
+
+/* .btn.btn-primary.btn-lg.rounded-pill {
+    justify-self: end;
+} */
