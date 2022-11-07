@@ -43,12 +43,13 @@
             <h1 class="fs-2 text-center fw-bold m-0">Jadwal Kegiatan</h1><hr class="my-2 p-0" style="border: 1px solid black;">
         </div>
         <div class="container bg-dark">
-        
+
         </div>
 
     </div>
     
     <h1>Test Index</h1>
+    <h3>test</h3>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
