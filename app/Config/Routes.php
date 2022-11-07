@@ -41,6 +41,9 @@ $routes->get('/PengajuanProposal', 'PengajuanProposal::index');
 $routes->get('/JadwalKegiatan', 'JadwalKegiatan::index');
 $routes->get('/Login', 'Login::index');
 $routes->get('/ListProposal', 'ListProposal::index');
+$routes->get('/ListAkun', 'ListAkun::index');
+$routes->get('/TambahAkun', 'TambahAkun::index');
+$routes->get('/ProgresKegiatan', 'ProgresKegiatan::index');
 
 /*
  * --------------------------------------------------------------------

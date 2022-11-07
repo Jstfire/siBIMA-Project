@@ -1,11 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
+  --color1: #182932;
+  --color2: #14303E;
+  --color3: #1F4761;
+  --color4: #3488AC;
+  --color5: #75ABBC;
+  --color6: #FDA400;
+  --color7: #FDC516;
+  --color8: #E9B249;
+  --color9: #E19E5A;
+  --color10: #E2CEA6;
   --header-height: 3rem;
   --nav-width: 68px;
-  --first-color: #4723d9;
-  --first-color-light: #afa5d9;
-  --white-color: #f7f6fb;
-  --body-font: "Nunito", sans-serif;
+  --first-color: #182932;
+  --first-color-light: #3488AC;
+  --white-color: #ffffff;
+  --body-font: 'Montserrat', sans-serif;
   --normal-font-size: 1rem;
   --z-fixed: 100;
 }
@@ -13,17 +24,19 @@
 ::before,
 ::after {
   box-sizing: border-box;
+  text-decoration: none;
 }
 body {
   position: relative;
   margin: var(--header-height) 0 0 0;
   padding: 0 1rem;
-  font-family: var(--body-font);
+  font-family: 'Montserrat', sans-serif !important;
   font-size: var(--normal-font-size);
   transition: 0.5s;
+  text-decoration: none !important;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .header {
   width: 100%;
@@ -54,6 +67,9 @@ a {
 }
 .header_img img {
   width: 40px;
+}
+.user-detail {
+ font-size: small;
 }
 .l-navbar {
   position: fixed;
@@ -145,7 +161,7 @@ a {
     padding: 1rem 1rem 0 0;
   }
   .show {
-    width: calc(var(--nav-width) + 156px);
+    width: calc(var(--nav-width) + 165px);
   }
   .body-pd {
     padding-left: calc(var(--nav-width) + 188px);
