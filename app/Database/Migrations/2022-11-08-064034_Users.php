@@ -27,8 +27,12 @@ class Users extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'nama_tampil' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+            ],
         ]);
-        $this->forge->addKey('id_user', true);
+        $this->forge->addPrimaryKey('id_user', true);
         $this->forge->createTable('users');
     }
 
