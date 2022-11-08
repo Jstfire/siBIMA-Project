@@ -4,9 +4,7 @@
             Menu Lainnya
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item"href="<?php echo base_url();?>/TambahAkun">Dashboard Admin</a></li>
-            <li><a class="dropdown-item" href="">Edit Profil</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item"href="/TambahAkun">Dashboard Admin</a></li>
             <li class="logout"><a class="dropdown-item" href="/logout">Logout</a></li>
         </ul>
     </div>

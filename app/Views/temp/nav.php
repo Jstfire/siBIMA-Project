@@ -63,7 +63,7 @@
             </li>
             <?php
                 if (!isset($_SESSION["email"])) {
-                    include("loggedIn.php");
+                    include("loggedOut.php");
                 } else {
                     include("loggedIn.php");
                 }
