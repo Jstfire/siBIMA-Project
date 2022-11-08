@@ -12,7 +12,6 @@ class Users extends Migration
             'id_user' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
-                'unsigned'       => true,
                 'auto_increment' => true,
             ],
             'username' => [
