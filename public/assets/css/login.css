@@ -15,9 +15,28 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--color2);
+}
+
+p {
+    color: #fff;
+}
+
+a {
+    text-decoration: none !important;
 }
 
 body {
-    background: var(--color2);
+    background-color: var(--color2) !important;
+}
+
+.card.border-0.shadow.rounded-4.my-4 {
+    background-color: var(--color1);
+}
+
+.fw-bold.m-0 {
+    font-size: 65px;
+}
+
+.m-0.text-desc {
+    transform: translateY(-20px);
 }

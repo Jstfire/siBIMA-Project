@@ -49,6 +49,28 @@ body {
     background-color: var(--color3);
 }
 
+.btn.btn-secondary.dropdown-toggle {
+    background-color: var(--color3);
+}
+
+.logout:hover {
+    background-color: red !important;
+}
+.dropdown-menu.dropdown-menu-dark{
+    background-color: beige;
+}
+.dropdown-menu.dropdown-menu-dark a{
+    color: black;
+    font-weight: bold;
+}
+.dropdown-menu.dropdown-menu-dark a:hover{
+    color: #ffffff;
+}
+.dropdown-menu.dropdown-menu-dark li:hover{
+    background-color: var(--color1);
+}
+
+
 /* .btn.btn-primary.btn-lg.rounded-pill {
     justify-self: end;
 } */
