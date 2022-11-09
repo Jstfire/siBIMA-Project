@@ -1,5 +1,5 @@
 <?php
-    include('temp/header.php');
+    include('temp/head.php');
 ?>
     <title>siBIMA - Pengajuan Proposal</title>
 <?php

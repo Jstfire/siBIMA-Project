@@ -1,22 +1,15 @@
 <?php
-    include('temp/header.php');
+    $session = session();
+    include('temp/head.php');
 ?>
     <link rel="stylesheet" href="<?php echo base_url();?>/assets/css/index.css">
     <title>siBIMA - Halaman Utama</title>
 <?php
+    if (isset($_SESSION["username"])) {
+        include('temp/header.php');
+    }
     include('temp/nav.php');
 ?>
-    <!-- <div class="container d-flex mt-4">
-        <div class="img-fluid">
-            <img src="<?php echo base_url();?>/assets/img/logoSTIS.png" alt="Logo STIS">
-        </div>
-        <div class="container ms-3 me-0 p-0">
-            <h1 class="fw-bold text-thumbnail-1">siBIMA</h1>
-            <h3 class="text-thumbnail-2">Sistem Pembinaan Kemahasiswaan</h3>
-            <p class="text-thumbnail-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus delectus, beatae eum cupiditate voluptatum eius eligendi exercitationem, minima repellat impedit at nisi deleniti nesciunt ut optio officiis! Magnam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum sunt nulla, iusto magni, nobis dicta, perferendis quisquam earum doloribus ut aspernatur officiis amet hic repellat suscipit laborum non consequatur accusamus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus delectus, beatae eum cupiditate voluptatum eius eligendi exercitationem, minima repellat impedit at nisi deleniti nesciunt ut optio officiis! Magnam.</p>
-        </div>
-    </div> -->
-
     <div class="container">
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
             <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="<?php echo base_url();?>/assets/img/logoSTIS.png" alt="Logo STIS"></div>

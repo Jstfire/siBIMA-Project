@@ -25,7 +25,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+// $routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -40,10 +40,12 @@ $routes->get('/ListOrganisasi', 'ListOrganisasi::index');
 $routes->get('/PengajuanProposal', 'PengajuanProposal::index');
 $routes->get('/JadwalKegiatan', 'JadwalKegiatan::index');
 $routes->get('/Login', 'Login::index');
-$routes->get('/ListProposal', 'ListProposal::index');
-$routes->get('/ListAkun', 'ListAkun::index');
-$routes->get('/TambahAkun', 'TambahAkun::index');
-$routes->get('/ProgresKegiatan', 'ProgresKegiatan::index');
+$routes->get('/Logout', 'Logout::index');
+$routes->match(['get', 'post'], '/Login/LoginAuth', 'Login::loginAuth');
+$routes->get('/Admin/ListProposal', 'ListProposal::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/Admin/ListAkun', 'ListAkun::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/Admin/TambahAkun', 'TambahAkun::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/Admin/ProgresKegiatan', 'ProgresKegiatan::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 
 /*
  * --------------------------------------------------------------------

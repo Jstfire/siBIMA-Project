@@ -26,18 +26,23 @@
                         <p class="m-0 text-desc">Sistem Pembinaan Mahasiswa</p>
                     </a>
                 </div>
-                <form class="mt-5">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-                <div class="d-grid mt-5">
-                    <button class="btn btn-primary btn-login text-uppercase fw-bold rounded-pill mt-5" type="submit">Login</button>
-                </div>
+                <?php if(session()->getFlashdata('msg')):?>
+                    <div class="alert alert-warning">
+                       <?= session()->getFlashdata('msg') ?>
+                    </div>
+                <?php endif;?>
+                <form class="mt-5" action="<?php echo base_url(); ?>/Login/LoginAuth" method="post">
+                    <div class="form-floating mb-3">
+                        <input name="username" type="text" class="form-control" id="floatingInput" placeholder="Username">
+                        <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="d-grid mt-5">
+                        <button class="btn btn-primary btn-login text-uppercase fw-bold rounded-pill mt-5" type="submit">Login</button>
+                    </div>
                 </form>
             </div>
             </div>
