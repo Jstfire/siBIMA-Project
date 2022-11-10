@@ -1,4 +1,4 @@
-<header class="d-flex justify-content-end bg-dark text-white border-bottom border-4 border-opacity-25 border-white">
+<header class="d-flex justify-content-end bg-dark text-white">
     <h6 class="my-1 mx-2">
         <?php
             $session = session();

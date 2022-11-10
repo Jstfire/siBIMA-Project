@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class ProgresKegiatan extends BaseController
+class DashboardUPK extends BaseController
 {
     public function index()
     {
-        return view('progresKegiatan');
+        //
     }
 }

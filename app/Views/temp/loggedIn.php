@@ -4,7 +4,7 @@
             Menu Lainnya
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item"href="/Admin/TambahAkun">Dashboard</a></li>
+            <li><a class="dropdown-item"href="/DashboardAdmin">Dashboard</a></li>
             <li class="logout"><a class="dropdown-item" href="/Logout">Logout</a></li>
         </ul>
     </div>

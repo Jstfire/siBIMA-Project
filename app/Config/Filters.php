@@ -10,6 +10,9 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\AuthGuard;
 use App\Filters\AuthAdmin;
+use App\Filters\AuthUPK;
+use App\Filters\AuthBPH;
+use App\Filters\AuthLogin;
 
 class Filters extends BaseConfig
 {
@@ -27,6 +30,9 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'authGuard'     => AuthGuard::class,
         'authAdmin'     => AuthAdmin::class,
+        'authUPK'     => AuthUPK::class,
+        'authBPH'     => AuthBPH::class,
+        'authLogin'     => AuthLogin::class,
     ];
 
     /**

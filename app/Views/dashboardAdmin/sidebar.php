@@ -29,39 +29,39 @@
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
-        <a href="<?php echo base_url();?>/Admin/TambahAkun" class="nav_logo">
+        <a href="<?php echo base_url();?>/DashboardAdmin" class="nav_logo">
           <i class='bx bx-layer nav_logo-icon'></i>
           <span class="nav_logo-name">Dashboard Admin</span>
         </a>
         <div class="nav_list">
           <?php
-              if ($url == base_url().'/Admin/ProgresKegiatan') {
+              if ($url == base_url().'/DashboardAdmin') {
                 echo '
-                  <a href="'.base_url().'/Admin/ProgresKegiatan" class="nav_link active">
+                  <a href="'.base_url().'/DashboardAdmin" class="nav_link active">
                     <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
-                    <span class="nav_name">Rangkuman Kegiatan</span>
+                    <span class="nav_name">Progres Kegiatan</span>
                   </a>
                 ';
               } else {
                 echo '
-                  <a href="'.base_url().'/Admin/ProgresKegiatan" class="nav_link">
+                  <a href="'.base_url().'/DashboardAdmin" class="nav_link">
                     <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
-                    <span class="nav_name">Rangkuman Kegiatan</span>
+                    <span class="nav_name">Progres Kegiatan</span>
                   </a>
                 ';
               }
           ?>
           <?php
-              if ($url == base_url().'/Admin/TambahAkun') {
+              if ($url == base_url().'/DashboardAdmin/TambahAkun') {
                 echo '
-                <a href="'.base_url().'/Admin/TambahAkun" class="nav_link active">
+                <a href="'.base_url().'/DashboardAdmin/TambahAkun" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                     <span class="nav_name">Akun Baru</span>
                   </a>
                   ';
               } else {
                 echo '
-                  <a href="'.base_url().'/Admin/TambahAkun" class="nav_link">
+                  <a href="'.base_url().'/DashboardAdmin/TambahAkun" class="nav_link">
                     <i class="bx bx-grid-alt nav_icon"></i>
                     <span class="nav_name">Akun Baru</span>
                   </a>
@@ -69,16 +69,16 @@
               }
           ?>
           <?php
-              if ($url == base_url().'/Admin/ListAkun') {
+              if ($url == base_url().'/DashboardAdmin/ListAkun') {
                 echo '
-                  <a href="'.base_url().'/Admin/ListAkun" class="nav_link active">
+                  <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link active">
                     <i class="bx bx-user nav_icon"></i>
                     <span class="nav_name">List Akun</span>
                   </a>
                 ';
               } else {
                 echo '
-                  <a href="'.base_url().'/Admin/ListAkun" class="nav_link">
+                  <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link">
                     <i class="bx bx-user nav_icon"></i>
                     <span class="nav_name">List Akun</span>
                   </a>
@@ -86,16 +86,16 @@
               }
             ?>
             <?php
-                if ($url == base_url().'/Admin/ListProposal') {
+                if ($url == base_url().'/DashboardAdmin/ListProposal') {
                   echo '
-                    <a href="'.base_url().'/Admin/ListProposal" class="nav_link active">
+                    <a href="'.base_url().'/DashboardAdmin/ListProposal" class="nav_link active">
                       <i class="bx bx-message-square-detail nav_icon"></i>
                       <span class="nav_name">List Proposal</span>
                     </a>
                   ';
                 } else {
                   echo '
-                    <a href="'.base_url().'/Admin/ListProposal" class="nav_link">
+                    <a href="'.base_url().'/DashboardAdmin/ListProposal" class="nav_link">
                       <i class="bx bx-message-square-detail nav_icon"></i>
                       <span class="nav_name">List Proposal</span>
                     </a>

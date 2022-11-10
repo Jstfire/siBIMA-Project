@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class ListProposal extends BaseController
+class DashboardBPH extends BaseController
 {
     public function index()
     {
-        return view('listProposal');
+        //
     }
 }

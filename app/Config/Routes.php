@@ -39,13 +39,14 @@ $routes->get('/', 'Home::index');
 $routes->get('/ListOrganisasi', 'ListOrganisasi::index');
 $routes->get('/PengajuanProposal', 'PengajuanProposal::index');
 $routes->get('/JadwalKegiatan', 'JadwalKegiatan::index');
-$routes->get('/Login', 'Login::index');
+$routes->get('/Login', 'Login::index', ['filter' => 'authLogin']);
 $routes->get('/Logout', 'Logout::index');
 $routes->match(['get', 'post'], '/Login/LoginAuth', 'Login::loginAuth');
-$routes->get('/Admin/ListProposal', 'ListProposal::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
-$routes->get('/Admin/ListAkun', 'ListAkun::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
-$routes->get('/Admin/TambahAkun', 'TambahAkun::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
-$routes->get('/Admin/ProgresKegiatan', 'ProgresKegiatan::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin', 'DashboardAdmin::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin/ListAkun', 'DashboardAdmin::listAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin/TambahAkun', 'DashboardAdmin::tambahAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->match(['get', 'post'],'/DashboardAdmin/TambahAkunPost', 'DashboardAdmin::tambahAkunPost', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin/ListProposal', 'DashboardAdmin::listProposal', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 
 /*
  * --------------------------------------------------------------------
