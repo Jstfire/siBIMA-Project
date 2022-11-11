@@ -11,7 +11,7 @@ class UKM extends Seeder
         //
         $data = [
             [
-                'id_ukm' => 'UMK001',
+                'id_ukm' => 'UKM001',
                 'id_ormawa' => 'OM002',
                 'id_user' => '9',
                 'nama_ukm' => 'UKM Kerohanian',
@@ -19,7 +19,7 @@ class UKM extends Seeder
                 'desc_ukm' => '',
             ],
             [
-                'id_ukm' => 'UMK002',
+                'id_ukm' => 'UKM002',
                 'id_ormawa' => 'OM002',
                 'id_user' => '10',
                 'nama_ukm' => 'UKM Kesenian',
@@ -27,7 +27,7 @@ class UKM extends Seeder
                 'desc_ukm' => '',
             ],
             [
-                'id_ukm' => 'UMK003',
+                'id_ukm' => 'UKM003',
                 'id_ormawa' => 'OM002',
                 'id_user' => '11',
                 'nama_ukm' => 'UKM Kewirausahaan',
@@ -35,7 +35,7 @@ class UKM extends Seeder
                 'desc_ukm' => '',
             ],
             [
-                'id_ukm' => 'UMK004',
+                'id_ukm' => 'UKM004',
                 'id_ormawa' => 'OM002',
                 'id_user' => '12',
                 'nama_ukm' => 'UKM Media Kampus',
@@ -43,7 +43,7 @@ class UKM extends Seeder
                 'desc_ukm' => '',
             ],
             [
-                'id_ukm' => 'UMK005',
+                'id_ukm' => 'UKM005',
                 'id_ormawa' => 'OM002',
                 'id_user' => '13',
                 'nama_ukm' => 'UKM Olahraga',
@@ -51,7 +51,7 @@ class UKM extends Seeder
                 'desc_ukm' => '',
             ],
             [
-                'id_ukm' => 'UMK006',
+                'id_ukm' => 'UKM006',
                 'id_ormawa' => 'OM002',
                 'id_user' => '14',
                 'nama_ukm' => 'UKM Pendidikan dan Kebudayaan',
@@ -59,7 +59,7 @@ class UKM extends Seeder
                 'desc_ukm' => '',
             ],
             [
-                'id_ukm' => 'UMK007',
+                'id_ukm' => 'UKM007',
                 'id_ormawa' => 'OM002',
                 'id_user' => '15',
                 'nama_ukm' => 'UKM PMKL',
