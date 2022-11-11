@@ -32,9 +32,11 @@ class BidangDivisiUKM extends Migration
             'kontak_bidang_divisi' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+                'default' => null,
             ],
             'desc_ormawa' => [
                 'type' => 'TEXT',
+                'default' => null,
             ],
         ]);
         $this->forge->addPrimaryKey('id_bidang_divisi', true);

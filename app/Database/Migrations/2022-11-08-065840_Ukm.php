@@ -28,9 +28,11 @@ class Ukm extends Migration
             'kontak_ukm' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+                'default' => null,
             ],
             'desc_ukm' => [
                 'type' => 'TEXT',
+                'default' => null,
             ],
         ]);
         $this->forge->addPrimaryKey('id_ukm', true);
