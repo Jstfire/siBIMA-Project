@@ -33,25 +33,34 @@
 
     <div id="jadwalKegiatan" class="container py-3">
         <div>
-            <h1 class="fs-2 text-center fw-bold m-0">Jadwal Kegiatan</h1><hr class="my-2 p-0" style="border: 1px solid black;">
+            <h1 class="fs-2 text-center fw-bold m-0">Kegiatan Hari Ini</h1><hr class="my-2 p-0" style="border: 1px solid black;">
         </div>
-        <div class="container bg-dark">
 
+        <div class="container bg-success bg-opacity-25 rounded-3 pt-1 pb-3 px-0">
+            <table class="table m-auto py-auto">
+                <thead class="table-primary fs-4 mb-1">
+                    <tr>
+                        <td>Hari Ini</td>
+                        <td class="txt-rgt"><?= date('d-M-Y')?></td>
+                    </tr>
+                </thead>
+                <tbody class="fs-5">
+                <?php if (isset($activity)) : ?>
+                    <?php foreach ($activity as $act) : ?>
+                        <tr class="row-kegiatan pointer" onclick="window.location='localhost:8080'";>
+                            <td><?= $act['nama_kegiatan'] ?></td>
+                            <td class="txt-rgt"><?= $act['nama_ormawa']. " | " . date("H.i", strtotime($act['jam_mulai']))."-".date("H.i", strtotime($act['jam_akhir']))?></td>
+                        </tr>
+                    <?php endforeach ?> 
+                <?php else : ?>
+                    <tr><td>Tidak Ada Kegiatan</td></tr>
+                <?php endif ?>
+                
+                </tbody>
+            </table>
         </div>
 
     </div>
-    
-    <h1>Test Index</h1>
-    <h3>test</h3>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
 <?php
     include('temp/footer.php');
 ?>

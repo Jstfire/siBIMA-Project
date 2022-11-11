@@ -39,4 +39,12 @@ class Ormawa extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getMember($id)
+    {
+        $builder = $this->db->table('ormawa');
+        $builder->join('mahasiswa', 'mahasiswa.id_ormawa = ormawa.id_ormawa');
+        $query = $builder->getWhere(['mahasiswa.id_ormawa' => $id]);
+        return $query->getResultArray();
+    }
 }

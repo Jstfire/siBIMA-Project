@@ -70,7 +70,63 @@ body {
     background-color: var(--color1);
 }
 
+.pointer {
+    cursor: pointer;
+}
 
-/* .btn.btn-primary.btn-lg.rounded-pill {
-    justify-self: end;
-} */
+.txt-rgt{
+    text-align: right;
+}
+
+.row-kegiatan{
+    border-radius: 100%;
+    background-color: var(--color1);
+    color:white;
+}
+
+.container.bg-success {
+    min-height: 500px;
+}
+
+.card-organisasi{
+    background-color:#D9D9D9;
+    border-radius: 27px;
+}
+
+.btn-organisasi{
+    font-size: 17px;
+    border-radius:27px;
+    font-weight: 500;
+}
+
+.logo-organisasi {
+    height: 203px;
+    width: 203px;
+}
+
+.ukm-title {
+    margin-top:-0.6em; 
+    margin-left:0.05em;
+}
+
+/* penjelasan ukm di detail organisasi*/
+.ukm-desc {
+    text-align: justify;
+    margin-left:3em;
+}
+
+/* kasih warna tabel */
+.table-striped > tbody > tr:nth-child(2n+1) > td {
+    background-color: var(--color10);
+}
+
+/* detail kegiatan bagian pdf */
+object {
+    width:500px;
+    height:600px;
+}
+
+/* detail kegiatan bagian input form */
+input:disabled {
+    height:46px;
+}

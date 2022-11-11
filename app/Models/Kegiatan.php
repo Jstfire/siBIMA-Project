@@ -14,7 +14,7 @@ class Kegiatan extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kegiatan','id_ukm','id_ormawa','id_bidang_divisi','id_proposal','tanggal_kegiatan','jam_kegiatan','tahun_ajaran_kegiatan','bulan_kegiatan','penanggung_jawab_kegiatan','kontak_penanggung_jawab_kegiatan','nama_kegiatan'];
+    protected $allowedFields    = ['id_kegiatan','id_ukm','id_ormawa','id_bidang_divisi','id_proposal','tanggal_kegiatan','jam_mulai','jam_akhir','tahun_ajaran_kegiatan','bulan_kegiatan','penanggung_jawab_kegiatan','kontak_penanggung_jawab_kegiatan','nama_kegiatan'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,4 +39,12 @@ class Kegiatan extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getOrmawa($id)
+    {
+        $builder = $this->db->table('kegiatan');
+        $builder->join('ormawa', 'ormawa.id_ormawa = kegiatan.id_ormawa');
+        $query = $builder->getWhere(['ormawa.id_ormawa' => $id]);
+        return $query->getResultArray();
+    }
 }
