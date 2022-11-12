@@ -42,6 +42,7 @@ class BidangDivisiUKM extends Migration
         $this->forge->addPrimaryKey('id_bidang_divisi', true);
         $this->forge->addForeignKey('id_user', 'users', 'id_user');
         $this->forge->addForeignKey('id_ormawa', 'ormawa', 'id_ormawa');
+        $this->forge->addForeignKey('id_ukm', 'ukm', 'id_ukm');
         $this->forge->createTable('bidang_divisi');
     }
 
