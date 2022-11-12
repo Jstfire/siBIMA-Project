@@ -11,13 +11,11 @@
     <?php
         include('sidebar.php');
     ?>
-    <div class="container-fluid mt-5 pt-3 mx-0 px-0">
+    <div class="container-fluid mt-5 pt-3 mx-0 px-0 h-100">
         <h1 class="m-0">Progres Kegiatan</h1><hr class="m-0">
         
     </div>
     <script src="<?php echo base_url();?>/assets/js/sidebar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    
-</body>
-</html>
+<?php
+    include(APPPATH.'Views/temp/footer.php');
+?>

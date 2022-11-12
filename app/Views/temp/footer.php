@@ -1,4 +1,4 @@
-        <footer class="container text-center text-muted my-3">
+        <footer class="container text-center text-muted my-3 static-bottom">
             <p class="fs-6 m-0">Copyright © 2022 Unit Pembinaan Kemahasiswaan</p>
             <p class="fs-6 m-0">Contact : upk@stis.ac.id</p>
         </footer>

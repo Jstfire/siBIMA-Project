@@ -36,19 +36,19 @@
             </li>
             <li class="nav-item">
             <?php
-                    if ($url == base_url().'/ListOrganisasi') {
-                        echo '<a class="nav-link active fw-semibold" aria-current="page" href="'.base_url().'/ListOrganisasi">List Organisasi</a>';
+                    if ($url == base_url().'/ListOrmawa') {
+                        echo '<a class="nav-link active fw-semibold" aria-current="page" href="'.base_url().'/ListOrmawa">List Ormawa</a>';
                     } else {
-                        echo '<a class="nav-link fw-semibold" aria-current="page" href="'.base_url().'/ListOrganisasi">List Organisasi</a>';
+                        echo '<a class="nav-link fw-semibold" aria-current="page" href="'.base_url().'/ListOrmawa">List Ormawa</a>';
                     }
                 ?>
             </li>
             <li class="nav-item">
-                <?php
-                    if ($url == base_url().'/PengajuanProposal') {
-                        echo '<a class="nav-link active fw-semibold" aria-current="page" href="'.base_url().'/PengajuanProposal">Pengajuan Proposal</a>';
+            <?php
+                    if ($url == base_url().'/ListUKM') {
+                        echo '<a class="nav-link active fw-semibold" aria-current="page" href="'.base_url().'/ListUKM">List UKM</a>';
                     } else {
-                        echo '<a class="nav-link fw-semibold" aria-current="page" href="'.base_url().'/PengajuanProposal">Pengajuan Proposal</a>';
+                        echo '<a class="nav-link fw-semibold" aria-current="page" href="'.base_url().'/ListUKM">List UKM</a>';
                     }
                 ?>
             </li>
