@@ -25,7 +25,7 @@
                             <h6 class="card-title fw-bold mb-4 h-0"><?=$ukm['nama_ukm']?></h5>
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-1">
-                            <a class="btn btn-primary rounded-5">Lihat Selengkapnya</a>
+                            <a href="<?= base_url().'/DetailUKM?ID='.$ukm['id_ukm']?>" class="btn btn-primary rounded-5">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
     $session = session();
     include('temp/head.php');
 ?>
-    <title>siBIMA - Detail Ormawa</title>
+    <title>siBIMA - Detail UKM</title>
 <?php
     if (isset($_SESSION["username"])) {
         include('temp/header.php');
@@ -15,11 +15,11 @@
             <hr class="hr m-auto mb-2 w-25">
             <div class="row mt-3 p-0">
                 <div class="col-sm-5 mb-0 text-center p-0">
-                    <img src="<?= base_url();?>/assets/img/<?=$ormawa['id_ormawa']?>.png" width="400" height="400">
+                    <img src="<?= base_url();?>/assets/img/<?=$ukm['id_ukm']?>.png" width="400" height="400">
                 </div>
                 <div class="col my-5 py-4 ps-0 pe-5">
-                    <p class="display-4 fw-bold mb-0"><?=$ormawa['nama_ormawa']?></p>
-                    <p class="m-0 ms-1 mb-5 ukm-desc"><?=$ormawa['desc_ormawa']?></p>
+                    <p class="display-4 fw-bold mb-0"><?=$ukm['nama_ukm']?></p>
+                    <p class="m-0 ms-1 mb-5 ukm-desc"><?=$ukm['desc_ukm']?></p>
                     <div class="col d-flex justify-content-end">
                         <a href="#" class="btn btn-primary rounded-5 border-0 fs-5">Lihat Jadwal</a>
                         <a href="#anggota" class="btn btn-primary rounded-5 border-0 fs-5 ms-2">List Anggota</a>

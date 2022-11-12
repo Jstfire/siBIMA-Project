@@ -39,4 +39,12 @@ class UKM extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getMember($id)
+    {
+        $builder = $this->db->table('ukm');
+        $builder->join('mahasiswa', 'mahasiswa.id_ukm = ukm.id_ukm');
+        $query = $builder->getWhere(['mahasiswa.id_ukm' => $id]);
+        return $query->getResultArray();
+    }
 }
