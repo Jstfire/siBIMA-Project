@@ -40,6 +40,7 @@ $routes->get('/ListOrmawa', 'ListOrmawa::index');
 $routes->get('/DetailOrmawa', 'ListOrmawa::detailOrmawa');
 $routes->get('/ListUKM', 'ListUKM::index');
 $routes->get('/DetailUKM', 'ListUKM::detailUKM');
+$routes->get('/DetailBidangDivisi', 'ListBidangDivisi::index');
 // $routes->get('/PengajuanProposal', 'PengajuanProposal::index');
 $routes->get('/JadwalKegiatan', 'JadwalKegiatan::index');
 $routes->get('/Login', 'Login::index', ['filter' => 'authLogin']);

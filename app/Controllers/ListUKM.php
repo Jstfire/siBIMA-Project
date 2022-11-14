@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Database\Seeds\BidangDivisi;
 use App\Models\UKM;
 
 class ListUKM extends BaseController
@@ -25,6 +26,7 @@ class ListUKM extends BaseController
         $data['ukm'] = $ukm->where('id_ukm', $id)->first();
         $orm = $data['ukm'];
         $data['member'] =$ukm->getMember($orm['id_ukm']);
+        $data['bidangdivisi'] =$ukm->getBidangDivisi($orm['id_ukm']);
         // dd($data['member']);
         return view('detailUKM', $data);
     }

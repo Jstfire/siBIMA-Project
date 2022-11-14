@@ -47,4 +47,12 @@ class UKM extends Model
         $query = $builder->getWhere(['mahasiswa.id_ukm' => $id]);
         return $query->getResultArray();
     }
+
+    public function getBidangDivisi($id)
+    {
+        $builder = $this->db->table('ukm');
+        $builder->join('bidang_divisi', 'bidang_divisi.id_ukm = ukm.id_ukm');
+        $query = $builder->getWhere(['bidang_divisi.id_ukm' => $id]);
+        return $query->getResultArray();
+    }
 }
