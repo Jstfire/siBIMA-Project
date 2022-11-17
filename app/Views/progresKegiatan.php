@@ -31,13 +31,13 @@
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                <h1 class="h3 mb-0 text-gray-800">Progres kegiatan</h1>
             </div>
 
             <!-- Content Row -->
             <div class="row">
 
-                <!-- Earnings (Monthly) Card Example -->
+                <!-- Jumlah Proposal Card -->
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <!-- Earnings (Monthly) Card Example -->
+                <!-- Jumlah Proposal Yang Disetujui Card -->
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-success shadow h-100 py-2">
                         <div class="card-body">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <!-- Earnings (Monthly) Card Example -->
+                <!-- Jumlah Proposal Yang Tidak Disetujui Card -->
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-info shadow h-100 py-2">
                         <div class="card-body">
@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">45</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">5</div>
                                         </div>
                                         <div class="col">
                                             <div class="progress progress-sm mr-2">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
 
-                <!-- Pending Requests Card Example -->
+                <!-- Jumlah Kegiatan Card -->
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-warning shadow h-100 py-2">
                         <div class="card-body">
@@ -130,7 +130,7 @@
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Jumlah Kegiatan Bulanan</h6>
                             <div class="dropdown no-arrow">
                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -160,7 +160,7 @@
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Proporsi Kegiatan</h6>
                             <div class="dropdown no-arrow">
                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -183,13 +183,13 @@
                             </div>
                             <div class="mt-4 text-center small">
                                 <span class="mr-2">
-                                    <i class="fas fa-circle text-primary"></i> Direct
+                                    <i class="fas fa-circle text-primary"></i> Proposal Yang Disetujui
                                 </span>
                                 <span class="mr-2">
-                                    <i class="fas fa-circle text-success"></i> Social
+                                    <i class="fas fa-circle text-success"></i> Proposal Yang Tidak Disetujui
                                 </span>
                                 <span class="mr-2">
-                                    <i class="fas fa-circle text-info"></i> Referral
+                                    <i class="fas fa-circle text-info"></i> Kegiatan Yang Sudah Berjalan
                                 </span>
                             </div>
                         </div>
