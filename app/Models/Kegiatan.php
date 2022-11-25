@@ -42,9 +42,23 @@ class Kegiatan extends Model
 
     public function getOrmawa($id)
     {
-        $builder = $this->db->table('kegiatan');
-        $builder->join('ormawa', 'ormawa.id_ormawa = kegiatan.id_ormawa');
+        $builder = $this->db->table('ormawa');
+        $builder->select('nama_ormawa');
         $query = $builder->getWhere(['ormawa.id_ormawa' => $id]);
-        return $query->getResultArray();
+        return $query->getFirstRow()->nama_ormawa;
+    }
+    public function getUKM($id)
+    {
+        $builder = $this->db->table('ukm');
+        $builder->select('nama_ukm');
+        $query = $builder->getWhere(['ukm.id_ukm' => $id]);
+        return $query->getFirstRow()->nama_ukm;
+    }
+    public function getBidangDivisi($id)
+    {
+        $builder = $this->db->table('bidang_divisi');
+        $builder->select('nama_bidang_divisi');
+        $query = $builder->getWhere(['bidang_divisi.id_bidang_divisi' => $id]);
+        return $query->getFirstRow()->nama_bidang_divisi;
     }
 }
