@@ -15,10 +15,10 @@
             <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="<?php echo base_url();?>/assets/img/logoSTIS.png" alt="Logo STIS"></div>
             <div class="col-lg-7">
                 <h1 class="fw-bold text-thumbnail">siBIMA</h1>
-                <h3 class="">Sistem Pembinaan Kemahasiswaan</h3>
-                <p class="desc-thumb">Sistem Pembinaan Mahasiswa atau SiBIMA merupakan suatu sistem terintegrasi yang dibangun untuk membantu salah satu proses bisnis dari UPK di Polstat STIS. SiBIMA menyediakan fitur deskripsi Ormawa dan UKM secara umum, sistem pengajuan proposal oleh pihak Ormawa dan UKM, persetujuan proposal dari pihak UPK dan pimpinan terkait, serta deskripsi detail dari kegiatan dan anggota pada suatu Ormawa dan UKM.</p>
+                <h3 class="">Sistem Informasi Pembinaan Kemahasiswaan</h3>
+                <p class="desc-thumb">Sistem Informasi Pembinaan Kemahasiswaan atau siBIMA merupakan suatu sistem terintegrasi yang dibangun untuk membantu salah satu proses bisnis dari UPK di Polstat STIS. siBIMA menyediakan fitur deskripsi Ormawa dan UKM secara umum, sistem pengajuan proposal oleh pihak Ormawa dan UKM, persetujuan proposal dari pihak UPK dan pimpinan terkait, serta deskripsi detail dari kegiatan dan anggota pada suatu Ormawa dan UKM.</p>
                 <div class="container p-0 d-flex justify-content-end">
-                    <a class="btn btn-primary btn-lg rounded-pill" href="#jadwalKegiatan">Kegiatan Hari Ini</a>
+                    <a class="btn btn-primary btn-lg rounded-pill" href="#jadwalKegiatan">Kegiatan yang Akan Datang</a>
                 </div>
             </div>
         </div>
@@ -33,23 +33,25 @@
 
     <div id="jadwalKegiatan" class="container py-3">
         <div>
-            <h1 class="fs-2 text-center fw-bold m-0">Kegiatan Hari Ini</h1><hr class="my-2 p-0" style="border: 1px solid black;">
+            <h1 class="fs-2 text-center fw-bold m-0">Kegiatan yang Akan Datang</h1><hr class="my-2 p-0" style="border: 1px solid black;">
         </div>
 
-        <div class="container bg-success bg-opacity-25 rounded-3 pt-1 pb-3 px-0">
+        <div class="container bg-success bg-opacity-25 rounded-1 pt-1 pb-3 px-0">
             <table class="table m-auto py-auto">
                 <thead class="table-primary fs-4 mb-1">
                     <tr>
-                        <td>Hari Ini</td>
-                        <td class="txt-rgt"><?= date('d-M-Y')?></td>
+                        <td>List Kegiatan</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody class="fs-5">
-                <?php if (isset($activity)) : ?>
-                    <?php foreach ($activity as $act) : ?>
+                <?php if (isset($act)) : ?>
+                    <?php foreach ($act as $act) :?>
                         <tr class="row-kegiatan pointer" onclick="window.location='localhost:8080'";>
                             <td><?= $act['nama_kegiatan'] ?></td>
-                            <td class="txt-rgt"><?= $act['nama_ormawa']. " | " . date("H.i", strtotime($act['jam_mulai']))."-".date("H.i", strtotime($act['jam_akhir']))?></td>
+                            <td><?= $act['nama_organisasi'] ?></td>
+                            <td class="txt-rgt"><?= date_format(date_create($act['tanggal_kegiatan']),"D, d F Y"). " | " .date("H.i", strtotime($act['jam_mulai']))."-".date("H.i", strtotime($act['jam_akhir']))?></td>
                         </tr>
                     <?php endforeach ?> 
                 <?php else : ?>
