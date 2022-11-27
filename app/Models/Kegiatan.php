@@ -61,4 +61,15 @@ class Kegiatan extends Model
         $query = $builder->getWhere(['bidang_divisi.id_bidang_divisi' => $id]);
         return $query->getFirstRow()->nama_bidang_divisi;
     }
+    public function getActivityDone($day, $start, $finish)
+    {
+        $today = date("Y-m-d");
+        if ($today > $day) {
+            $descDone = "done";
+        } else {
+            $descDone = "unfinished";
+        }
+        return $descDone;
+        // dd($descDone);
+    }
 }

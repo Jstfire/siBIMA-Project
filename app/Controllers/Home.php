@@ -13,7 +13,6 @@ class Home extends BaseController
         $today = date("Y-m-d");
         $activity = new Kegiatan();
         $data['act'] = $activity->orderBy('jam_mulai', 'ASC')->findAll();
-        $data['activity'] = [];
         // dd($data['act'][0]);
         $i = 0;
         foreach ($data['act'] as $act) {
@@ -29,7 +28,20 @@ class Home extends BaseController
                 $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
                 $data['act'][$i]['nama_organisasi'] = $namaOrganisasi;
                 // array_push($data['act'][$i], $namaOrganisasi);
+            
             }
+
+            $i++;
+        }
+
+        $i = 0;
+        foreach ($data['act'] as $act) {
+            $showAct = $activity->getActivityDone($act['tanggal_kegiatan'], $act['jam_mulai'], $act['jam_akhir']);
+            // dd($showAct);
+            if ($showAct == "done") {
+                array_splice($data['act'], $i);
+            }
+
             $i++;
         }
         // dd($namaOrganisasi);

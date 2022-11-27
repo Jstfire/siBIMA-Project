@@ -36,11 +36,13 @@
             <h1 class="fs-2 text-center fw-bold m-0">Kegiatan yang Akan Datang</h1><hr class="my-2 p-0" style="border: 1px solid black;">
         </div>
 
-        <div class="container bg-success bg-opacity-25 rounded-3 pt-1 pb-3 px-0">
+        <div class="container bg-success bg-opacity-25 rounded-1 pt-1 pb-3 px-0">
             <table class="table m-auto py-auto">
                 <thead class="table-primary fs-4 mb-1">
                     <tr>
                         <td>List Kegiatan</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody class="fs-5">
