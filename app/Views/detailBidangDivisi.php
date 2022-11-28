@@ -3,6 +3,8 @@
     include('temp/head.php');
 ?>
     <title>siBIMA - Detail Bidang dan Divisi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 <?php
     if (isset($_SESSION["username"])) {
         include('temp/header.php');
@@ -35,7 +37,7 @@
 
         <div class="row mt-3">
             <div class="table-responsive" id="anggota">
-                <table class="table table-striped text-center">
+                <table id="anggotaBidangDivisi" class="table table-striped text-center">
                     <thead class="border border-2 border-start-0 border-end-0 border-dark fs-5">
                         <tr>
                             <th scope="col">Nama Mahasiswa</th>
@@ -60,6 +62,15 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#anggotaBidangDivisi').DataTable();
+        });
+    </script>
 <?php
     include('temp/footer.php');
 ?>

@@ -14,7 +14,7 @@
 <body id="body-pd">
   <header class="header" id="header">
     <div class="header_toggle">
-      <i class='bx bx-menu' id="header-toggle"></i>
+      <i class='fa-solid fa-bars' id="header-toggle"></i>
     </div>
     <div class="d-flex mt-1">
       <div class="me-3">
@@ -30,7 +30,7 @@
     <nav class="nav">
       <div>
         <a href="<?php echo base_url();?>/DashboardAdmin" class="nav_logo">
-          <i class='bx bx-layer nav_logo-icon'></i>
+          <i class="fa-solid fa-layer-group"></i>
           <span class="nav_logo-name">Dashboard Admin</span>
         </a>
         <div class="nav_list">
@@ -38,14 +38,14 @@
               if ($url == base_url().'/DashboardAdmin') {
                 echo '
                   <a href="'.base_url().'/DashboardAdmin" class="nav_link active">
-                    <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
+                    <i class="fa-solid fa-list-check"></i>
                     <span class="nav_name">Progres Kegiatan</span>
                   </a>
                 ';
               } else {
                 echo '
                   <a href="'.base_url().'/DashboardAdmin" class="nav_link">
-                    <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
+                    <i class="fa-solid fa-list-check"></i>
                     <span class="nav_name">Progres Kegiatan</span>
                   </a>
                 ';
@@ -55,14 +55,14 @@
               if ($url == base_url().'/DashboardAdmin/TambahAkun') {
                 echo '
                 <a href="'.base_url().'/DashboardAdmin/TambahAkun" class="nav_link active">
-                <i class="bx bx-grid-alt nav_icon"></i>
+                    <i class="fa-solid fa-user-plus"></i>
                     <span class="nav_name">Akun Baru</span>
                   </a>
                   ';
               } else {
                 echo '
                   <a href="'.base_url().'/DashboardAdmin/TambahAkun" class="nav_link">
-                    <i class="bx bx-grid-alt nav_icon"></i>
+                    <i class="fa-solid fa-user-plus"></i>
                     <span class="nav_name">Akun Baru</span>
                   </a>
                 ';
@@ -72,14 +72,14 @@
               if ($url == base_url().'/DashboardAdmin/ListAkun') {
                 echo '
                   <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link active">
-                    <i class="bx bx-user nav_icon"></i>
+                    <i class="fa-solid fa-table-list"></i>
                     <span class="nav_name">List Akun</span>
                   </a>
                 ';
               } else {
                 echo '
                   <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link">
-                    <i class="bx bx-user nav_icon"></i>
+                    <i class="fa-solid fa-table-list"></i>
                     <span class="nav_name">List Akun</span>
                   </a>
                 ';
@@ -89,14 +89,14 @@
                 if ($url == base_url().'/DashboardAdmin/ListProposal') {
                   echo '
                     <a href="'.base_url().'/DashboardAdmin/ListProposal" class="nav_link active">
-                      <i class="bx bx-message-square-detail nav_icon"></i>
+                      <i class="fa-solid fa-list-ol"></i>
                       <span class="nav_name">List Proposal</span>
                     </a>
                   ';
                 } else {
                   echo '
                     <a href="'.base_url().'/DashboardAdmin/ListProposal" class="nav_link">
-                      <i class="bx bx-message-square-detail nav_icon"></i>
+                      <i class="fa-solid fa-list-ol"></i>
                       <span class="nav_name">List Proposal</span>
                     </a>
                   ';
@@ -105,7 +105,7 @@
         </div>
       </div>
       <a href="<?php echo base_url();?>" class="nav_link">
-        <i class='bx bx-log-out nav_icon'></i>
+      <i class="fa-solid fa-house"></i>
         <span class="nav_name">Halaman Utama</span>
       </a>
     </nav>
