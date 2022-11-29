@@ -31,12 +31,87 @@
                     <td><?= $user['role'] ?></td>
                     <td><?= $user['nama_tampil'] ?></td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalChange">
-                            Ganti Password
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit" onclick="funcRole('<?= $user['role'] ?>')">
+                            Edit Akun
                         </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">
                             Hapus Akun
                         </button>
+
+                        <!-- Modal Delete -->
+                        <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="modalDeleteLabel">Hapus Akun</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Apakah Anda yakin untuk menghapus akun ini?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Modal Edit Account -->
+                        <div class="modal fade" id="modalEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="modalEditLabel">Edit Akun</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <?php if(isset($validation)):?>
+                                            <div class="alert alert-warning">
+                                                <?= $validation->listErrors() ?>
+                                            </div>
+                                        <?php endif;?>
+                                        <form class="mt-3 mx-3" action="<?php echo base_url(); ?>/DashboardAdmin/TambahAkunPost" method="post">
+                                            <div class="input-group-sm mb-1">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input name="username" type="text" value="<?= $user['username'] ?>" class="form-control" id="username">
+                                            </div>
+                                            <div class="input-group-sm mb-1">
+                                                <label for="password" class="form-label">Password</label>
+                                                <input name="password" type="password" value="<?= $user['password'] ?>" class="form-control" id="password">
+                                                <input class="mt-1" type="checkbox" onclick="showPassword()"> Lihat Password
+                                            </div>
+                                            <div class="input-group-sm mb-1">
+                                                <label for="password" class="form-label">Konfirmasi Password</label>
+                                                <input name="confirmpassword" type="password" class="form-control" id="confpassword">
+                                            </div>
+                                            <div class="input-group-sm mb-1">
+                                                <label for="role" class="form-label">Role</label>
+                                                <select name="role" id="role" value="Admin" class="form-select">
+                                                    <option>--Pilih Role--</option>
+                                                    <option value="Admin">Admin</option>
+                                                    <option value="Direktur">Direktur</option>
+                                                    <option value="Wakil Direktur 3">Wakil Direktur 3</option>
+                                                    <option value="UPK">UPK</option>
+                                                    <option value="BAAK">BAAK</option>
+                                                    <option value="BPH">BPH</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group-sm mb-1">
+                                                <label for="nama_tampil" class="form-label">Nama Tampilan</label>
+                                                <input name="nama_tampil" type="text" value="<?= $user['nama_tampil'] ?>" class="form-control" id="nama_tampil">
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach ?> 
@@ -44,76 +119,6 @@
         </table>
     </div>
 
-    <!-- Modal Delete -->
-    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalDeleteLabel">Hapus Akun</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Apakah Anda yakin untuk menghapus akun ini?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Change Password -->
-    <div class="modal fade" id="modalChange" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalChangeLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalChangeLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <div class="container-fluid">
-                    <?php if(isset($validation)):?>
-                        <div class="alert alert-warning">
-                            <?= $validation->listErrors() ?>
-                        </div>
-                    <?php endif;?>
-                    <form class="mt-3 mx-3" action="<?php echo base_url(); ?>/DashboardAdmin/TambahAkunPost" method="post">
-                        <div class="input-group-sm mb-1">
-                            <label for="username" class="form-label">Username</label>
-                            <input name="username" type="text" class="form-control" id="username">
-                        </div>
-                        <div class="input-group-sm mb-1">
-                            <label for="password" class="form-label">Password</label>
-                            <input name="password" type="password" class="form-control" id="password">
-                        </div>
-                        <div class="input-group-sm mb-1">
-                            <label for="password" class="form-label">Konfirmasi Password</label>
-                            <input name="confirmpassword" type="password" class="form-control" id="confpassword">
-                        </div>
-                        <div class="input-group-sm mb-1">
-                            <label for="role" class="form-label">Role</label>
-                            <select name="role" id="role" class="form-select">
-                                <option>--Pilih Role--</option>
-                                <option>Admin</option>
-                                <option>UPK</option>
-                                <option>BPH</option>
-                            </select>
-                        </div>
-                        <div class="input-group-sm mb-1">
-                            <label for="nama_tampil" class="form-label">Nama Tampilan</label>
-                            <input name="nama_tampil" type="text" class="form-control" id="nama_tampil">
-                        </div>
-                </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
@@ -123,6 +128,19 @@
         $(document).ready(function () {
             $('#tableAccount').DataTable();
         });
+
+        function funcRole($role) {
+            document.getElementById("role").value = $role;
+        }
+
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
     </script>
 <?php
     include(APPPATH.'Views/temp/footer.php');
