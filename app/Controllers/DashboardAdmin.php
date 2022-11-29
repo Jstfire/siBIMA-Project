@@ -14,7 +14,9 @@ class DashboardAdmin extends BaseController
 
     public function listAkun()
     {
-        return view('dashboardAdmin/listAkun');
+        $users = new User();
+        $data['users'] = $users->orderBy('id_user', 'ASC')->findAll();
+        return view('dashboardAdmin/listAkun', $data);
     }
 
     public function tambahAkun()
@@ -56,5 +58,10 @@ class DashboardAdmin extends BaseController
     public function listProposal()
     {
         return view('dashboardAdmin/listProposal');
+    }
+
+    public function listLPJ()
+    {
+        return view('dashboardAdmin/listLPJ');
     }
 }

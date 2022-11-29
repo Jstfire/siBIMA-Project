@@ -1,4 +1,9 @@
 <?php
+
+use PHPUnit\Framework\Constraint\IsNull;
+
+use function PHPUnit\Framework\isNull;
+
     $session = session();
     include('temp/head.php');
 ?>
@@ -36,17 +41,17 @@
             <h1 class="fs-2 text-center fw-bold m-0">Kegiatan yang Akan Datang</h1><hr class="my-2 p-0" style="border: 1px solid black;">
         </div>
 
-        <div class="container bg-success bg-opacity-25 rounded-1 pt-1 pb-3 px-0">
-            <table class="table m-auto py-auto">
+        <div class="container rounded-3 pt-1 pb-3 px-0">
+            <table class="table m-auto mt-1 py-auto">
                 <thead class="table-primary fs-4 mb-1">
                     <tr>
-                        <td>List Kegiatan</td>
+                        <td class="p-0 ps-2">List Kegiatan</td>
                         <td></td>
                         <td></td>
                     </tr>
                 </thead>
                 <tbody class="fs-5">
-                <?php if (isset($act)) : ?>
+                <?php if ($act) : ?>
                     <?php foreach ($act as $act) :?>
                         <tr class="row-kegiatan pointer" onclick="window.location='localhost:8080'";>
                             <td><?= $act['nama_kegiatan'] ?></td>
@@ -55,13 +60,16 @@
                         </tr>
                     <?php endforeach ?> 
                 <?php else : ?>
-                    <tr><td>Tidak Ada Kegiatan</td></tr>
+                    <tr class="row-kegiatan pointer" onclick="window.location='localhost:8080'";>
+                            <td>Tidak Ada Kegiatan</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                 <?php endif ?>
                 
                 </tbody>
             </table>
         </div>
-
     </div>
 <?php
     include('temp/footer.php');

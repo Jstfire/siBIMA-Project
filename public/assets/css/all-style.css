@@ -84,10 +84,6 @@ body {
     color:white;
 }
 
-.container.bg-success {
-    min-height: 500px;
-}
-
 .card-organisasi{
     background-color:#D9D9D9;
     border-radius: 27px;

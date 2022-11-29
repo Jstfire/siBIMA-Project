@@ -3,8 +3,6 @@
 namespace App\Controllers;
 use App\Models\Kegiatan;
 
-use function PHPUnit\Framework\isNull;
-
 class Home extends BaseController
 {
     public function index()

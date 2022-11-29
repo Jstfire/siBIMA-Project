@@ -29,7 +29,7 @@
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
-        <a href="<?php echo base_url();?>/DashboardAdmin" class="nav_logo">
+        <a href="<?php echo base_url();?>/DashboardAdmin" class="nav_logo text-white">
           <i class="fa-solid fa-layer-group"></i>
           <span class="nav_logo-name">Dashboard Admin</span>
         </a>
@@ -98,6 +98,23 @@
                     <a href="'.base_url().'/DashboardAdmin/ListProposal" class="nav_link">
                       <i class="fa-solid fa-list-ol"></i>
                       <span class="nav_name">List Proposal</span>
+                    </a>
+                  ';
+                }
+            ?>
+            <?php
+                if ($url == base_url().'/DashboardAdmin/ListLPJ') {
+                  echo '
+                    <a href="'.base_url().'/DashboardAdmin/ListLPJ" class="nav_link active">
+                      <i class="fa-regular fa-clipboard"></i>
+                      <span class="nav_name">List LPJ</span>
+                    </a>
+                  ';
+                } else {
+                  echo '
+                    <a href="'.base_url().'/DashboardAdmin/ListLPJ" class="nav_link">
+                    <i class="fa-regular fa-clipboard"></i>
+                      <span class="nav_name">List LPJ</span>
                     </a>
                   ';
                 }

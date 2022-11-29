@@ -7,3 +7,8 @@
     text-align: justify;
     text-justify: inter-word;
 }
+
+.container.rounded-3.pt-1.pb-3.px-0 {
+    min-height: 500px;
+    background-color: #cfe2ff;
+}
