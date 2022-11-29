@@ -54,6 +54,40 @@ class DashboardAdmin extends BaseController
             echo view('/DashboardAdmin/TambahAkun', $data);
         }
     }
+
+    public function updateAkun()
+    {
+        helper(['form']);
+        $rules = [
+            'username'          => 'required|min_length[3]|max_length[50]',
+            'password'          => 'required|min_length[3]|max_length[50]',
+            'confirmpassword'   => 'matches[password]',
+            'role'              => 'required',
+            'nama_tampil'       => 'required'
+        ];
+        // dd($this->validate($rules));
+          
+        if($this->validate($rules)){
+            $userModel = new User();
+            $id = $this->request->getVar('id_user');
+            $data = [
+                'username'     => $this->request->getVar('username'),
+                'role'     => $this->request->getVar('role'),
+                'nama_tampil'     => $this->request->getVar('nama_tampil'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+            ];
+            $userModel->update($id, $data);
+            echo "<script>
+                alert('Data berhasil diubah.');
+                window.location.href='/DashboardAdmin/ListAkun';
+            </script>";
+        } else {
+            $users = new User();
+            $data['users'] = $users->orderBy('id_user', 'ASC')->findAll();
+            $data['validation'] = $this->validator;
+            return view('dashboardAdmin/listAkun', $data); //bagian error nya yok
+        }
+    }
     
     public function listProposal()
     {

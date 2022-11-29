@@ -67,12 +67,8 @@
                                     </div>
                                     <div class="modal-body">
                                     <div class="container-fluid">
-                                        <?php if(isset($validation)):?>
-                                            <div class="alert alert-warning">
-                                                <?= $validation->listErrors() ?>
-                                            </div>
-                                        <?php endif;?>
-                                        <form class="mt-3 mx-3" action="<?php echo base_url(); ?>/DashboardAdmin/TambahAkunPost" method="post">
+                                        <form class="mt-3 mx-3" action="<?php echo base_url(); ?>/DashboardAdmin/UpdateAkun" method="post">
+                                            <input name="id_user" type="text" value="<?= $user['id_user'] ?>" hidden>
                                             <div class="input-group-sm mb-1">
                                                 <label for="username" class="form-label">Username</label>
                                                 <input name="username" type="text" value="<?= $user['username'] ?>" class="form-control" id="username">
@@ -106,7 +102,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit">Simpan Perubahan</button>
                                         </form>
                                     </div>
                                 </div>
@@ -118,6 +114,15 @@
             </tbody>
         </table>
     </div>
+
+
+    <!-- Modal Error -->
+    <?php if(isset($validation)):?>
+        <div class="modal fade">
+            <p>Gagal Mengubah Data</p>
+            <?= $validation->listErrors() ?>
+        </div>
+    <?php endif;?>
 
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
