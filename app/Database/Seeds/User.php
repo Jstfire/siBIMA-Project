@@ -310,7 +310,20 @@ class User extends Seeder
                 'role' => 'BPH',
                 'nama_tampil' => 'Bidang Cheby',
             ],
-            
+            [
+                'id_user' => '44',
+                'username' => 'BAAK',
+                'password' => '$2y$10$PausAngEI/fBjRZ5djHwEOj2ws8ylPFqBicXCpmvBBbknQrVcbuv6',
+                'role' => 'BAAK',
+                'nama_tampil' => 'BAAK',
+            ],
+            [
+                'id_user' => '45',
+                'username' => 'wadir3',
+                'password' => '$2y$10$PausAngEI/fBjRZ5djHwEOj2ws8ylPFqBicXCpmvBBbknQrVcbuv6',
+                'role' => 'wadir',
+                'nama_tampil' => 'Wakil Direktur III',
+            ],
         ];
 
         $this->db->table('users')->insertBatch($data);

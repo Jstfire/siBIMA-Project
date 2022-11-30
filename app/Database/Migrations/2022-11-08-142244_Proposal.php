@@ -46,6 +46,19 @@ class Proposal extends Migration
                     'type' => 'bool',
                     'default' => false,
                 ],
+                'acc_upk' => [
+                    'type' => 'bool',
+                    'default' => false,
+                ],
+                'acc_baak' => [
+                    'type' => 'bool',
+                    'default' => false,
+                ],
+                'acc_wadir' => [
+                    'type' => 'bool',
+                    'default' => false,
+                    'null' => true,
+                ],
             ]
         );
         $this->forge->addPrimaryKey('id_proposal');

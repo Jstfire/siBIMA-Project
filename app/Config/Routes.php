@@ -55,6 +55,9 @@ $routes->match(['get', 'post'],'/DashboardAdmin/UpdateAkun', 'DashboardAdmin::up
 $routes->get('/DashboardAdmin/ListProposal', 'DashboardAdmin::listProposal', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->get('/DashboardAdmin/ListLPJ', 'DashboardAdmin::listLPJ', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 
+//proposal
+$routes->get('pengajuan_proposal', 'PengajuanProposal::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
