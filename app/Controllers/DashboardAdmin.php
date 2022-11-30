@@ -82,10 +82,10 @@ class DashboardAdmin extends BaseController
                 window.location.href='/DashboardAdmin/ListAkun';
             </script>";
         } else {
-            $users = new User();
-            $data['users'] = $users->orderBy('id_user', 'ASC')->findAll();
+            // $users = new User();
+            // $data['users'] = $users->orderBy('id_user', 'ASC')->findAll();
             $data['validation'] = $this->validator;
-            return view('dashboardAdmin/listAkun', $data); //bagian error nya yok
+            // return view('dashboardAdmin/listAkun', $data); //bagian error nya yok
         }
     }
     
