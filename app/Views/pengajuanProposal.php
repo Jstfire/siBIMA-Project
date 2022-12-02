@@ -10,6 +10,15 @@ if (isset($_SESSION["username"])) {
 include('temp/nav.php');
 ?>
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+    function PreviewImage() {
+        pdffile=document.getElementById("uploadPDF").files[0];
+        pdffile_url=URL.createObjectURL(pdffile);
+        $('#viewer').attr('src',pdffile_url);
+    }
+</script>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -36,7 +45,7 @@ include('temp/nav.php');
         -webkit-appearance: none;
     }
 
-    #unggah {
+    #unggah, #preview {
         background-color: #1F4761;
     }
 
@@ -48,7 +57,7 @@ include('temp/nav.php');
         background-color: #3488AC;
     }
 
-    #unggah:hover {
+    #unggah:hover, #preview:hover {
         background-color: #3488AC;
     }
 </style>
@@ -59,7 +68,9 @@ include('temp/nav.php');
         <hr class="hr m-auto" style="width:430px">
         <div class="row mt-5">
             <div class="col-md-4 text-center">
-                <img src="<?= base_url(); ?>/assets/img/propo.png" class="img-fluid">
+                <div style="clear:both">
+                    <iframe id="viewer" frameborder="0" scrolling="no" width="400" height="600"></iframe>
+                </div>
             </div>
             <div class="col">
                 <div class="form-outline mt-4">
@@ -120,8 +131,10 @@ include('temp/nav.php');
                 </div>
                 <div class="row d-flex flex-row mb-3" style="margin-top: 25px;">
                     <div>
-                        <label class="fw-bold">Proposal</label><br>
-                        <input type="file" name="proposal_kegiatan" name="proposal_kegiatan" class="">
+                        <p>*Unggah dalam format .pdf</p>
+                        <input id="uploadPDF" type="file" accept="application/pdf" name="myPDF"/>
+                        <br/>
+                        <input id="preview" type="button" class="btn btn-primary rounded-2 border-0 py-2 px-3 mt-3" value="Preview" onclick="PreviewImage();" />
                     </div>
                 </div>
                 <div class="row text-center">
