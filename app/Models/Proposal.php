@@ -39,4 +39,33 @@ class Proposal extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getOrmawa($id)
+    {
+        $builder = $this->db->table('ormawa');
+        $builder->select('nama_ormawa');
+        $query = $builder->getWhere(['ormawa.id_ormawa' => $id]);
+        return $query->getFirstRow()->nama_ormawa;
+    }
+    public function getUKM($id)
+    {
+        $builder = $this->db->table('ukm');
+        $builder->select('nama_ukm');
+        $query = $builder->getWhere(['ukm.id_ukm' => $id]);
+        return $query->getFirstRow()->nama_ukm;
+    }
+    public function getBidangDivisi($id)
+    {
+        $builder = $this->db->table('bidang_divisi');
+        $builder->select('nama_bidang_divisi');
+        $query = $builder->getWhere(['bidang_divisi.id_bidang_divisi' => $id]);
+        return $query->getFirstRow()->nama_bidang_divisi;
+    }
+    public function getKegiatan($id)
+    {
+        $builder = $this->db->table('kegiatan');
+        $builder->select('nama_kegiatan');
+        $query = $builder->getWhere(['kegiatan.id_kegiatan' => $id]);
+        return $query->getFirstRow()->nama_kegiatan;
+    }
 }
