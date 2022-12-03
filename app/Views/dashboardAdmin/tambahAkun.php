@@ -33,10 +33,13 @@
             <div class="input-group-sm mb-1">
                 <label for="role" class="form-label">Role</label>
                 <select name="role" id="role" class="form-select">
-                    <option>--Pilih Role--</option>
-                    <option>Admin</option>
-                    <option>UPK</option>
-                    <option>BPH</option>
+                <option>--Pilih Role--</option>
+                <option>Admin</option>
+                <option>Direktur</option>
+                <option>Wakil Direktur 3</option>
+                <option>UPK</option>
+                <option>BAAK</option>
+                <option>BPH</option>
                 </select>
             </div>
             <div class="input-group-sm mb-1">

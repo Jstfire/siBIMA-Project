@@ -31,11 +31,10 @@
                     <td><?= $user['role'] ?></td>
                     <td><?= $user['nama_tampil'] ?></td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $user['id_user'] ?>" onclick="funcRole('<?= $user['role'] ?>')">
-                            <?= $user['id_user'] ?>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $user['id_user'] ?>" onclick="funcRole('role<?= $user['id_user'] ?>','<?= $user['role'] ?>')">
                             Edit Akun
                         </button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?= $user['id_user'] ?>">
                             Hapus Akun
                         </button>
                     </td>
@@ -58,8 +57,11 @@
                     Apakah Anda yakin untuk menghapus akun ini?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <form action="<?php echo base_url(); ?>/DashboardAdmin/DeleteAkun" method="post">
+                        <input name="id_user" type="text" value="<?= $user['id_user'] ?>" hidden>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -83,7 +85,7 @@
                         </div>
                         <div class="input-group-sm mb-1">
                             <label for="password" class="form-label">Password</label>
-                            <input name="password" type="password" value="<?= $user['password'] ?>" class="form-control" id="password<?= $user['id_user'] ?>">
+                            <input name="password" type="password" class="form-control" id="password<?= $user['id_user'] ?>">
                             <input class="mt-1" type="checkbox" onclick="showPassword('password<?= $user['id_user'] ?>')"> Lihat Password
                         </div>
                         <div class="input-group-sm mb-1">
@@ -118,14 +120,6 @@
     </div>
 <?php endforeach ?> 
 
-    <!-- Modal Error -->
-    <?php if(isset($validation)):?>
-        <div class="modal fade">
-            <p>Gagal Mengubah Data</p>
-            <?= $validation->listErrors() ?>
-        </div>
-    <?php endif;?>
-
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
@@ -136,8 +130,8 @@
             $('#tableAccount').DataTable();
         });
 
-        function funcRole($role) {
-            document.getElementById("role").value = $role;
+        function funcRole($idrole, $role) {
+            document.getElementById($idrole).value = $role;
         }
 
         function showPassword(x) {
