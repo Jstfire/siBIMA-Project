@@ -15,7 +15,7 @@ class Kegiatan extends Migration
                 'auto_increment' => true,
             ],
             'id_ukm' => [
-                'type'           => 'VARCHAR',
+                'type'  => 'VARCHAR',
                 'constraint'     => 10,
                 'null' => true,
             ],
@@ -48,6 +48,10 @@ class Kegiatan extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
+            'tempat_kegiatan' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'penanggung_jawab_kegiatan' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -65,6 +69,10 @@ class Kegiatan extends Migration
             ],
             'jam_akhir' => [
                 'type' => 'time'
+            ],
+            'penyelenggara' => [
+                'type' => 'varchar',
+                'constraint' => 255
             ]
         ]);
         $this->forge->addPrimaryKey('id_kegiatan', true);
