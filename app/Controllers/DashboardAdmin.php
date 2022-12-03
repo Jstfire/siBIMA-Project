@@ -29,11 +29,11 @@ class DashboardAdmin extends BaseController
     {
         helper(['form']);
         $rules = [
-            'username'          => 'required|min_length[6]|max_length[50]|is_unique[users.username]',
-            'password'          => 'required|min_length[6]|max_length[50]',
+            'username'          => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
+            'password'          => 'required|min_length[3]|max_length[50]',
             'confirmpassword'   => 'matches[password]',
-            'role'              => 'required|max_length[5]',
-            'nama_tampil'       => 'required|min_length[6]'
+            'role'              => 'required',
+            'nama_tampil'       => 'required'
         ];
           
         if($this->validate($rules)){
@@ -45,13 +45,61 @@ class DashboardAdmin extends BaseController
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $userModel->save($data);
-            echo "<script>
-                alert('Akun berhasil dibuat.');
-                window.location.href='/DashboardAdmin/TambahAkun';
-            </script>";
+            echo "
+            <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                    <meta charset='UTF-8'>
+                    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    <link rel='Shotcut Icon' href='<?php echo base_url(); ?>/assets/img/logoSTIS.png' type='image/png' />
+                    <title>Redirect</title>
+                    <link href='".base_url()."/assets/css/dashboard.css' rel='stylesheet'>
+                    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+                </head>
+                <body>
+                    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+                    <script>
+                            swal({
+                                title: 'Data Berhasil Ditambahkan',
+                                text: 'Akun yang Anda buat berhasil ditambahkan!',
+                                icon: 'success',
+                                }).then(function() {
+                                    window.location = '/DashboardAdmin/TambahAkun';
+                            });
+                    </script>
+                </body>
+            </html>
+            ";
         } else {
-            $data['validation'] = $this->validator;
-            echo view('/DashboardAdmin/TambahAkun', $data);
+            // $data['validation'] = $this->validator;
+            // echo view('/DashboardAdmin/TambahAkun', $data);
+            echo "
+            <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                    <meta charset='UTF-8'>
+                    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    <link rel='Shotcut Icon' href='<?php echo base_url(); ?>/assets/img/logoSTIS.png' type='image/png' />
+                    <title>Redirect</title>
+                    <link href='".base_url()."/assets/css/dashboard.css' rel='stylesheet'>
+                    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+                </head>
+                <body>
+                    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+                    <script>
+                            swal({
+                                title: 'Akun Gagal Dibuat',
+                                text: 'Isian tidak sesuai dengan peraturan yang telah ditentukan!',
+                                icon: 'warning',
+                                }).then(function() {
+                                    window.location = '/DashboardAdmin/TambahAkun';
+                            });
+                    </script>
+                </body>
+            </html>
+            ";
         }
     }
 
@@ -77,18 +125,101 @@ class DashboardAdmin extends BaseController
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $userModel->update($id, $data);
-            echo "<script>
-                alert('Data berhasil diubah.');
-                window.location.href='/DashboardAdmin/ListAkun';
-            </script>";
+            echo "
+            <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                    <meta charset='UTF-8'>
+                    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    <link rel='Shotcut Icon' href='<?php echo base_url(); ?>/assets/img/logoSTIS.png' type='image/png' />
+                    <title>Redirect</title>
+                    <link href='".base_url()."/assets/css/dashboard.css' rel='stylesheet'>
+                    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+                </head>
+                <body>
+                    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+                    <script>
+                            swal({
+                                title: 'Data Berhasil Diubah',
+                                text: 'Data akun berhasil Anda ubah!',
+                                icon: 'success',
+                                }).then(function() {
+                                    window.location = '/DashboardAdmin/ListAkun';
+                            });
+                    </script>
+                </body>
+            </html>
+            ";
         } else {
             // $users = new User();
             // $data['users'] = $users->orderBy('id_user', 'ASC')->findAll();
-            $data['validation'] = $this->validator;
-            // return view('dashboardAdmin/listAkun', $data); //bagian error nya yok
+            // $data['validation'] = $this->validator;
+            // return view('dashboardAdmin/listAkun', $data);
+            echo "". "";
+            echo "
+            <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                    <meta charset='UTF-8'>
+                    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    <link rel='Shotcut Icon' href='<?php echo base_url(); ?>/assets/img/logoSTIS.png' type='image/png' />
+                    <title>Redirect</title>
+                    <link href='".base_url()."/assets/css/dashboard.css' rel='stylesheet'>
+                    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+                </head>
+                <body>
+                    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+                    <script>
+                            swal({
+                                title: 'Data Gagal Diubah',
+                                text: 'Isian tidak sesuai dengan peraturan yang telah ditentukan!',
+                                icon: 'warning',
+                                }).then(function() {
+                                    window.location = '/DashboardAdmin/ListAkun';
+                            });
+                    </script>
+                </body>
+            </html>
+            ";
         }
     }
-    
+
+    public function deleteAkun()
+    {
+        helper(['form']);
+        $userModel = new User();
+        $id = $this->request->getVar('id_user');
+        $userModel->delete($id);
+        echo "
+            <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                    <meta charset='UTF-8'>
+                    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    <link rel='Shotcut Icon' href='<?php echo base_url(); ?>/assets/img/logoSTIS.png' type='image/png' />
+                    <title>Redirect</title>
+                    <link href='".base_url()."/assets/css/dashboard.css' rel='stylesheet'>
+                    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+                </head>
+                <body>
+                    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+                    <script>
+                            swal({
+                                title: 'Data Berhasil Dihapus',
+                                text: 'Data akun berhasil Anda hapus!',
+                                icon: 'success',
+                                }).then(function() {
+                                    window.location = '/DashboardAdmin/ListAkun';
+                            });
+                    </script>
+                </body>
+            </html>
+            ";
+    }
+
     public function listProposal()
     {
         return view('dashboardAdmin/listProposal');
