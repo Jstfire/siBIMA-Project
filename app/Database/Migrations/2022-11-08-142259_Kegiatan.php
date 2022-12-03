@@ -15,7 +15,7 @@ class Kegiatan extends Migration
                 'auto_increment' => true,
             ],
             'id_ukm' => [
-                'type'           => 'VARCHAR',
+                'type'  => 'VARCHAR',
                 'constraint'     => 10,
                 'null' => true,
             ],
@@ -45,6 +45,10 @@ class Kegiatan extends Migration
                 'constraint' => 255,
             ],
             'bulan_kegiatan' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'tempat_kegiatan' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
