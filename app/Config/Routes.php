@@ -37,11 +37,11 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/ListOrmawa', 'ListOrmawa::index');
-$routes->get('/DetailOrmawa', 'ListOrmawa::detailOrmawa');
 $routes->get('/ListUKM', 'ListUKM::index');
+
+$routes->get('/DetailOrmawa', 'ListOrmawa::detailOrmawa');
 $routes->get('/DetailUKM', 'ListUKM::detailUKM');
 $routes->get('/DetailBidangDivisi', 'ListBidangDivisi::index');
-$routes->get('/PengajuanProposal', 'PengajuanProposal::index');
 $routes->get('/UnggahLPJ', 'UnggahLPJ::index');
 $routes->get('/JadwalKegiatan', 'JadwalKegiatan::index');
 $routes->get('/Login', 'Login::index', ['filter' => 'authLogin']);
@@ -56,8 +56,17 @@ $routes->match(['get', 'post'],'/DashboardAdmin/UpdateAkun', 'DashboardAdmin::up
 $routes->get('/DashboardAdmin/ListProposal', 'DashboardAdmin::listProposal', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->get('/DashboardAdmin/ListLPJ', 'DashboardAdmin::listLPJ', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 
+//BPH
+$routes->get('DashboardBPH', 'DashboardBPH::index');
+
 //proposal
+$routes->get('/PengajuanProposal', 'PengajuanProposal::index');
 $routes->get('pengajuan_proposal', 'PengajuanProposal::index');
+
+//kegiatan
+$routes->get('kegiatan/add', 'Kegiatan::add');
+$routes->post('kegiatan/add_act', 'Kegiatan::add_act');
+
 
 /*
  * --------------------------------------------------------------------
