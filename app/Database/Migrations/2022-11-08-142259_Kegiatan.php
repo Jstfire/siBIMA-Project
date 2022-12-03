@@ -69,6 +69,10 @@ class Kegiatan extends Migration
             ],
             'jam_akhir' => [
                 'type' => 'time'
+            ],
+            'penyelenggara' => [
+                'type' => 'varchar',
+                'constraint' => 255
             ]
         ]);
         $this->forge->addPrimaryKey('id_kegiatan', true);
