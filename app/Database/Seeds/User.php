@@ -324,6 +324,13 @@ class User extends Seeder
                 'role' => 'wadir',
                 'nama_tampil' => 'Wakil Direktur III',
             ],
+            [
+                'id_user' => '46',
+                'username' => 'direktur',
+                'password' => '$2y$10$PausAngEI/fBjRZ5djHwEOj2ws8ylPFqBicXCpmvBBbknQrVcbuv6',
+                'role' => 'direktur',
+                'nama_tampil' => 'Direktur Polstat STIS',
+            ],
         ];
 
         $this->db->table('users')->insertBatch($data);
