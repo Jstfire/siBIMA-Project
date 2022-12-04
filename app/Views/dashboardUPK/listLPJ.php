@@ -16,35 +16,53 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">id</th>
+                    <th scope="col">Kegiatan</th>
+                    <th scope="col">Organisasi</th>
+                    <th scope="col">Detail</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            <?php if (isset($proposal)) :?>
+                <?php foreach ($proposal as $prop) :?>
+                    <tr>
+                        <th scope="row"><?= $prop['id_lpj'] ?></th>
+                        <td><?= $prop['nama_kegiatan'] ?></td>
+                        <td><?= $prop['nama_organisasi'] ?></td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $prop['id_proposal'] ?>" onclick="funcRole('role<?= $prop['id_proposal'] ?>','<?= $prop['role'] ?>')">
+                                Download PDF
+                            </button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?= $prop['id_proposal'] ?>">
+                                Detail
+                            </button>
+                        </td>
+                    </tr>
+                    <?php endforeach ?> 
+                <?php else :?>
+                    <tr>
+                        <th scope="row">Tidak Ada LPJ yang Masuk</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                <?php endif?>
             </tbody>
         </table>
     </div>
-    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="<?php echo base_url();?>/assets/js/sidebar.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tableProposal').DataTable();
+        });
+    </script>
 <?php
     include(APPPATH.'Views/temp/footer.php');
 ?>
