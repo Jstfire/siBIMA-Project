@@ -14,7 +14,7 @@ class Proposal extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_proposal','id_kegiatan','id_ukm','id_ormawa','id_bidang_divisi','link_proposal','nama_proposal','untuk_wadir','acc_upk', 'acc_baak', 'acc_wadir', 'id_user', 'id_lpj'];
+    protected $allowedFields    = ['id_proposal','id_kegiatan','id_ukm','id_ormawa','id_bidang_divisi','link_proposal','nama_proposal','untuk_wadir','acc_upk', 'acc_baak', 'acc_wadir', 'id_user', 'id_lpj', 'status'];
 
     // Dates
     protected $useTimestamps = false;
