@@ -18,17 +18,17 @@ class Proposal extends Migration
                 'id_user' => [
                     'type' => 'INT',
                     'constraint' => 10,
-                    'default' => null,
+                    'null' => true,
                 ],
                 'id_kegiatan' => [
                     'type' => 'INT',
                     'constraint' => 10,
-                    'default' => null,
+                    'null' => true,
                 ],
                 'id_lpj' => [
                     'type' => 'INT',
                     'constraint' => 10,
-                    'default' => null,
+                    'null' => true,
                 ],
                 'id_ukm' => [
                     'type'           => 'VARCHAR',

@@ -39,6 +39,11 @@ class Kegiatan extends Migration
                 'constraint' => 10,
                 'null' => true,
             ],
+            'id_user' => [
+                'type' => 'INT',
+                'constraint' => 10,
+                'null' => true,
+            ],
             'tanggal_kegiatan' => [
                 'type'       => 'DATE',
             ],
