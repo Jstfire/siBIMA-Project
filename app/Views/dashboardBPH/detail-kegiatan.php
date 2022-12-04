@@ -72,23 +72,23 @@ include(APPPATH . 'Views/temp/nav.php');
             <div class="col">
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Nama Kegiatan</label>
-                    <input type="text" name="nama_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['nama_kegiatan']; ?>">
+                    <input type="text" name="nama_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['nama_kegiatan']; ?>" readonly>
                 </div>
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Tanggal Kegiatan</label>
-                    <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tanggal_kegiatan']; ?>">
+                    <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tanggal_kegiatan']; ?>" readonly>
                 </div>
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Jam Mulai Kegiatan</label>
-                    <input type="time" name="jam_mulai" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['jam_mulai']; ?>">
+                    <input type="time" name="jam_mulai" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['jam_mulai']; ?>" readonly>
                 </div>
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Jam Selesai Kegiatan</label>
-                    <input type="time" name="jam_akhir" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['jam_akhir']; ?>">
+                    <input type="time" name="jam_akhir" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['jam_akhir']; ?>" readonly>
                 </div>
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Lokasi Kegiatan</label>
-                    <input type="text" name="lokasi_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tempat_kegiatan']; ?>">
+                    <input type="text" name="lokasi_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tempat_kegiatan']; ?>" readonly>
                 </div>
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Organisasi/UKM penyelenggara</label>

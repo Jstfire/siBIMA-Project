@@ -66,47 +66,47 @@ include(APPPATH . 'Views/temp/nav.php');
 
 <div class="container-fluid">
     <div class="row">
-        <p class="fs-1 fw-bold text-center mb-1 mt-5">Tambah Kegiatan</p>
+        <p class="fs-1 fw-bold text-center mb-1 mt-5">Detail Kegiatan</p>
         <hr class="hr m-auto" style="width:430px">
         <div class="row mt-5">
             <div class="col">
-                <form action="<?php base_url() ?>/kegiatan/add_act" method="post">
+                <form action="<?= base_url(); ?>/kegiatan/edit_act/<?= $kegiatan['id_kegiatan']; ?>" method="post">
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Nama Kegiatan</label>
-                        <input type="text" name="nama_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <input type="text" name="nama_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['nama_kegiatan']; ?>">
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Tanggal Kegiatan</label>
-                        <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tanggal_kegiatan']; ?>">
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Jam Mulai Kegiatan</label>
-                        <input type="time" name="jam_mulai" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <input type="time" name="jam_mulai" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['jam_mulai']; ?>">
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Jam Selesai Kegiatan</label>
-                        <input type="time" name="jam_akhir" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <input type="time" name="jam_akhir" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['jam_akhir']; ?>">
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Lokasi Kegiatan</label>
-                        <input type="text" name="tempat_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <input type="text" name="lokasi_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tempat_kegiatan']; ?>">
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Organisasi/UKM penyelenggara</label>
                         <br>
-                        <input type="text" name="penyelenggara" id="" value="<?php echo $user['nama_tampil'] ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly>
+                        <input type="text" name="penyelenggara" id="" value="<?php echo session()->get('nama_tampil') ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly>
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Contact Person</label>
-                        <input type="text" name="kontak_penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <input type="text" name="kontak_penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['kontak_penanggung_jawab_kegiatan']; ?>">
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Penanggung Jawab Kegiatan</label>
-                        <input type="text" name="penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <input type="text" name="penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['penanggung_jawab_kegiatan']; ?>">
                     </div>
                     <div class="row text-center">
                         <div>
-                            <button type="submit" class="btn btn-primary btn-lg rounded-5 border-0 py-2 px-4 mt-4">Tambah</button>
+                            <button type="submit" class="btn btn-primary btn-lg rounded-5 border-0 py-2 px-4 mt-4">Simpan Perubahan</button>
                         </div>
                     </div>
                 </form>

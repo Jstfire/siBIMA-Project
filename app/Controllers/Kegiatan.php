@@ -79,4 +79,38 @@ class Kegiatan extends BaseController
 
         return view('dashboardBPH/detail-kegiatan', $data);
     }
+
+    function edit($id)
+    {
+        $data['kegiatan'] = $this->kegiatan->where('id_kegiatan', $id)->first();
+
+        return view('dashboardBPH/edit-kegiatan', $data);
+    }
+
+    public function edit_act($id)
+    {
+        $data = $this->request->getPost();
+        $data['tanggal_kegiatan'] = Time::parse($data['tanggal_kegiatan'])->toDateTimeString();
+        $data['tahun_ajaran_kegiatan'] = '2022/2023';
+        $data['bulan_kegiatan'] = explode("-", $data['tanggal_kegiatan'])[1];
+        $data['id_ormawa'] = $this->user['id_ormawa'];
+        $data['jam_kegiatan'] = $data['jam_mulai'] . " " . $data["jam_akhir"];
+        if (isset($this->user['id_ukm'])) {
+            $data['id_ukm'] = $this->user['id_ukm'];
+        }
+        if (isset($this->user['id_bidang_divisi'])) {
+            $data['id_bidang_divisi'] = $this->user['id_bidang_divisi'];
+        }
+
+        $this->kegiatan->update($id, $data);
+
+        session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Mengubah Kegiatan!", "success");</script>');
+        return redirect()->to('/DashboardBPH');
+    }
+
+    public function delete($id){
+        $this->kegiatan->delete($id);
+        session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Menghapus Kegiatan!", "success");</script>');
+        return redirect()->to('/DashboardBPH');
+    }
 }

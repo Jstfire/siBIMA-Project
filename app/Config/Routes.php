@@ -68,7 +68,9 @@ $routes->get('pengajuan_proposal', 'PengajuanProposal::index');
 $routes->get('kegiatan/add', 'Kegiatan::add');
 $routes->post('kegiatan/add_act', 'Kegiatan::add_act');
 $routes->get('kegiatan/detail/(:segment)', 'Kegiatan::detail/$1');
-
+$routes->get('kegiatan/edit/(:segment)', 'Kegiatan::edit/$1');
+$routes->post('kegiatan/edit_act/(:segment)', 'Kegiatan::edit_act/$1');
+$routes->get('kegiatan/delete/(:segment)', 'Kegiatan::delete/$1');
 
 /*
  * --------------------------------------------------------------------
