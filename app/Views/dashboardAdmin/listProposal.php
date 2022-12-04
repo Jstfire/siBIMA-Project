@@ -5,7 +5,7 @@
     <link href="<?php echo base_url();?>/assets/css/dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
     <?php
@@ -19,7 +19,7 @@
                     <th scope="col">id</th>
                     <th scope="col">Kegiatan</th>
                     <th scope="col">Organisasi</th>
-                    <th scope="col">Nama Proposal</th>
+                    <th scope="col">Nama</th>
                     <th scope="col">UPK</th>
                     <th scope="col">BAAK</th>
                     <th scope="col">Wadir 3</th>
@@ -33,16 +33,17 @@
                         <th scope="row"><?= $prop['id_proposal'] ?></th>
                         <td><?= $prop['nama_kegiatan'] ?></td>
                         <td><?= $prop['nama_organisasi'] ?></td>
+                        <td><?= $prop['nama_proposal'] ?></td>
                         <td><?= $prop['app_upk'] ?></td>
                         <td><?= $prop['app_baak'] ?></td>
-                        <td><?= $prop['app_wadir3'] ?></td>
+                        <td><?= $prop['app_wadir'] ?></td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $prop['id_proposal'] ?>" onclick="funcRole('role<?= $prop['id_proposal'] ?>','<?= $prop['role'] ?>')">
-                                Download PDF
-                            </button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?= $prop['id_proposal'] ?>">
-                                Detail
-                            </button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $prop['id_proposal'] ?>">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Detail <i class="fa-solid fa-angle-right"></i>
+                        </button>
                         </td>
                     </tr>
                     <?php endforeach ?> 

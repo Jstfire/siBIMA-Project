@@ -27,7 +27,7 @@ CI_ENVIRONMENT = development
 
 # app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
 # app.sessionCookieName = 'ci_session'
-# app.sessionExpiration = 7200
+# app.sessionExpiration = 86400
 # app.sessionSavePath = null
 # app.sessionMatchIP = false
 # app.sessionTimeToUpdate = 300

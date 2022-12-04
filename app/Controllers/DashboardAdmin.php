@@ -226,20 +226,20 @@ class DashboardAdmin extends BaseController
         $proposal = new Proposal();
         $data['proposal'] = $proposal->orderBy('id_proposal', 'DESC')->findAll();
         $i = 0;
-        foreach ($data['proposal'] as $proposal) {
-            if (isset($proposal['id_ormawa'])) {
-                $namaOrganisasi = $proposal->getOrmawa($proposal['id_ormawa']);
+        foreach ($data['proposal'] as $prop) {
+            if (isset($prop['id_ormawa'])) {
+                $namaOrganisasi = $proposal->getOrmawa($prop['id_ormawa']);
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($proposal['id_ukm']))  {
-                $namaOrganisasi = $proposal->getUKM($proposal['id_ukm']);
+            } else if (isset($prop['id_ukm']))  {
+                $namaOrganisasi = $proposal->getUKM($prop['id_ukm']);
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($proposal['id_bidang_divisi']))  {
-                $namaOrganisasi = $proposal->getBidangDivisi($proposal['id_bidang_divisi']);
+            } else if (isset($prop['id_bidang_divisi']))  {
+                $namaOrganisasi = $proposal->getBidangDivisi($prop['id_bidang_divisi']);
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
             }
 
-            $namaKegiatan = $proposal->getKegiatan($proposal['id_kegiatan']);
-            $data['proposal'][$i]['nama_Kegiatan'] = $namaKegiatan;
+            $namaKegiatan = $proposal->getKegiatan($prop['id_kegiatan']);
+            $data['proposal'][$i]['nama_kegiatan'] = $namaKegiatan;
 
             if ($data['proposal'][$i]['acc_upk']== 0) {
                 $data['proposal'][$i]['app_upk'] = "Belum Menyetujui";
@@ -252,12 +252,12 @@ class DashboardAdmin extends BaseController
                 $data['proposal'][$i]['app_baak'] = "Sudah Menyetujui";
             }
             if ($data['proposal'][$i]['untuk_wadir']== 0) {
-                $data['proposal'][$i]['app_upk'] = "Tidak Perlu Persetujuan";
+                $data['proposal'][$i]['app_wadir'] = "Tidak Perlu Persetujuan";
             } else if ($data['proposal'][$i]['untuk_wadir']== 1) {
-                if ($data['proposal'][$i]['acc_upk']== 0) {
-                    $data['proposal'][$i]['app_upk'] = "Belum Menyetujui";
-                } else if ($data['proposal'][$i]['acc_upk']== 1) {
-                    $data['proposal'][$i]['app_upk'] = "Sudah Menyetujui";
+                if ($data['proposal'][$i]['acc_wadir']== 0) {
+                    $data['proposal'][$i]['app_wadir'] = "Belum Menyetujui";
+                } else if ($data['proposal'][$i]['acc_wadir']== 1) {
+                    $data['proposal'][$i]['app_wadir'] = "Sudah Menyetujui";
                 }
             }
             
