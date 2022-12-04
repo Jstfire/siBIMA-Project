@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Proposal;
 use App\Models\Kegiatan;
 use App\Models\User;
-
+use App\Models\LPJModel;
 
 class DashboardUPK extends BaseController
 {
