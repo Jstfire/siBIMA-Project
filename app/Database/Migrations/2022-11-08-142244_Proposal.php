@@ -70,6 +70,10 @@ class Proposal extends Migration
                     'default' => false,
                     'null' => true,
                 ],
+                'status' => [
+                    'type' => 'varchar',
+                    'constraint' => 255,
+                ],
             ]
         );
         $this->forge->addPrimaryKey('id_proposal');
