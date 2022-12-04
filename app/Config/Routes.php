@@ -67,6 +67,7 @@ $routes->get('pengajuan_proposal', 'PengajuanProposal::index');
 //kegiatan
 $routes->get('kegiatan/add', 'Kegiatan::add');
 $routes->post('kegiatan/add_act', 'Kegiatan::add_act');
+$routes->get('kegiatan/detail/(:segment)', 'Kegiatan::detail/$1');
 
 
 /*

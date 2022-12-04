@@ -49,7 +49,8 @@ class Kegiatan extends BaseController
 
     public function add()
     {
-        return view('DashboardBPH/tambahKegiatan');
+        $data['user'] = $this->user;
+        return view('DashboardBPH/tambahKegiatan', $data);
     }
 
     public function add_act()
@@ -71,5 +72,11 @@ class Kegiatan extends BaseController
 
         session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Menambah Kegiatan!", "success");</script>');
         return redirect()->to('/DashboardBPH');
+    }
+
+    function detail($id){
+        $data['kegiatan'] = $this->kegiatan->where('id_kegiatan', $id)->first();
+
+        return view('dashboardBPH/detail-kegiatan', $data);
     }
 }
