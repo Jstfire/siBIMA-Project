@@ -13,6 +13,9 @@ class Init extends Seeder
         $this->call('Ormawa');
         $this->call('UKM');
         $this->call('BidangDivisi');
+        $this->call('Kegiatan');
+        $this->call('Lpj');
+
         // $this->call('JabatanDosenUPK');
     }
 }

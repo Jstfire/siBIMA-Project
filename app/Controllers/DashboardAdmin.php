@@ -261,9 +261,6 @@ class DashboardAdmin extends BaseController
                 }
             }
             
-            
-
-
             $i++;
         }
         return view('dashboardAdmin/listProposal', $data);
