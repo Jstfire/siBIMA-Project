@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Kegiatan;
+use App\Models\Proposal;
 use App\Models\User;
 
 class DashboardBPH extends BaseController
@@ -11,12 +12,14 @@ class DashboardBPH extends BaseController
     protected $kegiatan;
     protected $user;
     protected $user_model;
+    protected $proposal;
 
 
     function __construct()
     {
         $this->kegiatan = new Kegiatan();
         $this->user_model = new User();
+        $this->proposal = new Proposal();
         if (session()->get('id_user') >= 2 && session()->get('id_user') <= 5) {
             $this->user = $this->user_model
             ->join('ormawa', 'ormawa.id_user = users.id_user', 'left')
@@ -65,5 +68,10 @@ class DashboardBPH extends BaseController
         }
     }
 
-
+    function list_proposal(){
+        $data = [
+            'proposal' => $this->proposal->where('id_user', session()->get('id_user'))->join('users', 'users.id_user = proposal.id_user', 'left')->findAll(),
+        ];
+        return view('dashboardBPH/listProposal', $data);
+    }
 }
