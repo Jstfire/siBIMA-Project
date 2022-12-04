@@ -80,6 +80,6 @@ class PengajuanProposal extends BaseController
 
     function download($id){
         $data = $this->proposal->find($id);
-        return $this->response->download('proposal/'.$data->link_proposal, null);
+        return $this->response->download('proposal/'.$data['link_proposal'], null);
     }
 }

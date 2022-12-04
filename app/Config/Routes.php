@@ -71,7 +71,7 @@ $routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal', ['filte
 $routes->get('/PengajuanProposal', 'PengajuanProposal::index', ['filter' => 'authGuard']);
 $routes->get('pengajuan_proposal', 'PengajuanProposal::index', ['filter' => 'authGuard']);
 $routes->post('proposal/add', 'PengajuanProposal::add', ['filter' => 'authGuard']);
-$routes->post('proposal/download/(:segment)', 'PengajuanProposal::download/$1', ['filter' => 'authGuard']);
+$routes->get('proposal/download/(:segment)', 'PengajuanProposal::download/$1', ['filter' => 'authGuard']);
 
 //kegiatan
 $routes->get('kegiatan/add', 'Kegiatan::add', ['filter' => 'authGuard']);
