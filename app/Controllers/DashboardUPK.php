@@ -82,4 +82,9 @@ class DashboardUPK extends BaseController
         }
         return view('dashboardUPK/listLPJ', $data);
     }
+    
+    public function progresKegiatan()
+    {
+        return view('dashboardUPK/progresKegiatan');
+    }
 }
