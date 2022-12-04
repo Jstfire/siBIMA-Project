@@ -52,7 +52,7 @@
               }
             ?>
             <?php
-              if ($url == base_url().'/DashborUPK/ProgresKegiatan') {
+              if ($url == base_url().'/DashboardUPK/ProgresKegiatan') {
                 echo '
                   <a href="'.base_url().'/DashboardUPK/ProgresKegiatan" class="nav_link active">
                     <i class="fa-solid fa-list-ol"></i>
