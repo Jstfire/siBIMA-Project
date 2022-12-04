@@ -53,6 +53,10 @@ class Proposal extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => 255,
                 ],
+                'nama_kegiatan' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => 255,
+                ],
                 'untuk_wadir' => [
                     'type' => 'bool',
                     'default' => false,
