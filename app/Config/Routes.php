@@ -61,6 +61,7 @@ $routes->get('/DashboardAdmin/ListLPJ', 'DashboardAdmin::listLPJ', ['filter' => 
 $routes->get('/DashboardUPK', 'DashboardUPK::index', ['filter' => 'authGuard', 'filter' => 'authUPK']);
 $routes->get('/DashboardUPK/ListProposal', 'DashboardUPK::listProposal', ['filter' => 'authGuard', 'filter' => 'authUPK']);
 $routes->get('/DashboardUPK/ListLPJ', 'DashboardUPK::listLPJ', ['filter' => 'authGuard', 'filter' => 'authUPK']);
+$routes->get('/DashboardUPK/ProgresKegiatan', 'DashboardUPK::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authUPK']);
 
 
 //BPH
