@@ -8,6 +8,22 @@ use App\Models\Proposal;
 
 class DashboardUPK extends BaseController
 {
+    protected $kegiatan;
+    protected $user;
+    protected $user_model;
+    
+    function __construct()
+    {
+        $this->kegiatan = new Kegiatan();
+        $this->user_model = new User();
+        $this->user = $this->user_model
+            ->join('ormawa', 'ormawa.id_user = users.id_user', 'left')
+            ->join('ukm', 'ukm.id_user = users.id_user', 'left')
+            ->join('bidang_divisi', 'bidang_divisi.id_user = users.id_user', 'left')
+            ->where('users.id_user', session()->get('id_user'))
+            ->first();
+    }
+    
     public function index()
     {
         return view('dashboardUPK/listProposal');
@@ -85,6 +101,9 @@ class DashboardUPK extends BaseController
     
     public function progresKegiatan()
     {
-        return view('dashboardUPK/progresKegiatan');
+        $data = [
+                'kegiatan' => $this->kegiatan->findAll(),
+            ];
+        return view('dashboardUPK/progresKegiatan', $data);
     }
 }
