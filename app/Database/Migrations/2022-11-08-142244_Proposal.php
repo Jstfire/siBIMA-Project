@@ -81,8 +81,8 @@ class Proposal extends Migration
         $this->forge->addForeignKey('id_ukm', 'ukm', 'id_ukm');
         $this->forge->addForeignKey('id_user', 'users', 'id_user');
         $this->forge->addForeignKey('id_bidang_divisi', 'bidang_divisi', 'id_bidang_divisi');
-        $this->forge->addForeignKey('id_kegiatan', 'kegiatan', 'id_kegiatan');
-        $this->forge->addForeignKey('id_lpj', 'lpj', 'id_lpj');
+        $this->forge->addForeignKey('id_kegiatan', 'kegiatan', 'id_kegiatan', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_lpj', 'lpj', 'id_lpj', 'CASCADE', 'CASCADE');
         $this->forge->createTable('proposal');
     }
 
