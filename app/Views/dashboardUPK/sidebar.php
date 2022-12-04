@@ -70,6 +70,23 @@
                 }
             ?>
             <?php
+              if ($url == base_url().'/DashboardUPK') {
+                echo '
+                  <a href="'.base_url().'/DashboardUPK" class="nav_link active">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="nav_name">Progres Kegiatan</span>
+                  </a>
+                ';
+              } else {
+                echo '
+                  <a href="'.base_url().'/DashboardUPK" class="nav_link">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="nav_name">Progres Kegiatan</span>
+                  </a>
+                ';
+              }
+            ?>
+            <?php
                 if ($url == base_url().'/DashboardUPK/ListLPJ') {
                   echo '
                     <a href="'.base_url().'/DashboardAdmin/ListLPJ" class="nav_link active">
