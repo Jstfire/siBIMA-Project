@@ -18,6 +18,7 @@ class Proposal extends Migration
                 'id_user' => [
                     'type' => 'INT',
                     'constraint' => 10,
+                    'default' => null,
                 ],
                 'id_kegiatan' => [
                     'type' => 'INT',
