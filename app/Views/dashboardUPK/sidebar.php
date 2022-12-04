@@ -39,14 +39,14 @@
                 echo '
                   <a href="'.base_url().'/DashboardUPK" class="nav_link active">
                     <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
+                    <span class="nav_name">List Proposal</span>
                   </a>
                 ';
               } else {
                 echo '
                   <a href="'.base_url().'/DashboardUPK" class="nav_link">
                     <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
+                    <span class="nav_name">List Proposal</span>
                   </a>
                 ';
               }
