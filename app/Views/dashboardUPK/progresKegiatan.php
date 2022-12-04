@@ -18,9 +18,8 @@ include(APPPATH . 'Views/temp/head.php');
     echo session()->getFlashdata('pesan');
     ?>
     <div class="container-fluid mt-5 pt-3 mx-0 px-0 h-100">
-        <h1 class="m-0">Kegiatan Anda</h1>
+        <h1 class="m-0">Progres Kegiatan</h1>
         <hr class="m-0">
-        <button type="button" class="btn btn-primary m-2" onclick="window.location.href='<?php base_url() ?>/kegiatan/add'">Tambah Kegiatan</button>
         <table class="table" id="myTable">
             <thead>
                 <tr class="text-center">
@@ -34,9 +33,7 @@ include(APPPATH . 'Views/temp/head.php');
             </thead>
             <tbody>
                 <?php
-
                 use CodeIgniter\I18n\Time;
-
                 foreach ($kegiatan as $k) : ?>
                     <tr class="text-center">
                         <td scope="row"><?php echo $k['nama_kegiatan'] ?></td>
@@ -45,22 +42,20 @@ include(APPPATH . 'Views/temp/head.php');
                         <td><?php echo  $k['penanggung_jawab_kegiatan'] ?></td>
                         <td>
                             <?php
-                            $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
-                            $tanggal_kegiatan = $k['tanggal_kegiatan'];
-                            // dd($tanggal_kegiatan);
-                            if ($tanggal_kegiatan > $now) {
-                                echo 'Belum Mulai';
-                            } else if (strcmp($tanggal_kegiatan, $now) == 0) {
-                                echo 'Sedang Berjalan';
-                            } else {
-                                echo 'Selesai';
-                            }
+                                $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
+                                $tanggal_kegiatan = $k['tanggal_kegiatan'];
+                                // dd($tanggal_kegiatan);
+                                if($tanggal_kegiatan > $now){
+                                    echo 'Belum Mulai';
+                                } else if(strcmp($tanggal_kegiatan, $now) == 0){
+                                    echo 'Sedang Berjalan';
+                                } else{
+                                    echo 'Selesai';
+                                }
                             ?>
                         </td>
                         <td>
                             <a href="<?php base_url() ?>/kegiatan/detail/<?= $k['id_kegiatan'] ?>" class="btn btn-primary">Detail</a>
-                            <a href="<?php base_url() ?>/kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">Edit</a>
-                            <a href="<?php base_url() ?>/kegiatan/delete/<?= $k['id_kegiatan'] ?>" class="btn btn-danger hapus">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

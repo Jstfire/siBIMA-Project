@@ -45,24 +45,24 @@ class DashboardBPH extends BaseController
 
     public function index()
     {
-        // dd($this->user);
         if(session()->get('id_user') >= 2 && session()->get('id_user') <= 5){
             $data = [
-                'kegiatan' => $this->kegiatan->where('id_ormawa', $this->user['id_ormawa'])->findAll(),
+                'kegiatan' => $this->kegiatan->where('id_ormawa', $this->user['id_ormawa'])->where('penyelenggara', session()->get('nama_tampil'))->findAll(),
             ];
+            return view('dashboardBPH/progresKegiatan', $data);
         }
         if (session()->get('id_user') >= 9 && session()->get('id_user') <= 15) {
             $data = [
-                'kegiatan' => $this->kegiatan->where('id_ukm', $this->user['id_ukm'])->findAll(),
+                'kegiatan' => $this->kegiatan->where('id_ukm', $this->user['id_ukm'])->where('penyelenggara', session()->get('nama_tampil'))->findAll(),
             ];
+            return view('dashboardBPH/progresKegiatan', $data);
         }
         if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
             $data = [
-                'kegiatan' => $this->kegiatan->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->findAll(),
+                'kegiatan' => $this->kegiatan->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->where('penyelenggara', session()->get('nama_tampil'))->findAll(),
             ];
+            return view('dashboardBPH/progresKegiatan', $data);
         }
-    
-        return view('dashboardBPH/progresKegiatan', $data);
     }
 
 
