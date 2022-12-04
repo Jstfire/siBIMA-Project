@@ -25,7 +25,12 @@ class AuthUPK implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
+        if (session()->get('role') !== "UPK") {
+            echo "<script>
+                alert('Restricted Access. Login pakai akun UPK ya:)');
+                window.location.href='/';
+            </script>";
+        }
     }
 
     /**

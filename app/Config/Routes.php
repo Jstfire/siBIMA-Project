@@ -57,6 +57,13 @@ $routes->match(['get', 'post'],'/DashboardAdmin/DeleteAkun', 'DashboardAdmin::de
 $routes->get('/DashboardAdmin/ListProposal', 'DashboardAdmin::listProposal', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->get('/DashboardAdmin/ListLPJ', 'DashboardAdmin::listLPJ', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 
+//UPK
+$routes->get('/DashboardUPK', 'DashboardUPK::index', ['filter' => 'authGuard', 'filter' => 'authUPK']);
+$routes->get('/DashboardUPK/ListProposal', 'DashboardUPK::listProposal', ['filter' => 'authGuard', 'filter' => 'authUPK']);
+$routes->get('/DashboardUPK/ListLPJ', 'DashboardUPK::listLPJ', ['filter' => 'authGuard', 'filter' => 'authUPK']);
+$routes->get('/DashboardUPK/ProgresKegiatan', 'DashboardUPK::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authUPK']);
+
+
 //BPH
 $routes->get('DashboardBPH', 'DashboardBPH::index');
 $routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal');

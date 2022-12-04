@@ -76,8 +76,15 @@ class Kegiatan extends BaseController
 
     function detail($id){
         $data['kegiatan'] = $this->kegiatan->where('id_kegiatan', $id)->first();
-
-        return view('dashboardBPH/detail-kegiatan', $data);
+        
+        if (session()->get('role') == "BPH")
+        {
+            return view('dashboardBPH/detail-kegiatan', $data);
+        }
+        else
+        {
+            return view('dashboardUPK/detail-kegiatan', $data);
+        }
     }
 
     function edit($id)
