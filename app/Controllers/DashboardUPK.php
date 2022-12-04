@@ -60,6 +60,26 @@ class DashboardUPK extends BaseController
 
     public function listLPJ()
     {
-        return view('DashboardUPK/listLPJ');
+        $lpj = new LPJModel();
+        $data['lpj'] = $lpj->orderBy('id_lpj', 'DESC')->findAll();
+        $i = 0;
+        foreach ($data['lpj'] as $lpj) {
+            if (isset($lpj['id_ormawa'])) {
+                $namaOrganisasi = $lpj->getOrmawa($lpj['id_ormawa']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            } else if (isset($lpj['id_ukm']))  {
+                $namaOrganisasi = $lpj->getUKM($lpj['id_ukm']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            } else if (isset($lpj['id_bidang_divisi']))  {
+                $namaOrganisasi = lpj->getBidangDivisi($lpj['id_bidang_divisi']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $namaKegiatan = $lpj->getKegiatan($lpj['id_kegiatan']);
+            $data['lpj'][$i]['nama_Kegiatan'] = $namaKegiatan;
+
+            $i++;
+        }
+        return view('dashboardUPK/listLPJ', $data);
     }
 }
