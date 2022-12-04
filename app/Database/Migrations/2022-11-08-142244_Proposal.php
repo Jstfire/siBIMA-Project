@@ -22,10 +22,12 @@ class Proposal extends Migration
                 'id_kegiatan' => [
                     'type' => 'INT',
                     'constraint' => 10,
+                    'default' => null,
                 ],
                 'id_lpj' => [
                     'type' => 'INT',
                     'constraint' => 10,
+                    'default' => null,
                 ],
                 'id_ukm' => [
                     'type'           => 'VARCHAR',
@@ -67,11 +69,6 @@ class Proposal extends Migration
                     'default' => false,
                     'null' => true,
                 ],
-                'url_file' => [
-                    'type' => 'VARCHAR',
-                    'constraint' => 255,
-                    'default' => null,
-                ],
             ]
         );
         $this->forge->addPrimaryKey('id_proposal');
@@ -79,8 +76,8 @@ class Proposal extends Migration
         $this->forge->addForeignKey('id_ukm', 'ukm', 'id_ukm');
         $this->forge->addForeignKey('id_user', 'users', 'id_user');
         $this->forge->addForeignKey('id_bidang_divisi', 'bidang_divisi', 'id_bidang_divisi');
-        // $this->forge->addForeignKey('id_kegiatan', 'kegiatan', 'id_kegiatan');
-        // $this->forge->addForeignKey('id_lpj', 'lpj', 'id_lpj');
+        $this->forge->addForeignKey('id_kegiatan', 'kegiatan', 'id_kegiatan');
+        $this->forge->addForeignKey('id_lpj', 'lpj', 'id_lpj');
         $this->forge->createTable('proposal');
     }
 

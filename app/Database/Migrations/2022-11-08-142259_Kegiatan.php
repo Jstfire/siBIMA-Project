@@ -34,6 +34,11 @@ class Kegiatan extends Migration
                 'constraint' => 10,
                 'null' => true,
             ],
+            'id_lpj' => [
+                'type' => 'INT',
+                'constraint' => 10,
+                'null' => true,
+            ],
             'tanggal_kegiatan' => [
                 'type'       => 'DATE',
             ],
@@ -80,6 +85,7 @@ class Kegiatan extends Migration
         $this->forge->addForeignKey('id_ukm', 'ukm', 'id_ukm');
         $this->forge->addForeignKey('id_bidang_divisi', 'bidang_divisi', 'id_bidang_divisi');
         $this->forge->addForeignKey('id_proposal', 'proposal', 'id_proposal');
+        $this->forge->addForeignKey('id_lpj', 'lpj', 'id_lpj');
         $this->forge->createTable('kegiatan');
     }
 
