@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Proposal;
+use App\Models\Kegiatan;
+use App\Models\User;
 
 
 class DashboardUPK extends BaseController
