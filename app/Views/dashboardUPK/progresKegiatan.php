@@ -56,8 +56,6 @@ include(APPPATH . 'Views/temp/head.php');
                         </td>
                         <td>
                             <a href="<?php base_url() ?>/kegiatan/detail/<?= $k['id_kegiatan'] ?>" class="btn btn-primary">Detail</a>
-                            <a href="<?php base_url() ?>/kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">Edit</a>
-                            <a href="<?php base_url() ?>/kegiatan/hapus/<?= $k['id_kegiatan'] ?>" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
