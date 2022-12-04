@@ -63,14 +63,15 @@ $routes->get('/DashboardUPK/ListProposal', 'DashboardUPK::listProposal', ['filte
 $routes->get('/DashboardUPK/ListLPJ', 'DashboardUPK::listLPJ', ['filter' => 'authGuard', 'filter' => 'authUPK']);
 $routes->get('/DashboardUPK/ProgresKegiatan', 'DashboardUPK::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authUPK']);
 
-
 //BPH
-$routes->get('DashboardBPH', 'DashboardBPH::index');
-$routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal');
+$routes->get('DashboardBPH', 'DashboardBPH::index', ['filter' => 'authGuard']);
+$routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal', ['filter' => 'authGuard']);
 
 //proposal
-$routes->get('/PengajuanProposal', 'PengajuanProposal::index');
-$routes->get('pengajuan_proposal', 'PengajuanProposal::index');
+$routes->get('/PengajuanProposal', 'PengajuanProposal::index', ['filter' => 'authGuard']);
+$routes->get('pengajuan_proposal', 'PengajuanProposal::index', ['filter' => 'authGuard']);
+$routes->post('proposal/add', 'PengajuanProposal::add', ['filter' => 'authGuard']);
+$routes->post('proposal/download/(:segment)', 'PengajuanProposal::download/$1', ['filter' => 'authGuard']);
 
 //kegiatan
 $routes->get('kegiatan/add', 'Kegiatan::add', ['filter' => 'authGuard']);

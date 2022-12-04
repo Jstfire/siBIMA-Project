@@ -9,13 +9,15 @@ include(APPPATH . 'Views/temp/head.php');
 </head>
 
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <?php echo session()->getFlashdata('pesan') ?>
     <?php
     include('sidebar.php');
     ?>
     <div class="container-fluid mt-5 pt-3 mx-0 px-0">
         <h1 class="m-0">List Proposal</h1>
         <hr class="m-0 mb-3">
-        <a href="" class="btn btn-primary mt-3 mb-3">Tambah Proposal Kegiatan</a>
+        <a href="<?= base_url(); ?>/pengajuan_proposal" class="btn btn-primary mt-3 mb-3">Tambah Proposal Kegiatan</a>
         <table id="tableProposal" class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -34,20 +36,28 @@ include(APPPATH . 'Views/temp/head.php');
                     <?php foreach ($proposal as $prop) : ?>
                         <tr>
                             <th scope="row"><?= $prop['id_proposal'] ?></th>
-                            <td><?= $prop['nama_proposal'] ?></td>
+                            <td><a href="<?= base_url(); ?>/proposal/download/<?= $prop['id_proposal']; ?>"><?= $prop['nama_proposal']; ?></a></td>
+                            <td><?= $prop['nama_kegiatan'] ?></td>
                             <td><?= $prop['nama_tampil'] ?></td>
-                            <td><?= $prop['acc_upk'] ?></td>
+                            <td>
+                                <?php
+                                if ($prop['acc_upk'] == 1) {
+                                    echo '<button type="button" class="btn btn-success">Diterima</button>';
+                                } else if ($prop['acc_upk'] == 0) {
+                                    echo '<button type="button" class="btn btn-danger">Ditolak</button>';
+                                } else {
+                                    echo '<button type="button" class="btn btn-warning">Menunggu</button>';
+                                }
+                                ?>
+                            </td>
                             <td><?= $prop['acc_baak'] ?></td>
                             <td><?= $prop['acc_wadir'] ?></td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $prop['id_proposal'] ?>" onclick="funcRole('role<?= $prop['id_proposal'] ?>','<?= $prop['role'] ?>')">
-                                    Download PDF
-                                </button>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDelete<?= $prop['id_proposal'] ?>">
                                     Detail
                                 </button>
                                 <a href="" class="btn btn-warning">Edit</a>
-                                <a href="" class="btn btn-danger"></a>
+                                <a href="" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

@@ -70,7 +70,7 @@ class DashboardBPH extends BaseController
 
     function list_proposal(){
         $data = [
-            'proposal' => $this->proposal->where('id_user', session()->get('id_user'))->join('users', 'users.id_user = proposal.id_user', 'left')->findAll(),
+            'proposal' => $this->proposal->where('proposal.id_user', session()->get('id_user'))->join('users', 'users.id_user = proposal.id_user', 'left')->findAll(),
         ];
         return view('dashboardBPH/listProposal', $data);
     }

@@ -14,8 +14,8 @@ class Kegiatan extends BaseController
 
     function __construct()
     {
-        $this->user_model = new User();
         $this->kegiatan = new ModelsKegiatan();
+        $this->user_model = new User();
         if (session()->get('id_user') >= 2 && session()->get('id_user') <= 5) {
             $this->user = $this->user_model
                 ->join('ormawa', 'ormawa.id_user = users.id_user', 'left')
