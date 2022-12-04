@@ -34,23 +34,6 @@
           <span class="nav_logo-name">Dashboard UPK</span>
         </a>
         <div class="nav_list">
-          <?php
-              if ($url == base_url().'/DashborUPK/ProgresKegiatan') {
-                echo '
-                  <a href="'.base_url().'/DashboardUPK/ProgresKegiatan" class="nav_link active">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
-                ';
-              } else {
-                echo '
-                  <a href="'.base_url().'/DashboardUPK/ProgresKegiatan" class="nav_link">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
-                ';
-              }
-          ?>
             <?php
               if ($url == base_url().'/DashboardUPK') {
                 echo '
@@ -68,6 +51,23 @@
                 ';
               }
             ?>
+            <?php
+              if ($url == base_url().'/DashborUPK/ProgresKegiatan') {
+                echo '
+                  <a href="'.base_url().'/DashboardUPK/ProgresKegiatan" class="nav_link active">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <span class="nav_name">Progres Kegiatan</span>
+                  </a>
+                ';
+              } else {
+                echo '
+                  <a href="'.base_url().'/DashboardUPK/ProgresKegiatan" class="nav_link">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <span class="nav_name">Progres Kegiatan</span>
+                  </a>
+                ';
+              }
+          ?>
             <?php
                 if ($url == base_url().'/DashboardUPK/ListLPJ') {
                   echo '
