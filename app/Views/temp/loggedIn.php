@@ -10,6 +10,9 @@
             <?php if (session()->get('role') == 'BPH') : ?>
                 <li><a class="dropdown-item" href="<?php base_url() ?>/DashboardBPH">Dashboard</a></li>
             <?php endif; ?>
+            <?php if (session()->get('role') == 'UPK') : ?>
+                <li><a class="dropdown-item" href="<?php base_url() ?>/DashboardUPK">Dashboard</a></li>
+            <?php endif; ?>
             <li class="logout"><a class="dropdown-item" href="/Logout">Logout</a></li>
         </ul>
     </div>
