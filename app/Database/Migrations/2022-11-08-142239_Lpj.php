@@ -26,6 +26,7 @@ class Lpj extends Migration
                 'url_file' => [
                     'type' => 'VARCHAR',
                     'constraint' => 255,
+                    'null' => true,
                 ]
             ]
         );
