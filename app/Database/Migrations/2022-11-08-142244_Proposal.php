@@ -58,8 +58,8 @@ class Proposal extends Migration
                     'constraint' => 255,
                 ],
                 'untuk_wadir' => [
-                    'type' => 'int',
-                    'default' => 2,
+                    'type' => 'boolean',
+                    'default' => false,
                 ],
                 'acc_upk' => [
                     'type' => 'int',
