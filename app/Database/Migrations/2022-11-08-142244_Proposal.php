@@ -50,7 +50,6 @@ class Proposal extends Migration
         );
         $this->forge->addPrimaryKey('id_proposal');
         $this->forge->addForeignKey('id_user', 'users', 'id_user');
-        $this->forge->addForeignKey('id_kegiatan', 'kegiatan', 'id_kegiatan', 'CASCADE', 'CASCADE');
         $this->forge->createTable('proposal');
     }
 
