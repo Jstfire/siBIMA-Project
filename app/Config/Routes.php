@@ -72,6 +72,9 @@ $routes->get('/PengajuanProposal', 'PengajuanProposal::index', ['filter' => 'aut
 $routes->get('pengajuan_proposal', 'PengajuanProposal::index', ['filter' => 'authGuard']);
 $routes->post('proposal/add', 'PengajuanProposal::add', ['filter' => 'authGuard']);
 $routes->get('proposal/download/(:segment)', 'PengajuanProposal::download/$1', ['filter' => 'authGuard']);
+$routes->get('proposal/detail/(:segment)', 'PengajuanProposal::detail/$1', ['filter' => 'authGuard']);
+$routes->get('proposal/edit/(:segment)', 'PengajuanProposal::edit/$1', ['filter' => 'authGuard']);
+$routes->get('proposal/delete/(:segment)', 'PengajuanProposal::delete/$1', ['filter' => 'authGuard']);
 
 //kegiatan
 $routes->get('kegiatan/add', 'Kegiatan::add', ['filter' => 'authGuard']);
