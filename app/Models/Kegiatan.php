@@ -14,7 +14,7 @@ class Kegiatan extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kegiatan','id_ukm','id_ormawa','id_bidang_divisi','id_proposal','tanggal_kegiatan','jam_mulai','jam_akhir','tahun_ajaran_kegiatan','bulan_kegiatan','penanggung_jawab_kegiatan','kontak_penanggung_jawab_kegiatan','nama_kegiatan', 'tempat_kegiatan', 'penyelenggara'];
+    protected $allowedFields    = ['id_kegiatan','id_ukm','id_ormawa','id_bidang_divisi','id_proposal','tanggal_kegiatan','jam_mulai','jam_akhir','tahun_ajaran_kegiatan','bulan_kegiatan','penanggung_jawab_kegiatan','kontak_penanggung_jawab_kegiatan','nama_kegiatan', 'tempat_kegiatan', 'penyelenggara', 'id_user'];
 
     // Dates
     protected $useTimestamps = false;

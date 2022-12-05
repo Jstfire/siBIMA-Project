@@ -10,7 +10,7 @@ if (isset($_SESSION["username"])) {
 include(APPPATH . 'Views/temp/nav.php');
 ?>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript">
     function PreviewImage() {
         pdffile = document.getElementById("uploadPDF").files[0];
@@ -65,12 +65,18 @@ include(APPPATH . 'Views/temp/nav.php');
 </style>
 
 <div class="container-fluid">
-    <div class="row">
-        <p class="fs-1 fw-bold text-center mb-1 mt-5">Tambah Kegiatan</p>
-        <hr class="hr m-auto" style="width:430px">
-        <div class="row mt-5">
-            <div class="col">
-                <form action="<?php base_url() ?>/kegiatan/add_act" method="post">
+    <form action="<?php base_url() ?>/kegiatan/add_act" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <p class="fs-1 fw-bold text-center mb-1 mt-5">Tambah Kegiatan</p>
+            <hr class="hr m-auto" style="width:430px">
+            <div class="row mt-5">
+                <?php csrf_field(); ?>
+                <div class="col-md-4 text-center">
+                    <div style="clear:both">
+                        <iframe id="viewer" frameborder="0" scrolling="no" width="400" height="600"></iframe>
+                    </div>
+                </div>
+                <div class="col">
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Nama Kegiatan</label>
                         <input type="text" name="nama_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
@@ -104,16 +110,49 @@ include(APPPATH . 'Views/temp/nav.php');
                         <label class="fw-bold">Penanggung Jawab Kegiatan</label>
                         <input type="text" name="penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
                     </div>
+                    <div class="form-outline mt-4">
+                        <label class="fw-bold">Kegiatan Menggunakan Proposal?</label>
+                        <select id="pakaiProposal" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" name="pakaiProposal" required>
+                            <option selected="selected" disabled="disabled">--Pilih Opsi--</option>
+                            <option value="ya">Ya</option>
+                            <option value="tidak">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="row d-flex flex-row mb-3" style="margin-top: 25px; visibility: hidden;" id="uploadProposal">
+                        <div>
+                            <p>*Unggah dalam format .pdf</p>
+                            <input id="uploadPDF" type="file" accept="application/pdf" name="myPDF" value="" />
+                            <br />
+                            <input id="preview" type="button" class="btn btn-primary rounded-2 border-0 py-2 px-3 mt-3" value="Preview" onclick="PreviewImage();" />
+                        </div>
+                    </div>
                     <div class="row text-center">
                         <div>
                             <button type="submit" class="btn btn-primary btn-lg rounded-5 border-0 py-2 px-4 mt-4">Tambah</button>
                         </div>
                     </div>
-                </form>
+                    <input type="hidden" name="id_user" value="<?= session()->get('id_user'); ?>">
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#uploadProposal').css('visibility', 'hidden');
+    });
+
+    $(document).ready(function() {
+        $('#pakaiProposal').change(function() {
+            if ($('#pakaiProposal').find(":selected").val() == "ya") {
+                $('#uploadProposal').css('visibility', 'visible');
+            } else {
+                $('#uploadProposal').css('visibility', 'hidden');
+            }
+        });
+    });
+</script>
 
 <?php
 include(APPPATH . 'Views/temp/footer.php');
