@@ -47,9 +47,6 @@ class Kegiatan extends Migration
             'tanggal_kegiatan' => [
                 'type'       => 'DATE',
             ],
-            'jam_kegiatan' => [
-                'type' => 'TIME',
-            ],
             'tahun_ajaran_kegiatan' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -80,10 +77,6 @@ class Kegiatan extends Migration
             'jam_akhir' => [
                 'type' => 'time'
             ],
-            'penyelenggara' => [
-                'type' => 'varchar',
-                'constraint' => 255
-            ]
         ]);
         $this->forge->addPrimaryKey('id_kegiatan', true);
         $this->forge->addForeignKey('id_ormawa', 'ormawa', 'id_ormawa');

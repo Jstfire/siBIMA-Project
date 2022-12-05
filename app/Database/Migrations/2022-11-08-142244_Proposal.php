@@ -25,35 +25,12 @@ class Proposal extends Migration
                     'constraint' => 10,
                     'null' => true,
                 ],
-                'id_lpj' => [
-                    'type' => 'INT',
-                    'constraint' => 10,
-                    'null' => true,
-                ],
-                'id_ukm' => [
-                    'type'           => 'VARCHAR',
-                    'constraint'     => 10,
-                    'null' => true,
-                ],
-                'id_ormawa' => [
-                    'type'           => 'VARCHAR',
-                    'constraint'     => 10,
-                    'null' => true,
-                ],
-                'id_bidang_divisi' => [
-                    'type'           => 'VARCHAR',
-                    'constraint'     => 10,
-                    'null' => true,
-                ],
                 'link_proposal' => [
                     'type' => 'VARCHAR',
                     'constraint' => 255,
+                    'null' => true,
                 ],
                 'nama_proposal' => [
-                    'type' => 'VARCHAR',
-                    'constraint' => 255,
-                ],
-                'nama_kegiatan' => [
                     'type' => 'VARCHAR',
                     'constraint' => 255,
                 ],
@@ -74,19 +51,11 @@ class Proposal extends Migration
                     'default' => 2,
                     'null' => true,
                 ],
-                'status' => [
-                    'type' => 'varchar',
-                    'constraint' => 255,
-                ],
             ]
         );
         $this->forge->addPrimaryKey('id_proposal');
-        $this->forge->addForeignKey('id_ormawa', 'ormawa', 'id_ormawa');
-        $this->forge->addForeignKey('id_ukm', 'ukm', 'id_ukm');
         $this->forge->addForeignKey('id_user', 'users', 'id_user');
-        $this->forge->addForeignKey('id_bidang_divisi', 'bidang_divisi', 'id_bidang_divisi');
         $this->forge->addForeignKey('id_kegiatan', 'kegiatan', 'id_kegiatan', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_lpj', 'lpj', 'id_lpj', 'CASCADE', 'CASCADE');
         $this->forge->createTable('proposal');
     }
 
