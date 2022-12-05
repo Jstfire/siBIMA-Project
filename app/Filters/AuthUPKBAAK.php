@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class AuthUPK implements FilterInterface
+class AuthUPKBAAK implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -25,9 +25,9 @@ class AuthUPK implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('role') !== "UPK") {
+        if (session()->get('role') !== "UPK" && session()->get('role') !== "BAAK") {
             echo "<script>
-                alert('Restricted Access. Login pakai akun UPK ya:)');
+                alert('Restricted Access. Login pakai akun UPK atau BAAK ya:)');
                 window.location.href='/';
             </script>";
         }

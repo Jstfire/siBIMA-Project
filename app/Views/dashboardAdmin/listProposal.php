@@ -33,30 +33,17 @@
                         <th scope="row"><?= $prop['id_proposal'] ?></th>
                         <td><?= $prop['nama_kegiatan'] ?></td>
                         <td><?= $prop['nama_organisasi'] ?></td>
-                        <td><?= $prop['nama_proposal'] ?></td>
+                        <td><a href="<?= base_url(); ?>/proposal/download/<?= $prop['id_proposal']; ?>"><?= $prop['nama_proposal']; ?></a></td>
                         <td><?= $prop['app_upk'] ?></td>
                         <td><?= $prop['app_baak'] ?></td>
                         <td><?= $prop['app_wadir'] ?></td>
                         <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $prop['id_proposal'] ?>">
-                            <i class="fa-solid fa-file-arrow-down"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            Detail <i class="fa-solid fa-angle-right"></i>
-                        </button>
+                            <a href="<?=base_url()?>/proposal/detail/<?= $prop['id_proposal'] ?>" type="button" class="btn btn-primary">
+                                Detail <i class="fa-solid fa-angle-right"></i>
+                            </a>
                         </td>
                     </tr>
-                    <?php endforeach ?> 
-                <?php else :?>
-                    <tr>
-                        <th scope="row">Tidak Ada Proposal yang Masuk</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php endforeach ?>
                 <?php endif?>
             </tbody>
         </table>

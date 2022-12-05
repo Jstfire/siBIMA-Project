@@ -17,7 +17,7 @@
             <hr class="hr m-auto mb-2 w-25">
             <div class="row mt-3 p-0">
                 <div class="col-sm-5 mb-0 text-center p-0">
-                    <img src="<?= base_url();?>/assets/img/<?=$ukm['id_ukm']?>.png" width="400" height="400">
+                    <img src="<?= base_url();?>/assets/img/<?=$ukm['id_ukm']?>.png" width="400">
                 </div>
                 <div class="col my-5 py-4 ps-0 pe-5">
                     <p class="display-4 fw-bold mb-0"><?=$ukm['nama_ukm']?></p>
