@@ -16,30 +16,33 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">id</th>
+                    <th scope="col">Kegiatan</th>
+                    <th scope="col">Organisasi</th>
+                    <th scope="col">LPJ</th>
+                    <th scope="col">Detail</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            <?php if (isset($lpj)) :?>
+                <?php foreach ($lpj as $elpeje) :?>
+                    <tr>
+                        <th scope="row"><?= $elpeje['id_lpj'] ?></th>
+                        <td><?= $elpeje['nama_kegiatan'] ?></td>
+                        <td><?= $elpeje['nama_organisasi'] ?></td>
+                        <?php if (isset($elpeje['url_file'])) :?>
+                        <td><a href="<?= base_url(); ?>/lpj/download/<?= $elpeje['id_lpj']; ?>"><?= $elpeje['url_file']; ?></a></td>
+                        <?php else :?>
+                            <td>Belum Ada</td>
+                        <?php endif?>
+                        <td>
+                            <a href="<?=base_url()?>/kegiatan/detail/<?= $elpeje['id_kegiatan'] ?>" class="btn btn-primary">
+                                Detail <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
+                <?php endif?>
             </tbody>
         </table>
     </div>

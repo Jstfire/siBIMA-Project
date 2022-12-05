@@ -86,6 +86,9 @@ $routes->get('kegiatan/edit/(:segment)','Kegiatan::edit/$1', ['filter' => 'authG
 $routes->post('kegiatan/edit_act/(:segment)','Kegiatan::edit_act/$1', ['filter' => 'authGuard']);
 $routes->get('kegiatan/delete/(:segment)','Kegiatan::delete/$1', ['filter' => 'authGuard']);
 
+//lpj
+$routes->get('lpj/download/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
