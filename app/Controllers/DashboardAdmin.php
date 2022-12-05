@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\Kegiatan;
+use App\Models\LPJModel;
 use App\Models\Proposal;
 use App\Models\User;
 
@@ -240,34 +242,6 @@ class DashboardAdmin extends BaseController
 
             $namaKegiatan = $proposal->getKegiatan($prop['id_kegiatan']);
             $data['proposal'][$i]['nama_kegiatan'] = $namaKegiatan;
-
-            if ($data['proposal'][$i]['acc_upk']== 0) {
-                $data['proposal'][$i]['app_upk'] = "Menolak";
-            } else if ($data['proposal'][$i]['acc_upk']== 1) {
-                $data['proposal'][$i]['app_upk'] = "Sudah Menyetujui";
-            } else {
-                $data['proposal'][$i]['app_upk'] = "Belum Menyetujui";
-            }
-
-            if ($data['proposal'][$i]['acc_baak']== 0) {
-                $data['proposal'][$i]['app_baak'] = "Menolak";
-            } else if ($data['proposal'][$i]['acc_baak']== 1) {
-                $data['proposal'][$i]['app_baak'] = "Sudah Menyetujui";
-            } else {
-                $data['proposal'][$i]['app_baak'] = "Belum Menyetujui";
-            }
-
-            if ($data['proposal'][$i]['untuk_wadir']== 0) {
-                $data['proposal'][$i]['app_wadir'] = "Tidak Perlu Persetujuan";
-            } else if ($data['proposal'][$i]['untuk_wadir']== 1) {
-                if ($data['proposal'][$i]['acc_wadir']== 0) {
-                    $data['proposal'][$i]['app_wadir'] = "Menolak";
-                } else if ($data['proposal'][$i]['acc_wadir']== 1) {
-                    $data['proposal'][$i]['app_wadir'] = "Sudah Menyetujui";
-                } else {
-                    $data['proposal'][$i]['app_wadir'] = "Belum Menyetujui";
-                }
-            }
             
             $i++;
         }
@@ -276,6 +250,32 @@ class DashboardAdmin extends BaseController
 
     public function listLPJ()
     {
-        return view('dashboardAdmin/listLPJ');
+        $lpj = new LPJModel();
+        $data['lpj'] = $lpj->orderBy('id_lpj', 'DESC')->findAll();
+        $i = 0;
+        foreach ($data['lpj'] as $elpeje) {
+            $activity = new Kegiatan();
+            $act = $activity->find($elpeje['id_kegiatan']);
+            if (isset($act['id_ormawa'])) {
+                $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            } else if (isset($act['id_ukm']))  {
+                $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            } else if (isset($act['id_bidang_divisi']))  {
+                $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $namaKegiatan = $act['nama_kegiatan'];
+            $data['lpj'][$i]['nama_kegiatan'] = $namaKegiatan;
+            
+            $i++;
+        }
+        // dd($data);
+        // if (!isset($data['lpj'][0]['url_file'])) {
+        //     dd($data);
+        // }
+        return view('dashboardAdmin/listLPJ', $data);
     }
 }

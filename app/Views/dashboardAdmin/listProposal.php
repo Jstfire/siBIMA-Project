@@ -34,11 +34,46 @@
                         <td><?= $prop['nama_kegiatan'] ?></td>
                         <td><?= $prop['nama_organisasi'] ?></td>
                         <td><a href="<?= base_url(); ?>/proposal/download/<?= $prop['id_proposal']; ?>"><?= $prop['nama_proposal']; ?></a></td>
-                        <td><?= $prop['app_upk'] ?></td>
-                        <td><?= $prop['app_baak'] ?></td>
-                        <td><?= $prop['app_wadir'] ?></td>
                         <td>
-                            <a href="<?=base_url()?>/proposal/detail/<?= $prop['id_proposal'] ?>" type="button" class="btn btn-primary">
+                            <?php
+                            if ($prop['acc_upk'] == 1) {
+                                echo '<button type="button" class="btn btn-success">Diterima</button>';
+                            } else if ($prop['acc_upk'] == 0) {
+                                echo '<button type="button" class="btn btn-danger">Ditolak</button>';
+                            } else {
+                                echo '<button type="button" class="btn btn-warning">Menunggu</button>';
+                            }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                if ($prop['acc_baak'] == 1) {
+                                    echo '<button type="button" class="btn btn-success">Diterima</button>';
+                                } else if ($prop['acc_baak'] == 0) {
+                                    echo '<button type="button" class="btn btn-danger">Ditolak</button>';
+                                } else {
+                                    echo '<button type="button" class="btn btn-warning">Menunggu</button>';
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                if ($prop['untuk_wadir'] == 1) {
+                                    if ($prop['acc_wadir'] == 1) {
+                                        echo '<button type="button" class="btn btn-success">Diterima</button>';
+                                    } else if ($prop['acc_wadir'] == 0) {
+                                        echo '<button type="button" class="btn btn-danger">Ditolak</button>';
+                                    } else {
+                                        echo '<button type="button" class="btn btn-warning">Menunggu</button>';
+                                    }
+                                } else {
+                                    echo '<button type="button" class="btn btn-secondary" disabled>Tidak Perlu</button>';
+                                }
+                                
+                            ?>
+                        </td>
+                        <td>
+                            <a href="<?=base_url()?>/proposal/detail/<?= $prop['id_proposal'] ?>" class="btn btn-primary">
                                 Detail <i class="fa-solid fa-angle-right"></i>
                             </a>
                         </td>

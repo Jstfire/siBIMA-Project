@@ -41,22 +41,23 @@ include(APPPATH . 'Views/temp/head.php');
                         <td>
                             <?php
                                 $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
-                                $timeNow =date("H:i");
-                                dd($timeNow);
+                                $timeNow =date("H:i:s");
+                                // dd($k['jam_mulai']);
+                                
                                 $tanggal_kegiatan = $k['tanggal_kegiatan'];
                                 // dd($tanggal_kegiatan);
                                 if($tanggal_kegiatan > $now){
-                                    echo 'Belum Mulai';
+                                    echo '<button type="button" class="btn btn-primary">Belum Dimulai</button>';
                                 } else if(strcmp($tanggal_kegiatan, $now) == 0){
-                                    if ($k['jam_mulai']) {
-                                        # code...
-                                    } else {
-                                        # code...
+                                    if ($timeNow > $k['jam_mulai'] && $timeNow < $k['jam_akhir']) {
+                                        echo '<button type="button" class="btn btn-success">Sedang Berjalani</button>';
+                                    } else if ($timeNow < $k['jam_mulai']) {
+                                        echo '<button type="button" class="btn btn-primary">Belum Dimulai</button>';
+                                    } else if ($timeNow > $k['jam_akhir']) {
+                                        echo '<button type="button" class="btn btn-secondary" disabled>Selesai</button>';
                                     }
-                                    
-                                    echo 'Sedang Berjalan';
                                 } else{
-                                    echo 'Selesai';
+                                    echo '<button type="button" class="btn btn-secondary" disabled>Selesai</button>';
                                 }
                             ?>
                         </td>
