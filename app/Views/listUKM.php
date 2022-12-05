@@ -19,7 +19,7 @@
                 <div class="col">
                     <div class="card-organisasi card h-100 p-3 shadow-lg">
                         <div class="container mb-1">
-                            <img src="<?= base_url();?>/assets/img/<?=$ukm['id_ukm']?>.png" class="logo-organisasi" alt="Logo <?=$ukm['nama_ukm']?>">
+                            <img src="<?= base_url();?>/assets/img/<?=$ukm['id_ukm']?>.png" class="logo-organisasi" alt="Logo <?=$ukm['nama_ukm']?>" style="height: 130px;">
                         </div>
                         <div class="card-body">
                             <h6 class="card-title fw-bold mb-4 h-0"><?=$ukm['nama_ukm']?></h5>
