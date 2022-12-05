@@ -20,11 +20,6 @@ class Proposal extends Migration
                     'constraint' => 10,
                     'null' => true,
                 ],
-                'id_kegiatan' => [
-                    'type' => 'INT',
-                    'constraint' => 10,
-                    'null' => true,
-                ],
                 'link_proposal' => [
                     'type' => 'VARCHAR',
                     'constraint' => 255,
