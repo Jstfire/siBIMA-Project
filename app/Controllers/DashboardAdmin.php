@@ -242,22 +242,30 @@ class DashboardAdmin extends BaseController
             $data['proposal'][$i]['nama_kegiatan'] = $namaKegiatan;
 
             if ($data['proposal'][$i]['acc_upk']== 0) {
-                $data['proposal'][$i]['app_upk'] = "Belum Menyetujui";
+                $data['proposal'][$i]['app_upk'] = "Menolak";
             } else if ($data['proposal'][$i]['acc_upk']== 1) {
                 $data['proposal'][$i]['app_upk'] = "Sudah Menyetujui";
+            } else {
+                $data['proposal'][$i]['app_upk'] = "Belum Menyetujui";
             }
+
             if ($data['proposal'][$i]['acc_baak']== 0) {
-                $data['proposal'][$i]['app_baak'] = "Belum Menyetujui";
+                $data['proposal'][$i]['app_baak'] = "Menolak";
             } else if ($data['proposal'][$i]['acc_baak']== 1) {
                 $data['proposal'][$i]['app_baak'] = "Sudah Menyetujui";
+            } else {
+                $data['proposal'][$i]['app_baak'] = "Belum Menyetujui";
             }
+
             if ($data['proposal'][$i]['untuk_wadir']== 0) {
                 $data['proposal'][$i]['app_wadir'] = "Tidak Perlu Persetujuan";
             } else if ($data['proposal'][$i]['untuk_wadir']== 1) {
                 if ($data['proposal'][$i]['acc_wadir']== 0) {
-                    $data['proposal'][$i]['app_wadir'] = "Belum Menyetujui";
+                    $data['proposal'][$i]['app_wadir'] = "Menolak";
                 } else if ($data['proposal'][$i]['acc_wadir']== 1) {
                     $data['proposal'][$i]['app_wadir'] = "Sudah Menyetujui";
+                } else {
+                    $data['proposal'][$i]['app_wadir'] = "Belum Menyetujui";
                 }
             }
             

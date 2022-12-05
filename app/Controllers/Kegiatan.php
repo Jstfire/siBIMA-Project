@@ -83,7 +83,7 @@ class Kegiatan extends BaseController
         }
         else
         {
-            return view('dashboardUPK/detail-kegiatan', $data);
+            return view('dashboardUPKBAAK/detail-kegiatan', $data);
         }
     }
 
