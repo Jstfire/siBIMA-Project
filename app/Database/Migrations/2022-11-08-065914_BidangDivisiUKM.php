@@ -34,7 +34,7 @@ class BidangDivisiUKM extends Migration
                 'constraint' => '255',
                 'default' => null,
             ],
-            'desc_ormawa' => [
+            'desc_bidang_divisi' => [
                 'type' => 'TEXT',
                 'default' => null,
             ],

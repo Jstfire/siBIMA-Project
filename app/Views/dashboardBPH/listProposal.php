@@ -17,7 +17,6 @@ include(APPPATH . 'Views/temp/head.php');
     <div class="container-fluid mt-5 pt-3 mx-0 px-0">
         <h1 class="m-0">List Proposal</h1>
         <hr class="m-0 mb-3">
-        <a href="<?= base_url(); ?>/pengajuan_proposal" class="btn btn-primary mt-3 mb-3">Tambah Proposal Kegiatan</a>
         <table id="tableProposal" class="table table-striped table-hover">
             <thead>
                 <tr>
