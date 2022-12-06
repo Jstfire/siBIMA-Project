@@ -42,6 +42,7 @@ include(APPPATH . 'Views/temp/head.php');
             </tbody>
         </table>
         <form action="<?= base_url(); ?>/DashboardBPH/add_anggota" enctype="multipart/form-data" class="mt-5" method="post">
+            <hr>
             <div>
                 <label for="" class="h5">Import Daftar anggota</label>
                 <br>
@@ -50,6 +51,7 @@ include(APPPATH . 'Views/temp/head.php');
             <div>
                 <button type="submit" name="kirim" class="btn btn-primary btn-lg rounded-5 border-0 py-2 px-4 mt-4">Kirim</button>
             </div>
+            <hr>
         </form>
     </div>
 

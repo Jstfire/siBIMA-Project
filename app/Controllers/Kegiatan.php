@@ -100,9 +100,14 @@ class Kegiatan extends BaseController
         $arrProp = $this->proposal->where('id_user', $data['id_user'])->findAll();
         $arrLPJ = $this->lpjModel->where('id_user', $data['id_user'])->findAll();
         // dd(end($arrProp)['id_proposal']);
-        $idProp = end($arrProp)['id_proposal'];
-        $idLPJ = end($arrLPJ)['id_lpj'];
-        $data['id_proposal'] = $idProp;
+        $idProp = null;
+        $idLPJ = null;
+        $data['id_proposal'] = null;
+        if(isset(end($arrProp)['id_proposal'])){
+            $idProp = end($arrProp)['id_proposal'];
+            $idLPJ = end($arrLPJ)['id_lpj'];
+            $data['id_proposal'] = $idProp;
+        }
         $this->kegiatan->insert($insert = [
             'id_user' => session()->get('id_user'),
             'id_ukm' => $data['id_ukm'],
