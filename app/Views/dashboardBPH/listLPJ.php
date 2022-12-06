@@ -44,12 +44,12 @@
                             <td>Belum Ada</td>
                         <?php endif?>
                         <td>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalUploadLPJ<?= $elpeje['id_lpj']; ?>">
+                                Upload
+                            </button>
                             <a href="<?=base_url()?>/kegiatan/detail/<?= $elpeje['id_kegiatan'] ?>" class="btn btn-primary">
                                 Detail <i class="fa-solid fa-angle-right"></i>
                             </a>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalUploadLPJ<?= $elpeje['id_lpj']; ?>">
-                                Upload
-                            </button>
                         </td>
                     </tr>
 

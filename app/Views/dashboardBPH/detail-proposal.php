@@ -99,7 +99,7 @@ include(APPPATH . 'Views/temp/nav.php');
                     <label class="fw-bold">Penanggung Jawab Kegiatan</label>
                     <input type="text" name="penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $proposal['penanggung_jawab_kegiatan']; ?>" readonly>
                 </div>
-                <div class="form-outline mt-4">
+                <div class="form-outline mt-4 text-center">
                     <a href="<?= base_url(); ?>/proposal/download/<?= $proposal['id_proposal']; ?>" class="btn btn-primary form-control" style="width: 50%;">Download Proposal</a>
                 </div>
             </div>
