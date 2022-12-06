@@ -14,19 +14,17 @@ class Home extends BaseController
         // dd($data['act'][0]);
         $i = 0;
         foreach ($data['act'] as $act) {
-            if (isset($act['id_ormawa'])) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['act'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+                    $data['act'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
                 $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
                 $data['act'][$i]['nama_organisasi'] = $namaOrganisasi;
-                // array_push($data['act'][$i], $namaOrganisasi);
-            } else if (isset($act['id_ukm']))  {
-                $namaOrganisasi = $activity->getUKM($act['id_ukm']);
-                $data['act'][$i]['nama_organisasi'] = $namaOrganisasi;
-                // array_push($data['act'][$i], $namaOrganisasi);
-            } else if (isset($act['id_bidang_divisi']))  {
-                $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
-                $data['act'][$i]['nama_organisasi'] = $namaOrganisasi;
-                // array_push($data['act'][$i], $namaOrganisasi);
-            
             }
 
             $i++;
@@ -34,14 +32,15 @@ class Home extends BaseController
 
         $i = 0;
         foreach ($data['act'] as $act) {
-            $showAct = $activity->getActivityDone($act['tanggal_kegiatan'], $act['jam_mulai'], $act['jam_akhir']);
-            // dd($showAct);
-            if ($showAct == "done") {
-                array_splice($data['act'], $i);
+            $showAct[$i] = $activity->getActivityDone($act['tanggal_kegiatan'], $act['jam_mulai'], $act['jam_akhir']);
+            if ($showAct[$i] == "done") {
+                // array_splice($data['act'], 0, 1);
+                unset($data['act'][$i]);
             }
-
+            
             $i++;
         }
+        // dd($showAct);
         // dd($namaOrganisasi);
         // dd($data['act']);
 

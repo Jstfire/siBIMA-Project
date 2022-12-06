@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use CodeIgniter\I18n\Time;
 
 class Kegiatan extends Model
 {
@@ -63,13 +64,25 @@ class Kegiatan extends Model
     }
     public function getActivityDone($day, $start, $finish)
     {
-        $today = date("Y-m-d");
-        if ($today > $day) {
+        $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
+        $timeNow =date("H:i:s");
+        
+        $tanggal_kegiatan = $day;
+        // dd($tanggal_kegiatan);
+        if($tanggal_kegiatan > $now){
+            $descDone = "notyet";
+        } else if(strcmp($tanggal_kegiatan, $now) == 0){
+            if ($timeNow > $start && $timeNow < $finish) {
+                $descDone = "running";
+            } else if ($timeNow < $start) {
+                $descDone = "notyet";
+            } else if ($timeNow > $finish) {
+                $descDone = "done";
+            }
+        } else{
             $descDone = "done";
-        } else {
-            $descDone = "unfinished";
         }
+
         return $descDone;
-        // dd($descDone);
     }
 }

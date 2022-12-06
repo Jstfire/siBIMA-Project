@@ -62,7 +62,6 @@ class Kegiatan extends BaseController
     {
         $data = $this->request->getPost();
         $data['tanggal_kegiatan'] = Time::parse($data['tanggal_kegiatan'])->toDateTimeString();
-        $data['tahun_ajaran_kegiatan'] = '2022/2023';
         $data['bulan_kegiatan'] = explode("-", $data['tanggal_kegiatan'])[1];
         $data['id_ormawa'] = $this->user['id_ormawa'];
         $data['jam_kegiatan'] = $data['jam_mulai'] . " " . $data["jam_akhir"];
@@ -117,6 +116,7 @@ class Kegiatan extends BaseController
             'id_lpj' => $idLPJ,
             'id_user' => $data['id_user'],
             'tanggal_kegiatan' => $data['tanggal_kegiatan'],
+            'tahun_ajaran_kegiatan' => $data['tahun_ajaran_kegiatan'] ,
             'bulan_kegiatan' => $data['bulan_kegiatan'],
             'tempat_kegiatan' => $data['tempat_kegiatan'],
             'penanggung_jawab_kegiatan' => $data['penanggung_jawab_kegiatan'],
@@ -154,7 +154,6 @@ class Kegiatan extends BaseController
     {
         $data = $this->request->getPost();
         $data['tanggal_kegiatan'] = Time::parse($data['tanggal_kegiatan'])->toDateTimeString();
-        $data['tahun_ajaran_kegiatan'] = '2022/2023';
         $data['bulan_kegiatan'] = explode("-", $data['tanggal_kegiatan'])[1];
         $data['id_ormawa'] = $this->user['id_ormawa'];
         $data['jam_kegiatan'] = $data['jam_mulai'] . " " . $data["jam_akhir"];

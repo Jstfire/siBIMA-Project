@@ -90,14 +90,16 @@ class DashboardBPH extends BaseController
         foreach ($data['lpj'] as $elpeje) {
             $activity = new Kegiatan();
             $act = $activity->find($elpeje['id_lpj']);
-            if (isset($act['id_ormawa'])) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+                    $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
                 $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
-                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($act['id_ukm']))  {
-                $namaOrganisasi = $activity->getUKM($act['id_ukm']);
-                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($act['id_bidang_divisi']))  {
-                $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
                 $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
             }
 

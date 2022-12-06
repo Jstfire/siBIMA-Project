@@ -34,14 +34,16 @@ class DashboardUPKBAAK extends BaseController
         foreach ($data['proposal'] as $prop) {
             $activity = new Kegiatan();
             $act = $activity->find($prop['id_proposal']);
-            if (isset($act['id_ormawa'])) {
-                $namaOrganisasi = $proposal->getOrmawa($act['id_ormawa']);
-                $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($act['id_ukm']))  {
-                $namaOrganisasi = $proposal->getUKM($act['id_ukm']);
-                $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($act['id_bidang_divisi']))  {
-                $namaOrganisasi = $proposal->getBidangDivisi($act['id_bidang_divisi']);
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+                    $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
             }
 
@@ -62,14 +64,17 @@ class DashboardUPKBAAK extends BaseController
         foreach ($data['lpj'] as $elpeje) {
             $activity = new Kegiatan();
             $act = $activity->find($elpeje['id_lpj']);
-            if (isset($act['id_ormawa'])) {
+
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+                    $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
                 $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
-                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($act['id_ukm']))  {
-                $namaOrganisasi = $activity->getUKM($act['id_ukm']);
-                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($act['id_bidang_divisi']))  {
-                $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
                 $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
             }
 
