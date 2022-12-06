@@ -10,9 +10,13 @@ use App\Models\User;
 
 class DashboardAdmin extends BaseController
 {
-    public function index()
+    public function progresKegiatan()
     {
-        return view('dashboardAdmin/progresKegiatan');
+        $activity = new Kegiatan();
+        $data = [
+            'kegiatan' => $activity ->findAll(),
+        ];
+        return view('dashboardAdmin/progresKegiatan', $data);
     }
 
     public function listAkun()

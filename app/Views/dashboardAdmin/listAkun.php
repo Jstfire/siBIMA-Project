@@ -95,10 +95,9 @@
                         <div class="input-group-sm mb-1">
                             <label for="role" class="form-label">Role</label>
                             <select name="role" id="role<?= $user['id_user'] ?>" class="form-select">
-                                <option>--Pilih Role--</option>
                                 <option value="Admin">Admin</option>
-                                <option value="Direktur">Direktur</option>
-                                <option value="Wakil Direktur 3">Wakil Direktur 3</option>
+                                <option value="Direktur">direktur</option>
+                                <option value="Wakil Direktur 3">wadir</option>
                                 <option value="UPK">UPK</option>
                                 <option value="BAAK">BAAK</option>
                                 <option value="BPH">BPH</option>

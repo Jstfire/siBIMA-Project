@@ -48,9 +48,9 @@ $routes->get('/Login', 'Login::index', ['filter' => 'authLogin']);
 $routes->get('/Logout', 'Logout::index');
 $routes->match(['get', 'post'], '/Login/LoginAuth', 'Login::loginAuth');
 
-$routes->get('/DashboardAdmin', 'DashboardAdmin::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin/ProgresKegiatan', 'DashboardAdmin::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'], '/DashboardAdmin/ListAkun', 'DashboardAdmin::listAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
-$routes->get('/DashboardAdmin/TambahAkun', 'DashboardAdmin::tambahAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin', 'DashboardAdmin::tambahAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'],'/DashboardAdmin/TambahAkunPost', 'DashboardAdmin::tambahAkunPost', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'],'/DashboardAdmin/UpdateAkun', 'DashboardAdmin::updateAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'],'/DashboardAdmin/DeleteAkun', 'DashboardAdmin::deleteAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);

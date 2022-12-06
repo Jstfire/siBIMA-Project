@@ -134,6 +134,19 @@ class Kegiatan extends BaseController
 
     function detail($id){
         $data['kegiatan'] = $this->kegiatan->where('id_kegiatan', $id)->first();
+        if (isset($data['kegiatan']['id_ukm']))  {
+            if (isset($data['kegiatan']['id_bidang_divisi']))  {
+                $namaOrganisasi = $this->kegiatan->getBidangDivisi($data['kegiatan']['id_bidang_divisi']);
+                $data['kegiatan']['penyelenggara'] = $namaOrganisasi;
+            } else {
+                $namaOrganisasi = $this->kegiatan->getUKM($data['kegiatan']['id_ukm']);
+                $data['kegiatan']['penyelenggara'] = $namaOrganisasi;
+            }
+        } else {
+            $namaOrganisasi = $this->kegiatan->getOrmawa($data['kegiatan']['id_ormawa']);
+            $data['kegiatan']['penyelenggara'] = $namaOrganisasi;
+        }
+        // dd($data['kegiatan']);
         
         if (session()->get('role') == "BPH")
         {

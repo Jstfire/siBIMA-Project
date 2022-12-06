@@ -17,7 +17,7 @@
                 <?= $validation->listErrors() ?>
             </div>
         <?php endif;?>
-        <form class="mt-3 mx-3" action="<?= base_url(); ?>/DashboardAdmin/TambahAkunPost" method="post">
+        <form id="formTambahAkun" class="mt-3 mx-3" action="<?= base_url(); ?>/DashboardAdmin/TambahAkunPost" method="post">
             <div class="input-group-sm mb-1">
                 <label for="username" class="form-label">Username</label>
                 <input name="username" type="text" class="form-control" id="username">
@@ -33,10 +33,10 @@
             <div class="input-group-sm mb-1">
                 <label for="role" class="form-label">Role</label>
                 <select name="role" id="role" class="form-select">
-                <option>--Pilih Role--</option>
+                <option value="0">--Pilih Role--</option>
                 <option>Admin</option>
-                <option>Direktur</option>
-                <option>Wakil Direktur 3</option>
+                <option>direktur</option>
+                <option>wadir</option>
                 <option>UPK</option>
                 <option>BAAK</option>
                 <option>BPH</option>
@@ -50,7 +50,19 @@
         </form>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
     <script src="<?= base_url();?>/assets/js/sidebar.js"></script>
+    <script>
+        $('#formTambahAkun').submit(function(e) {
+            e.preventDefault(); // Stop your form from submitting.
+            if ('0' === $('#role').val()) {
+                swal("Peringatan!", "Silahkan pilih role akun!", "warning");
+            } else {
+                this.submit();
+            }
+        });
+    </script>
 <?php
     include(APPPATH.'Views/temp/footer.php');
 ?>
