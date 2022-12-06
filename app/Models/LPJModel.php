@@ -14,7 +14,7 @@ class LPJModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_lpj', 'id_kegiatan', 'id_user', 'url_file'];
+    protected $allowedFields    = ['id_lpj', 'id_user', 'url_file'];
 
     // Dates
     protected $useTimestamps = false;

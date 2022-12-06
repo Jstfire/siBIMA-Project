@@ -18,7 +18,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Rohani Islam',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD002',
@@ -27,7 +27,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Rohani Kristen',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD003',
@@ -36,7 +36,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Rohani Hindu',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             //Kesenian
             [
@@ -46,7 +46,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Excelsior',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD005',
@@ -55,7 +55,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Teater Antik',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD006',
@@ -64,7 +64,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Paradise',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD007',
@@ -73,7 +73,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Xbar',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             //UKM Wirus
             [
@@ -83,7 +83,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Kewirausahaan',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             //UKM MK
             [
@@ -93,7 +93,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Media Kampus',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             //UKM Olahraga
             [
@@ -103,7 +103,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Esport',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0011',
@@ -112,7 +112,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Senam',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0012',
@@ -121,7 +121,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Futsal',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0013',
@@ -130,7 +130,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Bulstik',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0014',
@@ -139,7 +139,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Silat',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0015',
@@ -148,7 +148,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Basket',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0016',
@@ -157,7 +157,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Catur',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0017',
@@ -166,7 +166,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Voli',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0018',
@@ -175,7 +175,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Tenis Meja',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0019',
@@ -184,7 +184,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Bridge',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0020',
@@ -193,7 +193,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Tenis Lapangan',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0021',
@@ -202,7 +202,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'DIvisi Billiard',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             //Udikbud
             [
@@ -212,7 +212,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Komnet',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0023',
@@ -221,7 +221,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Bimbel',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0024',
@@ -230,7 +230,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Forkas',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0025',
@@ -239,7 +239,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi SES',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0026',
@@ -248,7 +248,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Divisi Nihongobu',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             //PMKL
             [
@@ -258,7 +258,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang KSR',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
             [
                 'id_bidang_divisi' => 'BD0028',
@@ -267,7 +267,7 @@ class BidangDivisi extends Seeder
                 'id_ormawa' => 'OM002',
                 'nama_bidang_divisi' => 'Bidang Cheby',
                 'kontak_bidang_divisi' => '',
-                'desc_ormawa' => '',
+                'desc_bidang_divisi' => '',
             ],
         ];
 

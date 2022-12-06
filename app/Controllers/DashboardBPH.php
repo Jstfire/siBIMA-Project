@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Kegiatan;
+use App\Models\LPJModel;
 use App\Models\Proposal;
 use App\Models\User;
 
@@ -74,5 +75,35 @@ class DashboardBPH extends BaseController
         ];
         // dd($data);
         return view('dashboardBPH/listProposal', $data);
+    }
+
+    public function listLPJ()
+    {
+        $lpj = new LPJModel();
+        $data['lpj'] = $lpj->where('id_user', session()->get('id_user'))->orderBy('id_lpj', 'DESC')->findAll();
+        // dd($data['lpj']);
+        $i = 0;
+        foreach ($data['lpj'] as $elpeje) {
+            $activity = new Kegiatan();
+            $act = $activity->find($elpeje['id_lpj']);
+            if (isset($act['id_ormawa'])) {
+                $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            } else if (isset($act['id_ukm']))  {
+                $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            } else if (isset($act['id_bidang_divisi']))  {
+                $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
+                $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $namaKegiatan = $act['nama_kegiatan'];
+            $idKegiatan = $act['id_kegiatan'];
+            $data['lpj'][$i]['nama_kegiatan'] = $namaKegiatan;
+            $data['lpj'][$i]['id_kegiatan'] = $idKegiatan;
+
+            $i++;
+        }
+        return view('dashboardBPH/listLPJ', $data);
     }
 }
