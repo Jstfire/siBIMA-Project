@@ -65,7 +65,7 @@ include(APPPATH . 'Views/temp/nav.php');
 </style>
 
 <div class="container-fluid">
-    <form action="<?php base_url() ?>/kegiatan/add_act" method="post" enctype="multipart/form-data">
+    <form id="formTambahKegiatan" action="<?php base_url() ?>/kegiatan/add_act" method="post" enctype="multipart/form-data">
         <div class="row">
             <p class="fs-1 fw-bold text-center mb-1 mt-5">Tambah Kegiatan</p>
             <hr class="hr m-auto" style="width:430px">
@@ -117,7 +117,7 @@ include(APPPATH . 'Views/temp/nav.php');
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Kegiatan Menggunakan Proposal?</label>
                         <select id="pakaiProposal" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" name="pakaiProposal" required>
-                            <option selected="selected" disabled="disabled">--Pilih Opsi--</option>
+                            <option value="0" selected="selected">--Pilih Opsi--</option>
                             <option value="ya">Ya</option>
                             <option value="tidak">Tidak</option>
                         </select>
@@ -142,6 +142,7 @@ include(APPPATH . 'Views/temp/nav.php');
     </form>
 </div>
 
+<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
 <script>
     $(document).ready(function() {
         $('#uploadProposal').css('visibility', 'hidden');
@@ -155,6 +156,15 @@ include(APPPATH . 'Views/temp/nav.php');
                 $('#uploadProposal').css('visibility', 'hidden');
             }
         });
+    });
+
+    $('#formTambahKegiatan').submit(function(e) {
+        e.preventDefault(); // Stop your form from submitting.
+        if ('0' === $('#pakaiProposal').val()) {
+            swal("Peringatan!", "Silahkan pilih pakai proposal atau tidak!", "warning");
+        } else {
+            this.submit();
+        }
     });
 </script>
 
