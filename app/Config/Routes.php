@@ -39,9 +39,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/ListOrmawa', 'ListOrmawa::index');
 $routes->get('/ListUKM', 'ListUKM::index');
 
-$routes->get('/DetailOrmawa', 'ListOrmawa::detailOrmawa');
-$routes->get('/DetailUKM', 'ListUKM::detailUKM');
-$routes->get('/DetailBidangDivisi', 'ListBidangDivisi::index');
+$routes->get('/DetailOrmawa/(:segment)', 'ListOrmawa::detailOrmawa/$1');
+$routes->get('/DetailUKM/(:segment)', 'ListUKM::detailUKM/$1');
+$routes->get('/DetailBidangDivisi/(:segment)', 'ListBidangDivisi::index/$1');
 $routes->get('/UnggahLPJ', 'UnggahLPJ::index');
 $routes->get('/JadwalKegiatan', 'JadwalKegiatan::index');
 $routes->get('/Login', 'Login::index', ['filter' => 'authLogin']);

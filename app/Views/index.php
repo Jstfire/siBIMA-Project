@@ -71,6 +71,11 @@ use function PHPUnit\Framework\isNull;
             </table>
         </div>
     </div>
+    <div class="container-fluid text-center">
+        <p class="mb-2 fs-5">Keterangan:</p>
+        <button class="btn btn-success">Berlangsung</button>
+        <button class="btn btn-primary">Akan Datang</button>
+    </div>
 <?php
     include('temp/footer.php');
 ?>

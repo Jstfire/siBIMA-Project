@@ -13,13 +13,8 @@ class ListOrmawa extends BaseController
         $data['ormawa'] = $ormawa->orderBy('id_ormawa', 'ASC')->findAll();
         return view('listOrmawa', $data);
     }
-    public function detailOrmawa()
+    public function detailOrmawa($id)
     {
-        if (isset($_GET['ID'])) {
-            $id = $_GET['ID'];
-            // echo $ID;
-        }
-        // dd($id);
         $ormawa = new Ormawa();
         $data['ormawa'] = $ormawa->where('id_ormawa', $id)->first();
         $orm = $data['ormawa'];

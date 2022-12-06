@@ -21,7 +21,7 @@ include('temp/nav.php');
             </div>
             <div class="col my-5 py-4 ps-0 pe-5">
                 <p class="display-4 fw-bold mb-0"><?= $ukm['nama_ukm'] ?></p>
-                <p class="display-10 fw-bold mb-0">Kontak : +<?= $ormawa['kontak_ukm'] ?></p>
+                <p class="display-10 fw-bold mb-0">Kontak : +<?= $ukm['kontak_ukm'] ?></p>
                 <p class="m-0 ms-1 mb-5 ukm-desc"><?= $ukm['desc_ukm'] ?></p>
                 <div class="col d-flex justify-content-end">
                     <a href="#" class="btn btn-primary rounded-5 border-0 fs-5">Lihat Jadwal</a>
@@ -78,7 +78,7 @@ include('temp/nav.php');
                         <h6 class="card-title fw-bold mb-4 h-0"><?= $bd['nama_bidang_divisi'] ?></h5>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-1">
-                        <a href="<?= base_url() . '/DetailBidangDivisi?ID=' . $bd['id_bidang_divisi'] ?>" class="btn btn-primary rounded-5">Lihat Selengkapnya</a>
+                        <a href="<?= base_url() . '/DetailBidangDivisi/' . $bd['id_bidang_divisi'] ?>" class="btn btn-primary rounded-5">Lihat Selengkapnya</a>
                     </div>
                 </div>
             </div>

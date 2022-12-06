@@ -25,7 +25,7 @@
                             <h6 class="card-title fw-bold mb-4 h-0"><?=$orm['nama_ormawa']?></h5>
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-1">
-                            <a href="<?= base_url().'/DetailOrmawa?ID='.$orm['id_ormawa']?>"" class="btn btn-primary rounded-5">Lihat Selengkapnya</a>
+                            <a href="<?= base_url().'/DetailOrmawa/'.$orm['id_ormawa']?>"" class="btn btn-primary rounded-5">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>

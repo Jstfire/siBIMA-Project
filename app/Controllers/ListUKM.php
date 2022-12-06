@@ -15,12 +15,8 @@ class ListUKM extends BaseController
         return view('listUKM', $data);
     }
 
-    public function detailUKM()
+    public function detailUKM($id)
     {
-        if (isset($_GET['ID'])) {
-            $id = $_GET['ID'];
-            // echo $ID;
-        }
         // dd($id);
         $ukm = new UKM();
         $data['ukm'] = $ukm->where('id_ukm', $id)->first();

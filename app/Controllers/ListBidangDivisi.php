@@ -7,12 +7,8 @@ use App\Models\BidangDivisi;
 
 class ListBidangDivisi extends BaseController
 {
-    public function index()
+    public function index($id)
     {
-        if (isset($_GET['ID'])) {
-            $id = $_GET['ID'];
-            // echo $ID;
-        }
         // dd($id);
         $bidangdivisi = new BidangDivisi();
         $data['bidangdivisi'] = $bidangdivisi->where('id_bidang_divisi', $id)->first();
