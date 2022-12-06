@@ -77,7 +77,6 @@ $routes->get('proposal/download/(:segment)', 'PengajuanProposal::download/$1', [
 $routes->get('proposal/detail/(:segment)', 'PengajuanProposal::detail/$1', ['filter' => 'authGuard']);
 $routes->get('proposal/edit/(:segment)', 'PengajuanProposal::edit/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 $routes->post('proposal/edit_act/(:segment)', 'PengajuanProposal::edit_act/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
-$routes->get('proposal/delete/(:segment)', 'PengajuanProposal::delete/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 
 //kegiatan
 $routes->get('kegiatan/add', 'Kegiatan::add', ['filter' =>'authGuard', 'filter' => 'authBPH']);
@@ -89,7 +88,6 @@ $routes->get('kegiatan/delete/(:segment)','Kegiatan::delete/$1', ['filter' =>'au
 
 //lpj
 $routes->get('lpj/download/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
-$routes->get('lpj/upload/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
 
 /*
  * --------------------------------------------------------------------

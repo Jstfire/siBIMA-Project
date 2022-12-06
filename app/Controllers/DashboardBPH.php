@@ -14,10 +14,11 @@ class DashboardBPH extends BaseController
     protected $user;
     protected $user_model;
     protected $proposal;
-
+    protected $lpj;
 
     function __construct()
     {
+        $this->lpj = new LPJModel();
         $this->kegiatan = new Kegiatan();
         $this->user_model = new User();
         $this->proposal = new Proposal();

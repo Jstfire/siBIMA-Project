@@ -171,4 +171,6 @@ class Kegiatan extends BaseController
         session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Menghapus Kegiatan!", "success");</script>');
         return redirect()->to('/DashboardBPH');
     }
+
+    
 }
