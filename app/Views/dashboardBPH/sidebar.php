@@ -86,7 +86,7 @@ $url .= $_SERVER['REQUEST_URI'];
                     }
                     ?>
                     <?php
-                    if ($url == base_url() . '/DashboardBPH/ListLPJ') {
+                    if ($url == base_url() . '/DashboardBPH/anggota') {
                         echo '
                     <a href="' . base_url() . '/DashboardBPH/anggota" class="nav_link active">
                       <i class="fa-solid fa-users"></i>
