@@ -28,6 +28,10 @@ class Mahasiswa extends Migration
                 'constraint'     => 10,
                 'null' => true,
             ],
+            'nim_mahasiswa' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
             'nama_mahasiswa' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
