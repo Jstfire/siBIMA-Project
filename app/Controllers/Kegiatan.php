@@ -100,11 +100,10 @@ class Kegiatan extends BaseController
         $arrLPJ = $this->lpjModel->where('id_user', $data['id_user'])->findAll();
         // dd(end($arrProp)['id_proposal']);
         $idProp = null;
-        $idLPJ = null;
+        $idLPJ = end($arrLPJ)['id_lpj'];
         $data['id_proposal'] = null;
         if(isset(end($arrProp)['id_proposal'])){
             $idProp = end($arrProp)['id_proposal'];
-            $idLPJ = end($arrLPJ)['id_lpj'];
             $data['id_proposal'] = $idProp;
         }
         $this->kegiatan->insert($insert = [
@@ -171,7 +170,13 @@ class Kegiatan extends BaseController
     }
 
     public function delete($id){
+        $act = $this->kegiatan->find($id);
         $this->kegiatan->delete($id);
+        if (isset($act['id_proposal'])) {
+            $this->proposal->delete($act['id_proposal']);
+        }
+        // dd($act);
+        $this->lpjModel->delete($act['id_lpj']);
         session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Menghapus Kegiatan!", "success");</script>');
         return redirect()->to('/DashboardBPH');
     }
