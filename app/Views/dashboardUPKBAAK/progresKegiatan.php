@@ -50,7 +50,7 @@ include(APPPATH . 'Views/temp/head.php');
                                     echo '<button type="button" class="btn btn-primary">Belum Dimulai</button>';
                                 } else if(strcmp($tanggal_kegiatan, $now) == 0){
                                     if ($timeNow > $k['jam_mulai'] && $timeNow < $k['jam_akhir']) {
-                                        echo '<button type="button" class="btn btn-success">Sedang Berjalani</button>';
+                                        echo '<button type="button" class="btn btn-success">Sedang Berjalan</button>';
                                     } else if ($timeNow < $k['jam_mulai']) {
                                         echo '<button type="button" class="btn btn-primary">Belum Dimulai</button>';
                                     } else if ($timeNow > $k['jam_akhir']) {

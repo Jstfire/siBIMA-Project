@@ -65,7 +65,7 @@ class Proposal extends Model
     {
         $builder = $this->db->table('kegiatan');
         $builder->select('nama_kegiatan');
-        $query = $builder->getWhere(['kegiatan.id_kegiatan' => $id]);
+        $query = $builder->getWhere(['kegiatan.id_proposal' => $id]);
         return $query->getFirstRow()->nama_kegiatan;
     }
 }
