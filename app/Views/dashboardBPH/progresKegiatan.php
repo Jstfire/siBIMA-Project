@@ -43,17 +43,26 @@ include(APPPATH . 'Views/temp/head.php');
                         <td><?php echo $k['tempat_kegiatan'] ?></td>
                         <td><?php echo  $k['penanggung_jawab_kegiatan'] ?></td>
                         <td>
-                            <?php
-                            $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
-                            $tanggal_kegiatan = $k['tanggal_kegiatan'];
-                            // dd($tanggal_kegiatan);
-                            if ($tanggal_kegiatan > $now) {
-                                echo 'Belum Mulai';
-                            } else if (strcmp($tanggal_kegiatan, $now) == 0) {
-                                echo 'Sedang Berjalan';
-                            } else {
-                                echo 'Selesai';
-                            }
+                        <?php
+                                $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
+                                $timeNow =date("H:i:s");
+                                // dd($k['jam_mulai']);
+                                
+                                $tanggal_kegiatan = $k['tanggal_kegiatan'];
+                                // dd($tanggal_kegiatan);
+                                if($tanggal_kegiatan > $now){
+                                    echo '<button type="button" class="btn btn-primary">Belum Dimulai</button>';
+                                } else if(strcmp($tanggal_kegiatan, $now) == 0){
+                                    if ($timeNow > $k['jam_mulai'] && $timeNow < $k['jam_akhir']) {
+                                        echo '<button type="button" class="btn btn-success">Sedang Berjalan</button>';
+                                    } else if ($timeNow < $k['jam_mulai']) {
+                                        echo '<button type="button" class="btn btn-primary">Belum Dimulai</button>';
+                                    } else if ($timeNow > $k['jam_akhir']) {
+                                        echo '<button type="button" class="btn btn-secondary" disabled>Selesai</button>';
+                                    }
+                                } else{
+                                    echo '<button type="button" class="btn btn-secondary" disabled>Selesai</button>';
+                                }
                             ?>
                         </td>
                         <td>

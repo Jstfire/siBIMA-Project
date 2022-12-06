@@ -82,12 +82,12 @@ include(APPPATH . 'Views/temp/nav.php');
                         <input type="text" name="nama_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
                     </div>
                     <div class="form-outline mt-4">
-                        <label class="fw-bold">Tanggal Kegiatan</label>
-                        <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
-                    </div>
-                    <div class="form-outline mt-4">
                         <label class="fw-bold">Tahun Ajaran Kegiatan</label>
                         <input type="text" name="tahun_ajaran_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                    </div>
+                    <div class="form-outline mt-4">
+                        <label class="fw-bold">Tanggal Kegiatan</label>
+                        <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Jam Mulai Kegiatan</label>
@@ -104,7 +104,7 @@ include(APPPATH . 'Views/temp/nav.php');
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Organisasi/UKM penyelenggara</label>
                         <br>
-                        <input type="text" name="penyelenggara" id="" value="<?php echo $user['nama_tampil'] ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly>
+                        <input type="text"  id="" value="<?php echo $user['nama_tampil'] ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly>
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Contact Person</label>

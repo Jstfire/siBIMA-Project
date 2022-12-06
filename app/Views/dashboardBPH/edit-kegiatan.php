@@ -66,7 +66,7 @@ include(APPPATH . 'Views/temp/nav.php');
 
 <div class="container-fluid">
     <div class="row">
-        <p class="fs-1 fw-bold text-center mb-1 mt-5">Detail Kegiatan</p>
+        <p class="fs-1 fw-bold text-center mb-1 mt-5">Edit Kegiatan</p>
         <hr class="hr m-auto" style="width:430px">
         <div class="row mt-5">
             <div class="col">
@@ -76,12 +76,12 @@ include(APPPATH . 'Views/temp/nav.php');
                         <input type="text" name="nama_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['nama_kegiatan']; ?>">
                     </div>
                     <div class="form-outline mt-4">
-                        <label class="fw-bold">Tanggal Kegiatan</label>
-                        <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tanggal_kegiatan']; ?>">
+                        <label class="fw-bold">Tahun Ajaran Kegiatan</label>
+                        <input type="text" name="tahun_ajaran_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tahun_ajaran_kegiatan']; ?>">
                     </div>
                     <div class="form-outline mt-4">
-                        <label class="fw-bold">Tahun Ajaran Kegiatan</label>
-                        <input type="text" name="tahun_ajaran_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                        <label class="fw-bold">Tanggal Kegiatan</label>
+                        <input type="date" name="tanggal_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['tanggal_kegiatan']; ?>">
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Jam Mulai Kegiatan</label>
@@ -98,7 +98,7 @@ include(APPPATH . 'Views/temp/nav.php');
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Organisasi/UKM penyelenggara</label>
                         <br>
-                        <input type="text" name="penyelenggara" id="" value="<?php echo session()->get('nama_tampil') ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly>
+                        <input type="text" id="" value="<?php echo session()->get('nama_tampil') ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly>
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Contact Person</label>
