@@ -37,18 +37,18 @@ $url .= $_SERVER['REQUEST_URI'];
                     <?php
                     if ($url == base_url() . '/DashboardBPH') {
                         echo '
-                  <a href="' . base_url() . '/DashboardBPH" class="nav_link active">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
-                ';
+                          <a href="' . base_url() . '/DashboardBPH" class="nav_link active">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span class="nav_name">Progres Kegiatan</span>
+                          </a>
+                        ';
                     } else {
                         echo '
-                  <a href="' . base_url() . '/DashboardBPH" class="nav_link">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
-                ';
+                          <a href="' . base_url() . '/DashboardBPH" class="nav_link">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span class="nav_name">Progres Kegiatan</span>
+                          </a>
+                        ';
                     }
                     ?>
                     <?php
@@ -90,14 +90,14 @@ $url .= $_SERVER['REQUEST_URI'];
                         echo '
                     <a href="' . base_url() . '/DashboardBPH/anggota" class="nav_link active">
                       <i class="fa-solid fa-users"></i>
-                      <span class="nav_name">Anggota Organisasai</span>
+                      <span class="nav_name">Anggota Organisasi</span>
                     </a>
                   ';
                     } else {
                         echo '
                     <a href="' . base_url() . '/DashboardBPH/anggota" class="nav_link">
                     <i class="fa-solid fa-users"></i>
-                      <span class="nav_name">Anggota Organisasai</span>
+                      <span class="nav_name">Anggota Organisasi</span>
                     </a>
                   ';
                     }

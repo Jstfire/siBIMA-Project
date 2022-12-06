@@ -53,14 +53,14 @@ use function PHPUnit\Framework\isNull;
                 <tbody class="fs-5">
                 <?php if ($act) : ?>
                     <?php foreach ($act as $act) :?>
-                        <tr class="row-kegiatan pointer" onclick="window.location='localhost:8080'";>
+                        <tr class="row-kegiatan pointer" onclick="window.location='<?= base_url();?>/kegiatan/detail/<?= $act['id_kegiatan']?>'";>
                             <td><?= $act['nama_kegiatan'] ?></td>
                             <td><?= $act['nama_organisasi'] ?></td>
                             <td class="txt-rgt"><?= date_format(date_create($act['tanggal_kegiatan']),"D, d F Y"). " | " .date("H.i", strtotime($act['jam_mulai']))."-".date("H.i", strtotime($act['jam_akhir']))?></td>
                         </tr>
                     <?php endforeach ?> 
                 <?php else : ?>
-                    <tr class="row-kegiatan pointer" onclick="window.location='localhost:8080'";>
+                    <tr class="row-kegiatan pointer">
                             <td>Tidak Ada Kegiatan</td>
                             <td></td>
                             <td></td>

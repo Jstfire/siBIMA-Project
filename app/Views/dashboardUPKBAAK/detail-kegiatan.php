@@ -2,7 +2,7 @@
 $session = session();
 include(APPPATH . 'Views/temp/head.php');
 ?>
-<title>siBIMA - Pengajuan Proposal</title>
+<title>siBIMA - Detail Kegiatan</title>
 <?php
 if (isset($_SESSION["username"])) {
     include(APPPATH . 'Views/temp/header.php');
