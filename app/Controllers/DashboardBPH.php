@@ -366,22 +366,23 @@ class DashboardBPH extends BaseController
             return redirect()->to(base_url() . '/DashboardBPH/profile');
         }
         if (session()->get('id_user') >= 9 && session()->get('id_user') <= 15) {
-            $getData = $this->ukm->where('id_ukm', $this->user['id_ukm'])->first();
+            $getData = $this->request->getPost();
             $data = [
-                'nama_ukm' => $getData['nama_ukm'],
-                'kontak_ukm' => $getData['kontak_ukm'],
-                'desc_ukm' => $getData['desc_ukm'],
+                'nama_ukm' => $getData['nama_organisasi'],
+                'kontak_ukm' => $getData['kontak_organisasi'],
+                'desc_ukm' => $getData['desc_organisasi'],
             ];
             $db->table('ukm')->update($data, $this->user['id_user'] . '= id_user');
             session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Mengupdate Profile!", "success");</script>');
             return redirect()->to(base_url() . '/DashboardBPH/profile');
         }
         if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
-            $getData = $this->biddiv->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->first();
+            $getData = $this->request->getPost();
+            // dd($getData);
             $data = [
-                'nama_bidang_divisi' => $getData['nama_bidang_divisi'],
-                'kontak_bidang_divisi' => $getData['kontak_bidang_divisi'],
-                'desc_bidang_divisi' => $getData['desc_bidang_divisi'],
+                'nama_bidang_divisi' => $getData['nama_organisasi'],
+                'kontak_bidang_divisi' => $getData['kontak_organisasi'],
+                'desc_bidang_divisi' => $getData['desc_organisasi'],
             ];
             $db->table('bidang_divisi')->update($data, $this->user['id_user'] . '= id_user');
             session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Mengupdate Profile!", "success");</script>');
