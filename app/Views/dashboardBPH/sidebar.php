@@ -102,6 +102,23 @@ $url .= $_SERVER['REQUEST_URI'];
                   ';
                     }
                     ?>
+                    <?php
+                    if ($url == base_url() . '/DashboardBPH/profile') {
+                        echo '
+                    <a href="' . base_url() . '/DashboardBPH/profile" class="nav_link active">
+                      <i class="fa-solid fa-user"></i>
+                      <span class="nav_name">Edit Profile</span>
+                    </a>
+                  ';
+                    } else {
+                        echo '
+                    <a href="' . base_url() . '/DashboardBPH/profile" class="nav_link">
+                    <i class="fa-solid fa-user"></i>
+                      <span class="nav_name">Edit Profile</span>
+                    </a>
+                  ';
+                    }
+                    ?>
                 </div>
             </div>
             <a href="<?php echo base_url(); ?>" class="nav_link">
