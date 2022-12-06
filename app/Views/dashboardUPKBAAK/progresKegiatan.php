@@ -20,7 +20,7 @@ include(APPPATH . 'Views/temp/head.php');
         <hr class="m-0 mb-3">
         <table class="table" id="myTable">
             <thead>
-                <tr class="text-center">
+                <tr>
                     <th scope="col">Nama</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Tempat</th>

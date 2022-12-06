@@ -22,7 +22,7 @@ include(APPPATH . 'Views/temp/head.php');
         <button type="button" class="btn btn-primary m-2" onclick="window.location.href='<?php base_url() ?>/kegiatan/add'">Tambah Kegiatan</button>
         <table class="table" id="myTable">
             <thead>
-                <tr class="text-center">
+                <tr>
                     <th scope="col">Nama</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Tempat</th>
@@ -37,7 +37,7 @@ include(APPPATH . 'Views/temp/head.php');
                 use CodeIgniter\I18n\Time;
 
                 foreach ($kegiatan as $k) : ?>
-                    <tr class="text-center">
+                    <tr>
                         <td scope="row"><?= $k['nama_kegiatan'] ?></td>
                         <td><?= date("d-m-Y", strtotime($k['tanggal_kegiatan'])) ?></td>
                         <td><?= $k['tempat_kegiatan'] ?></td>

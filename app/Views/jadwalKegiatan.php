@@ -30,9 +30,9 @@
             <hr class="mt-0">
             <table class="table" id="monday">
                 <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
+                    <tr>
+                        <th scope="col">Kegiatan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Tempat</th>
                         <th scope="col">Jam</th>
                         <th>Status</th>
@@ -42,11 +42,11 @@
                 <tbody>
                     <?php
                     foreach ($monday as $mon) : ?>
-                        <tr class="text-center">
+                        <tr>
                             <td scope="row"><?= $mon['nama_kegiatan'] ?></td>
-                            <td><?= date("d-m-Y", strtotime($mon['tanggal_kegiatan'])) ?></td>
+                            <td><?= $mon['nama_organisasi'] ?></td>
                             <td><?= $mon['tempat_kegiatan'] ?></td>
-                            <td><?= $mon['jam_mulai']." - ".$mon['jam_akhir'] ?></td>
+                            <td><?= date("H.i", strtotime($mon['jam_mulai']))." - ".date("H.i", strtotime($mon['jam_akhir'])) ?></td>
                             <td>
                             <?php
                                     $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
@@ -85,9 +85,9 @@
             <hr class="mt-0">
             <table class="table" id="tuesday">
                 <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
+                    <tr>
+                        <th scope="col">Kegiatan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Tempat</th>
                         <th scope="col">Jam</th>
                         <th>Status</th>
@@ -97,11 +97,11 @@
                 <tbody>
                     <?php
                     foreach ($tuesday as $tues) : ?>
-                        <tr class="text-center">
+                        <tr>
                             <td scope="row"><?= $tues['nama_kegiatan'] ?></td>
-                            <td><?= date("d-m-Y", strtotime($tues['tanggal_kegiatan'])) ?></td>
+                            <td><?= $tues['nama_organisasi'] ?></td>
                             <td><?= $tues['tempat_kegiatan'] ?></td>
-                            <td><?= $tues['jam_mulai']." - ".$tues['jam_akhir'] ?></td>
+                            <td><?= date("H.i", strtotime($tues['jam_mulai']))." - ".date("H.i", strtotime($tues['jam_akhir'])) ?></td>
                             <td>
                             <?php
                                     $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
@@ -140,9 +140,9 @@
             <hr class="mt-0">
             <table class="table" id="wednesday">
                 <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
+                    <tr>
+                        <th scope="col">Kegiatan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Tempat</th>
                         <th scope="col">Jam</th>
                         <th>Status</th>
@@ -152,11 +152,11 @@
                 <tbody>
                     <?php
                     foreach ($wednesday as $wed) : ?>
-                        <tr class="text-center">
+                        <tr>
                             <td scope="row"><?= $wed['nama_kegiatan'] ?></td>
-                            <td><?= date("d-m-Y", strtotime($wed['tanggal_kegiatan'])) ?></td>
+                            <td><?= $wed['nama_organisasi'] ?></td>
                             <td><?= $wed['tempat_kegiatan'] ?></td>
-                            <td><?= $wed['jam_mulai']." - ".$wed['jam_akhir'] ?></td>
+                            <td><?= date("H.i", strtotime($wed['jam_mulai']))." - ".date("H.i", strtotime($wed['jam_akhir'])) ?></td>
                             <td>
                             <?php
                                     $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
@@ -195,9 +195,9 @@
             <hr class="mt-0">
             <table class="table" id="thursday">
                 <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
+                    <tr>
+                        <th scope="col">Kegiatan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Tempat</th>
                         <th scope="col">Jam</th>
                         <th>Status</th>
@@ -207,11 +207,11 @@
                 <tbody>
                     <?php
                     foreach ($thursday as $thurs) : ?>
-                        <tr class="text-center">
+                        <tr>
                             <td scope="row"><?= $thurs['nama_kegiatan'] ?></td>
-                            <td><?= date("d-m-Y", strtotime($thurs['tanggal_kegiatan'])) ?></td>
+                            <td><?= $thurs['nama_organisasi'] ?></td>
                             <td><?= $thurs['tempat_kegiatan'] ?></td>
-                            <td><?= $thurs['jam_mulai']." - ".$thurs['jam_akhir'] ?></td>
+                            <td><?= date("H.i", strtotime($thurs['jam_mulai']))." - ".date("H.i", strtotime($thurs['jam_akhir'])) ?></td>
                             <td>
                             <?php
                                     $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
@@ -250,9 +250,9 @@
             <hr class="mt-0">
             <table class="table" id="friday">
                 <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
+                    <tr>
+                        <th scope="col">Kegiatan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Tempat</th>
                         <th scope="col">Jam</th>
                         <th>Status</th>
@@ -262,11 +262,11 @@
                 <tbody>
                     <?php
                     foreach ($friday as $fri) : ?>
-                        <tr class="text-center">
+                        <tr>
                             <td scope="row"><?= $fri['nama_kegiatan'] ?></td>
-                            <td><?= date("d-m-Y", strtotime($fri['tanggal_kegiatan'])) ?></td>
+                            <td><?= $fri['nama_organisasi'] ?></td>
                             <td><?= $fri['tempat_kegiatan'] ?></td>
-                            <td><?= $fri['jam_mulai']." - ".$fri['jam_akhir'] ?></td>
+                            <td><?= date("H.i", strtotime($fri['jam_mulai']))." - ".date("H.i", strtotime($fri['jam_akhir'])) ?></td>
                             <td>
                             <?php
                                     $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
@@ -305,9 +305,9 @@
             <hr class="mt-0">
             <table class="table" id="saturday">
                 <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
+                    <tr>
+                        <th scope="col">Kegiatan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Tempat</th>
                         <th scope="col">Jam</th>
                         <th>Status</th>
@@ -317,11 +317,11 @@
                 <tbody>
                     <?php
                     foreach ($saturday as $sat) : ?>
-                        <tr class="text-center">
+                        <tr>
                             <td scope="row"><?= $sat['nama_kegiatan'] ?></td>
-                            <td><?= date("d-m-Y", strtotime($sat['tanggal_kegiatan'])) ?></td>
+                            <td><?= $sat['nama_organisasi'] ?></td>
                             <td><?= $sat['tempat_kegiatan'] ?></td>
-                            <td><?= $sat['jam_mulai']." - ".$sat['jam_akhir'] ?></td>
+                            <td><?= date("H.i", strtotime($sat['jam_mulai']))." - ".date("H.i", strtotime($sat['jam_akhir'])) ?></td>
                             <td>
                             <?php
                                     $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
@@ -360,9 +360,9 @@
             <hr class="mt-0">
             <table class="table" id="sunday">
                 <thead>
-                    <tr class="text-center">
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
+                    <tr>
+                        <th scope="col">Kegiatan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Tempat</th>
                         <th scope="col">Jam</th>
                         <th>Status</th>
@@ -372,11 +372,11 @@
                 <tbody>
                     <?php
                     foreach ($sunday as $sun) : ?>
-                        <tr class="text-center">
+                        <tr>
                             <td scope="row"><?= $sun['nama_kegiatan'] ?></td>
-                            <td><?= date("d-m-Y", strtotime($sun['tanggal_kegiatan'])) ?></td>
+                            <td><?= $sun['nama_organisasi'] ?></td>
                             <td><?= $sun['tempat_kegiatan'] ?></td>
-                            <td><?= $sun['jam_mulai']." - ".$sun['jam_akhir'] ?></td>
+                            <td><?= date("H.i", strtotime($sun['jam_mulai']))." - ".date("H.i", strtotime($sun['jam_akhir'])) ?></td>
                             <td>
                             <?php
                                     $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();

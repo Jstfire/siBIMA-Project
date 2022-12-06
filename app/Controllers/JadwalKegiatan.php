@@ -30,6 +30,131 @@ class JadwalKegiatan extends BaseController
             'saturday' => $this->kegiatan->where('tanggal_kegiatan', $saturday)->findAll(),
             'sunday' => $this->kegiatan->where('tanggal_kegiatan', $sunday)->findAll(),
         ];
+        $i = 0;
+        foreach ($data['monday'] as $act) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $this->kegiatan->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['monday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $this->kegiatan->getUKM($act['id_ukm']);
+                    $data['monday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $this->kegiatan->getOrmawa($act['id_ormawa']);
+                $data['monday'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $i++;
+        }
+
+        $i = 0;
+        foreach ($data['tuesday'] as $act) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $this->kegiatan->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['tuesday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $this->kegiatan->getUKM($act['id_ukm']);
+                    $data['tuesday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $this->kegiatan->getOrmawa($act['id_ormawa']);
+                $data['tuesday'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $i++;
+        }
+
+        $i = 0;
+        foreach ($data['wednesday'] as $act) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $this->kegiatan->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['wednesday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $this->kegiatan->getUKM($act['id_ukm']);
+                    $data['wednesday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $this->kegiatan->getOrmawa($act['id_ormawa']);
+                $data['wednesday'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $i++;
+        }
+
+        $i = 0;
+        foreach ($data['thursday'] as $act) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $this->kegiatan->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['thursday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $this->kegiatan->getUKM($act['id_ukm']);
+                    $data['thursday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $this->kegiatan->getOrmawa($act['id_ormawa']);
+                $data['thursday'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $i++;
+        }
+
+        $i = 0;
+        foreach ($data['friday'] as $act) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $this->kegiatan->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['friday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $this->kegiatan->getUKM($act['id_ukm']);
+                    $data['friday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $this->kegiatan->getOrmawa($act['id_ormawa']);
+                $data['friday'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $i++;
+        }
+
+        $i = 0;
+        foreach ($data['saturday'] as $act) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $this->kegiatan->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['saturday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $this->kegiatan->getUKM($act['id_ukm']);
+                    $data['saturday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $this->kegiatan->getOrmawa($act['id_ormawa']);
+                $data['saturday'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $i++;
+        }
+
+        $i = 0;
+        foreach ($data['sunday'] as $act) {
+            if (isset($act['id_ukm']))  {
+                if (isset($act['id_bidang_divisi']))  {
+                    $namaOrganisasi = $this->kegiatan->getBidangDivisi($act['id_bidang_divisi']);
+                    $data['sunday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                } else {
+                    $namaOrganisasi = $this->kegiatan->getUKM($act['id_ukm']);
+                    $data['sunday'][$i]['nama_organisasi'] = $namaOrganisasi;
+                }
+            } else {
+                $namaOrganisasi = $this->kegiatan->getOrmawa($act['id_ormawa']);
+                $data['sunday'][$i]['nama_organisasi'] = $namaOrganisasi;
+            }
+
+            $i++;
+        }
         return view('jadwalKegiatan', $data);
     }
 }
