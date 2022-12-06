@@ -35,7 +35,7 @@ class Kegiatan extends BaseController
                 ->where('users.id_user', session()->get('id_user'))
                 ->first();
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $this->user = $this->user_model
                 ->join('ormawa', 'ormawa.id_user = users.id_user', 'left')
                 ->join('ukm', 'ukm.id_user = users.id_user', 'left')
@@ -181,5 +181,32 @@ class Kegiatan extends BaseController
         return redirect()->to('/DashboardBPH');
     }
 
-    
+    function list_per_organisasi($id){
+        $this->kegiatan = new ModelsKegiatan();
+        $data = array();
+        if ($id >= 2 && $id <= 5) {
+            $data['kegiatan'] = $this->kegiatan->where('id_ormawa', $this->user['id_ormawa'])->where('id_ukm', null)->findAll();
+            $data['foto'] = $this->user['id_ormawa'];
+            $data['nama_organisasi'] = $this->user['nama_ormawa'];
+            $data['kontak_organisasi'] = $this->user['kontak_ormawa'];
+            $data['desc_organisasi'] = $this->user['desc_ormawa'];
+        }
+        if ($id >= 9 && $id <= 15) {
+            $data['kegiatan'] = $this->kegiatan->where('id_ukm', $this->user['id_ukm'])->where('id_bidang_divisi', null)->findAll();
+            $data['foto'] = $this->user['id_ukm'];
+            $data['nama_organisasi'] = $this->user['nama_ukm'];
+            $data['kontak_organisasi'] = $this->user['kontak_ukm'];
+            $data['desc_organisasi'] = $this->user['desc_ukm'];
+        }
+        if ($id >= 16 && $id <= 43) {
+            $data['kegiatan'] = $this->kegiatan->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->findAll();
+            $data['foto'] = $this->user['id_bidang_divisi'];
+            $data['nama_organisasi'] = $this->user['nama_bidang_divisi'];
+            $data['kontak_organisasi'] = $this->user['kontak_bidang_divisi'];
+            $data['desc_organisasi'] = $this->user['desc_bidang_divisi'];
+        }
+        // dd($data);
+
+        return view('daftar-kegiatan-perorganisasi', $data);
+    }
 }

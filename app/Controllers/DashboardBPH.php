@@ -44,7 +44,7 @@ class DashboardBPH extends BaseController
             ->where('users.id_user', session()->get('id_user'))
             ->first();
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $this->user = $this->user_model
             ->join('ormawa', 'ormawa.id_user = users.id_user', 'left')
             ->join('ukm', 'ukm.id_user = users.id_user', 'left')
@@ -68,7 +68,7 @@ class DashboardBPH extends BaseController
             ];
             return view('dashboardBPH/progresKegiatan', $data);
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $data = [
                 'kegiatan' => $this->kegiatan->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->where('id_user', session()->get('id_user'))->findAll(),
             ];
@@ -131,7 +131,7 @@ class DashboardBPH extends BaseController
             ];
             return view('dashboardBPH/list-anggota', $data);
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $data = [
                 'anggota' => $this->mahasiswa->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->findAll(),
             ];
@@ -255,7 +255,7 @@ class DashboardBPH extends BaseController
             session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Mengupdate Anggota!", "success");</script>');
             return redirect()->to('/DashboardBPH/anggota');
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $file_excel = $this->request->getFile('excelAnggota');
             $ext = $file_excel->getClientExtension();
             if ($ext == 'xls') {
@@ -337,7 +337,7 @@ class DashboardBPH extends BaseController
             ];
             return view('dashboardBPH/edit-profile', $data);
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $getData = $this->biddiv->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->first();
             $data['organisasi'] = [
                 'nama' => $getData['nama_bidang_divisi'], 
@@ -376,7 +376,7 @@ class DashboardBPH extends BaseController
             session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Mengupdate Profile!", "success");</script>');
             return redirect()->to(base_url() . '/DashboardBPH/profile');
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $getData = $this->request->getPost();
             // dd($getData);
             $data = [

@@ -36,7 +36,7 @@ class PengajuanProposal extends BaseController
                 ->where('users.id_user', session()->get('id_user'))
                 ->first();
         }
-        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $this->user = $this->user_model
                 ->join('ormawa', 'ormawa.id_user = users.id_user', 'left')
                 ->join('ukm', 'ukm.id_user = users.id_user', 'left')

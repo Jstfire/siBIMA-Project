@@ -24,7 +24,7 @@ include('temp/nav.php');
                 <p class="display-10 fw-bold mb-0">Kontak : +<?= $ormawa['kontak_ormawa'] ?></p>
                 <p class="m-0 ms-1 mb-5 ukm-desc"><?= $ormawa['desc_ormawa'] ?></p>
                 <div class="col d-flex justify-content-end">
-                    <a href="#" class="btn btn-primary rounded-5 border-0 fs-5">Lihat Jadwal</a>
+                    <a href="<?= base_url(); ?>/kegiatan/list/<?= session()->get('id_user'); ?>" class="btn btn-primary rounded-5 border-0 fs-5">Lihat Jadwal</a>
                     <a href="#anggota" class="btn btn-primary rounded-5 border-0 fs-5 ms-2">List Anggota</a>
                 </div>
             </div>

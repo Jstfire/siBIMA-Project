@@ -89,6 +89,7 @@ $routes->get('kegiatan/detail/(:segment)','Kegiatan::detail/$1', ['filter' => 'a
 $routes->get('kegiatan/edit/(:segment)','Kegiatan::edit/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 $routes->post('kegiatan/edit_act/(:segment)','Kegiatan::edit_act/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 $routes->get('kegiatan/delete/(:segment)','Kegiatan::delete/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->get('kegiatan/list/(:segment)', 'Kegiatan::list_per_organisasi/$1', ['filter' => 'authGuard', 'filter' => 'authBPH']);
 
 //lpj
 $routes->get('lpj/download/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
