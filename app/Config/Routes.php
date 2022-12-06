@@ -70,6 +70,8 @@ $routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal', ['filte
 $routes->get('/DashboardBPH/ListLPJ', 'DashboardBPH::listLPJ', ['filter' => 'authGuard', 'filter' => 'authBPH']);
 $routes->get('/DashboardBPH/anggota', 'DashboardBPH::anggota', ['filter' => 'authGuard', 'filter' => 'authBPH']);
 $routes->post('/DashboardBPH/add_anggota', 'DashboardBPH::add_anggota', ['filter' => 'authGuard', 'filter' => 'authBPH']);
+$routes->get('/DashboardBPH/profile', 'DashboardBPH::profile', ['filter' => 'authGuard', 'filter' => 'authBPH']);
+$routes->post('/DashboardBPH/edit_profile', 'DashboardBPH::edit_profile', ['filter' => 'authGuard', 'filter' => 'authBPH']);
 
 //proposal
 $routes->get('/PengajuanProposal', 'PengajuanProposal::index', ['filter' =>'authGuard', 'filter' => 'authBPH']);
