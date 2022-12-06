@@ -171,6 +171,17 @@ class Kegiatan extends BaseController
 
     public function delete($id){
         $act = $this->kegiatan->find($id);
+        $lpj = $this->lpjModel->find($act['id_lpj']);
+        if (isset($act['id_proposal'])) {
+            $prop = $this->proposal->find($act['id_proposal']);
+            $fileProp = base_url()."/proposal/".$prop['link_proposal'];
+            unlink($fileProp);
+        }
+        if (isset($prop['url_file'])) {
+            $fileLPJ = base_url()."/lpj/".$lpj['url_file'];
+            unlink($fileLPJ);
+        }
+
         $this->kegiatan->delete($id);
         if (isset($act['id_proposal'])) {
             $this->proposal->delete($act['id_proposal']);

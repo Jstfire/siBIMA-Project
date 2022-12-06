@@ -14,7 +14,7 @@ class BidangDivisi extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_bidang_divisi', 'id_user', 'id_ormawa', 'nama_bidang_divisi', 'kontak_bidang_divisi', 'desc_ormawa'];
+    protected $allowedFields    = ['id_bidang_divisi', 'id_user', 'id_ormawa', 'nama_bidang_divisi', 'kontak_bidang_divisi', 'desc_bidang_divisi'];
 
     // Dates
     protected $useTimestamps = false;

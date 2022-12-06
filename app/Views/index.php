@@ -1,8 +1,5 @@
 <?php
-
-use PHPUnit\Framework\Constraint\IsNull;
-
-use function PHPUnit\Framework\isNull;
+    use CodeIgniter\I18n\Time;
 
     $session = session();
     include('temp/head.php');
@@ -53,14 +50,34 @@ use function PHPUnit\Framework\isNull;
                 <tbody class="fs-5">
                 <?php if ($act) : ?>
                     <?php foreach ($act as $act) :?>
-                        <tr class="row-kegiatan pointer" onclick="window.location='<?= base_url();?>/kegiatan/detail/<?= $act['id_kegiatan']?>'";>
+                        <?php
+                            $now = Time::today('Asia/Jakarta', 'en_US')->toDateString();
+                            $timeNow =date("H:i:s");
+                            // dd($act['jam_mulai']);
+                            
+                            $tanggal_kegiatan = $act['tanggal_kegiatan'];
+                            // dd($tanggal_kegiatan);
+                        ?>
+                            <?php if($tanggal_kegiatan > $now) :?>
+                                <tr class="row-kegiatan pointer" onclick="window.location='<?= base_url();?>/kegiatan/detail/<?= $act['id_kegiatan']?>'";>
+                            <?php elseif(strcmp($tanggal_kegiatan, $now) == 0) :?>
+                                <?php if ($timeNow > $act['jam_mulai'] && $timeNow < $act['jam_akhir']) :?>
+                                    <tr class="bg-success text-white pointer" onclick="window.location='<?= base_url();?>/kegiatan/detail/<?= $act['id_kegiatan']?>'";>
+                                <?php elseif ($timeNow < $act['jam_mulai']) :?>
+                                    <tr class="row-kegiatan pointer" onclick="window.location='<?= base_url();?>/kegiatan/detail/<?= $act['id_kegiatan']?>'";>
+                                <?php  elseif ($timeNow > $act['jam_akhir']) :?>
+                                    <tr class="bg-transparent pointer" onclick="window.location='<?= base_url();?>/kegiatan/detail/<?= $act['id_kegiatan']?>'";>
+                                <?php endif?>
+                            <?php else :?>
+                                <tr class="bg-trasparent pointer" onclick="window.location='<?= base_url();?>/kegiatan/detail/<?= $act['id_kegiatan']?>'";>
+                            <?php endif?>
                             <td><?= $act['nama_kegiatan'] ?></td>
                             <td><?= $act['nama_organisasi'] ?></td>
                             <td class="txt-rgt"><?= date_format(date_create($act['tanggal_kegiatan']),"D, d F Y"). " | " .date("H.i", strtotime($act['jam_mulai']))."-".date("H.i", strtotime($act['jam_akhir']))?></td>
                         </tr>
                     <?php endforeach ?> 
                 <?php else : ?>
-                    <tr class="row-kegiatan pointer">
+                    <tr class="bg-transparent pointer">
                             <td>Tidak Ada Kegiatan</td>
                             <td></td>
                             <td></td>

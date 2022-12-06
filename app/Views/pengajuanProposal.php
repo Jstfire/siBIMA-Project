@@ -88,7 +88,7 @@ include('temp/nav.php');
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Organisasi/UKM penyelenggara</label>
                     <br>
-                    <select name="penyelenggara" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
+                    <select  class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required>
                         <option selected="selected" disabled="disabled">Pilih organisasi/UKM penyelenggara</option>
                         <option>Dewan Perwakilan Mahasiswa</option>
                         <option>Senat Mahasiswa</option>
