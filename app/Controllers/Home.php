@@ -10,7 +10,7 @@ class Home extends BaseController
         $session = session();
         $today = date("Y-m-d");
         $activity = new Kegiatan();
-        $data['act'] = $activity->orderBy('jam_mulai', 'ASC')->findAll();
+        $data['act'] = $activity->orderBy('tanggal_kegiatan', 'ASC')->orderBy('jam_mulai', 'ASC')->findAll();
         // dd($data['act'][0]);
         $i = 0;
         foreach ($data['act'] as $act) {
@@ -40,6 +40,15 @@ class Home extends BaseController
             
             $i++;
         }
+
+        if (count($data['act']) > 7) {
+            $count = count($data['act']) - 7;
+            for ($i=0; $i < $count; $i++) { 
+                array_pop($data['act']);
+            }
+        }
+
+        // dd(count($data['act']));
         // dd($showAct);
         // dd($namaOrganisasi);
         // dd($data['act']);
