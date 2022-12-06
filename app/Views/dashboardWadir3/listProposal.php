@@ -74,15 +74,6 @@
                             ?>
                         </td>
                         <td>
-                            <?php if($prop['untuk_wadir']==0) :?>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSerah<?= $prop['id_proposal'] ?>">
-                                <i class="fa-solid fa-share"></i>
-                            </button>
-                            <?php elseif($prop['untuk_wadir']==1) :?>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalcancelSerah<?= $prop['id_proposal'] ?>">
-                            <i class="fa-solid fa-delete-left"></i>
-                            </button>
-                            <?php endif?>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetuju<?= $prop['id_proposal'] ?>">
                                 <i class="fa-solid fa-check"></i>
                             </button>
@@ -94,43 +85,6 @@
                             </a>
                         </td>
                     </tr>
-
-                    <!-- Modal Serah ke Wadir 3 -->
-                    <div class="modal fade" id="modalSerah<?= $prop['id_proposal'] ?>" tabindex="-1" aria-labelledby="modalSerahLabel<?= $prop['id_proposal'] ?>" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalSerahLabel<?= $prop['id_proposal'] ?>">Serahkan Persetujuan <?= $prop['nama_proposal'] ?> ke Wadir 3</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Apakah Anda yakin untuk serahkan persetujuan proposal ke Wadir 3?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                    <a href="<?= base_url(); ?>/DashboardUPKBAAK/SerahProposal/<?= $prop['id_proposal']; ?>" type="submit" class="btn btn-primary">Serahkan</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Modal Cancel Serah ke Wadir 3 -->
-                    <div class="modal fade" id="modalcancelSerah<?= $prop['id_proposal'] ?>" tabindex="-1" aria-labelledby="modalcancelSerahLabel<?= $prop['id_proposal'] ?>" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalcancelSerahLabel<?= $prop['id_proposal'] ?>">Batal Serahkan Persetujuan <?= $prop['nama_proposal'] ?> ke Wadir 3</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Apakah Anda yakin untuk batal menyerahkan persetujuan proposal ke Wadir 3?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                    <a href="<?= base_url(); ?>/DashboardUPKBAAK/cancelSerahProposal/<?= $prop['id_proposal']; ?>" type="submit" class="btn btn-danger">Batal Serahkan</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Modal Setuju -->
                     <div class="modal fade" id="modalSetuju<?= $prop['id_proposal'] ?>" tabindex="-1" aria-labelledby="modalSetujuLabel<?= $prop['id_proposal'] ?>" aria-hidden="true">
@@ -144,7 +98,7 @@
                                     Apakah Anda yakin untuk menyetujui proposal ini?
                                 </div>
                                 <div class="modal-footer">
-                                    <form action="<?= base_url(); ?>/DashboardUPKBAAK/AccProposalUPKBAAK" method="post">
+                                    <form action="<?= base_url(); ?>/DashboardWadir3/AccProposalWadir3" method="post">
                                         <input name="id_proposal" type="text" value="<?= $prop['id_proposal'] ?>" hidden>
                                         <input name="role" type="text" value="<?= $session->get('role')?>" hidden>
                                         <input name="accept" type="text" value="1" hidden>
@@ -168,7 +122,7 @@
                                     Apakah Anda yakin untuk menolak proposal ini?
                                 </div>
                                 <div class="modal-footer">
-                                    <form action="<?= base_url(); ?>/DashboardUPKBAAK/RefuseProposalUPKBAAK" method="post">
+                                    <form action="<?= base_url(); ?>/DashboardWadir3/RefuseProposalWadir3" method="post">
                                         <input name="id_proposal" type="text" value="<?= $prop['id_proposal'] ?>" hidden>
                                         <input name="role" type="text" value="<?= $session->get('role')?>" hidden>
                                         <input name="refuse" type="text" value="0" hidden>

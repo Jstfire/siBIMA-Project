@@ -8,7 +8,7 @@ use App\Models\Kegiatan;
 use App\Models\User;
 use App\Models\LPJModel;
 
-class DashboardUPKBAAK extends BaseController
+class DashboardWadir3 extends BaseController
 {
     protected $kegiatan;
     protected $user;
@@ -24,12 +24,13 @@ class DashboardUPKBAAK extends BaseController
             ->join('bidang_divisi', 'bidang_divisi.id_user = users.id_user', 'left')
             ->where('users.id_user', session()->get('id_user'))
             ->first();
+        
     }
 
     public function listProposal()
     {
         $proposal = new Proposal();
-        $data['proposal'] = $proposal->orderBy('id_proposal', 'DESC')->findAll();
+        $data['proposal'] = $proposal->where('untuk_wadir','1')->orderBy('id_proposal', 'DESC')->findAll();
         $i = 0;
         foreach ($data['proposal'] as $prop) {
             $activity = new Kegiatan();
@@ -52,7 +53,7 @@ class DashboardUPKBAAK extends BaseController
             
             $i++;
         }
-        return view('dashboardUPKBAAK/listProposal', $data);
+        return view('dashboardWadir3/listProposal', $data);
     }
 
     public function listLPJ()
@@ -85,7 +86,7 @@ class DashboardUPKBAAK extends BaseController
 
             $i++;
         }
-        return view('dashboardUPKBAAK/listLPJ', $data);
+        return view('dashboardWadir3/listLPJ', $data);
     }
     
     public function progresKegiatan()
@@ -93,27 +94,18 @@ class DashboardUPKBAAK extends BaseController
         $data = [
                 'kegiatan' => $this->kegiatan->findAll(),
             ];
-        return view('dashboardUPKBAAK/progresKegiatan', $data);
+        return view('dashboardWadir3/progresKegiatan', $data);
     }
 
-    public function setujuUPKBAAK()
+    public function setujuWadir3()
     {
         helper(['form']);
         $proposal = new Proposal();
         $id = $this->request->getVar('id_proposal');
-        $role = $this->request->getVar('role');
-
-        if ($role == 'UPK') {
-            $data = [
-                'acc_upk'     => $this->request->getVar('accept'),
-            ];
-            $proposal->update($id, $data);
-        } else if ($role == 'BAAK') {
-            $data = [
-                'acc_baak'     => $this->request->getVar('accept'),
-            ];
-            $proposal->update($id, $data);
-        }
+        $data = [
+            'acc_wadir'     => $this->request->getVar('accept'),
+        ];
+        $proposal->update($id, $data);
         
         echo "
             <!DOCTYPE html>
@@ -135,7 +127,7 @@ class DashboardUPKBAAK extends BaseController
                                 text: 'Anda berhasil menyetujui proposal!',
                                 icon: 'success',
                                 }).then(function() {
-                                    window.location = '/DashboardUPKBAAK/ListProposal';
+                                    window.location = '/DashboardWadir3/ListProposal';
                             });
                     </script>
                 </body>
@@ -143,24 +135,15 @@ class DashboardUPKBAAK extends BaseController
             ";
     }
     
-    public function tolakUPKBAAK()
+    public function tolakWadir3()
     {
         helper(['form']);
         $proposal = new Proposal();
         $id = $this->request->getVar('id_proposal');
-        $role = $this->request->getVar('role');
-
-        if ($role == 'UPK') {
-            $data = [
-                'acc_upk'     => $this->request->getVar('refuse'),
-            ];
-            $proposal->update($id, $data);
-        } else if ($role == 'BAAK') {
-            $data = [
-                'acc_baak'     => $this->request->getVar('refuse'),
-            ];
-            $proposal->update($id, $data);
-        }
+        $data = [
+            'acc_wadir'     => $this->request->getVar('refuse'),
+        ];
+        $proposal->update($id, $data);
         
         echo "
             <!DOCTYPE html>
@@ -182,82 +165,11 @@ class DashboardUPKBAAK extends BaseController
                                 text: 'Anda berhasil menolak proposal!',
                                 icon: 'success',
                                 }).then(function() {
-                                    window.location = '/DashboardUPKBAAK/ListProposal';
+                                    window.location = '/DashboardWadir3/ListProposal';
                             });
                     </script>
                 </body>
             </html>
             ";
     }
-    public function serahKeWadir3($id)
-    {
-        $proposal = new Proposal();
-        $data = [
-            'untuk_wadir'     => '1',
-        ];
-        $proposal->update($id, $data);
-        
-        echo "
-        <!DOCTYPE html>
-            <html lang='en'>
-            <head>
-                <meta charset='UTF-8'>
-                <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                <link rel='Shotcut Icon' href='<?= base_url(); ?>/assets/img/logoSTIS.png' type='image/png' />
-                <title>Redirect</title>
-                <link href='".base_url()."/assets/css/dashboard.css' rel='stylesheet'>
-                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-            </head>
-            <body>
-                <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
-                <script>
-                        swal({
-                            title: 'Aksi Berhasil Dilakukan',
-                            text: 'Anda berhasil menyerahkan persetujuan proposal!',
-                            icon: 'success',
-                            }).then(function() {
-                                window.location = '/DashboardUPKBAAK/ListProposal';
-                        });
-                </script>
-            </body>
-        </html>
-        ";
-    }
-    public function cancelSerahKeWadir3($id)
-    {
-        $proposal = new Proposal();
-        $data = [
-            'untuk_wadir'     => '0',
-        ];
-        $proposal->update($id, $data);
-        
-        echo "
-        <!DOCTYPE html>
-            <html lang='en'>
-            <head>
-                <meta charset='UTF-8'>
-                <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                <link rel='Shotcut Icon' href='<?= base_url(); ?>/assets/img/logoSTIS.png' type='image/png' />
-                <title>Redirect</title>
-                <link href='".base_url()."/assets/css/dashboard.css' rel='stylesheet'>
-                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-            </head>
-            <body>
-                <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
-                <script>
-                        swal({
-                            title: 'Aksi Berhasil Dilakukan',
-                            text: 'Anda membatalkan menyerahkan persetujuan proposal!',
-                            icon: 'success',
-                            }).then(function() {
-                                window.location = '/DashboardUPKBAAK/ListProposal';
-                        });
-                </script>
-            </body>
-        </html>
-        ";
-    }
-    
 }

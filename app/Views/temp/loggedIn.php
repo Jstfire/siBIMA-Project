@@ -13,6 +13,12 @@
             <?php if (session()->get('role') == 'BPH') : ?>
                 <li><a class="dropdown-item" href="<?php base_url() ?>/DashboardBPH">Dashboard</a></li>
             <?php endif; ?>
+            <?php if (session()->get('role') == 'Wadir 3') : ?>
+                <li><a class="dropdown-item" href="<?php base_url() ?>/DashboardWadir3">Dashboard</a></li>
+            <?php endif; ?>
+            <?php if (session()->get('role') == 'Direktur') : ?>
+                <li><a class="dropdown-item" href="<?php base_url() ?>/DashboardDirektur">Dashboard</a></li>
+            <?php endif; ?>
             <li class="logout"><a class="dropdown-item" href="/Logout">Logout</a></li>
         </ul>
     </div>
