@@ -97,7 +97,7 @@ include(APPPATH . 'Views/temp/nav.php');
                 </div>
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Contact Person</label>
-                    <input type="text" name="kontak_penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['kontak_penanggung_jawab_kegiatan']; ?>" readonly>
+                    <a href="https://wa.me/<?= $kegiatan['kontak_penanggung_jawab_kegiatan']; ?>"><input type="text" name="kontak_penanggung_jawab_kegiatan" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" required value="<?= $kegiatan['kontak_penanggung_jawab_kegiatan']; ?>" readonly></a>
                 </div>
                 <div class="form-outline mt-4">
                     <label class="fw-bold">Penanggung Jawab Kegiatan</label>

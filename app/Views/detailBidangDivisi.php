@@ -21,7 +21,7 @@ include('temp/nav.php');
             </div>
             <div class="col my-5 py-4 ps-0 pe-5">
                 <p class="display-4 fw-bold mb-0"><?= $bidangdivisi['nama_bidang_divisi'] ?></p>
-                <p class="display-10 fw-bold mb-0">Kontak : +<?= $bidangdivisi['kontak_bidang_divisi'] ?></p>
+                <p class="display-10 fw-bold mb-0 ms-1">Kontak : <a href="https://wa.me/<?= $bidangdivisi['kontak_bidang_divisi'] ?>">+<?= $bidangdivisi['kontak_bidang_divisi'] ?></a></p>
                 <p class="m-0 ms-1 mb-5 ukm-desc"><?= $bidangdivisi['desc_bidang_divisi'] ?></p>
                 <div class="col d-flex justify-content-end">
                     <a href="#" class="btn btn-primary rounded-5 border-0 fs-5">Lihat Jadwal</a>

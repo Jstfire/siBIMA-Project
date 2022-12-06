@@ -21,7 +21,7 @@ include('temp/nav.php');
             </div>
             <div class="col my-5 py-4 ps-0 pe-5">
                 <p class="display-4 fw-bold mb-0"><?= $ormawa['nama_ormawa'] ?></p>
-                <p class="display-10 fw-bold mb-0">Kontak : +<?= $ormawa['kontak_ormawa'] ?></p>
+                <p class="display-10 fw-bold mb-0 ms-1">Kontak : <a href="https://wa.me/<?= $ormawa['kontak_ormawa'] ?>">+<?= $ormawa['kontak_ormawa'] ?></a></p>
                 <p class="m-0 ms-1 mb-5 ukm-desc"><?= $ormawa['desc_ormawa'] ?></p>
                 <div class="col d-flex justify-content-end">
                     <a href="#" class="btn btn-primary rounded-5 border-0 fs-5">Lihat Jadwal</a>
