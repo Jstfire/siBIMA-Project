@@ -62,19 +62,19 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                <div class="container-fluid">
+                                <div class="container-fluid text-center">
                                     <form class="mt-3 mx-3" action="<?php base_url() ?>/lpj/upload/<?= $elpeje['id_lpj']; ?>" method="post" enctype="multipart/form-data">
                                         <div class="input-group-sm mb-1">
                                             <p>*Unggah dalam format .pdf</p>
                                             <input id="uploadPDF<?= $elpeje['id_lpj']; ?>" type="file" accept="application/pdf" name="myPDF" value="" />
                                             <br />
-                                            <input id="preview" type="button" class="btn btn-primary rounded-2 border-0 py-2 px-3 mt-3" value="Preview" onclick="PreviewImage('uploadPDF<?= $elpeje['id_lpj']; ?>','viewer<?= $elpeje['id_lpj']; ?>');" />
-                                        </div>
-                                        <p class="text-center">Scroll ke bawah untuk submit!</p>
-                                        <div class="col-md-4 text-center">
-                                            <div style="clear:both">
-                                                <iframe id="viewer<?= $elpeje['id_lpj']; ?>" frameborder="0" scrolling="no" width="400" height="600"></iframe>
+                                            <div class="text-center">
+                                                <input id="preview" type="button" class="btn btn-primary rounded-2 border-0 py-2 px-3 mt-3" value="Preview" onclick="PreviewImage('uploadPDF<?= $elpeje['id_lpj']; ?>','viewer<?= $elpeje['id_lpj']; ?>');" />
                                             </div>
+                                        </div>
+                                        <p>Scroll ke bawah untuk submit!</p>
+                                        <div style="clear:both" class="text-center">
+                                            <iframe id="viewer<?= $elpeje['id_lpj']; ?>" frameborder="0" scrolling="no" width="400" height="600"></iframe>
                                         </div>
                                 </div>
                                 </div>
