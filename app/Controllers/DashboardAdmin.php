@@ -229,18 +229,20 @@ class DashboardAdmin extends BaseController
         $data['proposal'] = $proposal->orderBy('id_proposal', 'DESC')->findAll();
         $i = 0;
         foreach ($data['proposal'] as $prop) {
-            if (isset($prop['id_ormawa'])) {
-                $namaOrganisasi = $proposal->getOrmawa($prop['id_ormawa']);
+            $activity = new Kegiatan();
+            $act = $activity->where('id_proposal', $prop['id_proposal'])->first();
+            if (isset($act['id_ormawa'])) {
+                $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($prop['id_ukm']))  {
-                $namaOrganisasi = $proposal->getUKM($prop['id_ukm']);
+            } else if (isset($act['id_ukm']))  {
+                $namaOrganisasi = $activity->getUKM($act['id_ukm']);
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
-            } else if (isset($prop['id_bidang_divisi']))  {
-                $namaOrganisasi = $proposal->getBidangDivisi($prop['id_bidang_divisi']);
+            } else if (isset($act['id_bidang_divisi']))  {
+                $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
             }
 
-            $namaKegiatan = $proposal->getKegiatan($prop['id_kegiatan']);
+            $namaKegiatan = $proposal->getKegiatan($prop['id_proposal']);
             $data['proposal'][$i]['nama_kegiatan'] = $namaKegiatan;
             
             $i++;
@@ -255,7 +257,8 @@ class DashboardAdmin extends BaseController
         $i = 0;
         foreach ($data['lpj'] as $elpeje) {
             $activity = new Kegiatan();
-            $act = $activity->find($elpeje['id_kegiatan']);
+            $act = $activity->find($elpeje['id_lpj']);
+            // dd($act);
             if (isset($act['id_ormawa'])) {
                 $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
                 $data['lpj'][$i]['nama_organisasi'] = $namaOrganisasi;
@@ -268,7 +271,9 @@ class DashboardAdmin extends BaseController
             }
 
             $namaKegiatan = $act['nama_kegiatan'];
+            $idKegiatan = $act['id_kegiatan'];
             $data['lpj'][$i]['nama_kegiatan'] = $namaKegiatan;
+            $data['lpj'][$i]['id_kegiatan'] = $idKegiatan;
             
             $i++;
         }

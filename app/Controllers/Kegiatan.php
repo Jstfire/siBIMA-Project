@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Kegiatan as ModelsKegiatan;
+use App\Models\LPJModel;
 use App\Models\Proposal;
 use App\Models\User;
 use CodeIgniter\I18n\Time;
@@ -43,6 +44,7 @@ class Kegiatan extends BaseController
                 ->first();
         }
         $this->proposal = new Proposal();
+        $this->lpjModel = new LPJModel();
     }
 
     public function index()
@@ -76,7 +78,7 @@ class Kegiatan extends BaseController
         if($data['pakaiProposal'] == 'ya'){
             $data['id_user'] = session()->get('id_user');
             $fileProposal = $this->request->getFile('myPDF');
-            $fileName = $fileProposal->getName();
+            $fileName = $data['nama_kegiatan'].".pdf";
             $data['link_proposal'] = $fileName;
             $data['nama_proposal'] = $fileName;
             $fileProposal->move('proposal', $fileName);
@@ -91,9 +93,15 @@ class Kegiatan extends BaseController
                 'acc_wadir' => 2,
             ]);
         }
+        $this->lpjModel->insert($insert = [
+            'id_user' => $data['id_user'],
+            'url_file' => null,
+        ]);
         $arrProp = $this->proposal->where('id_user', $data['id_user'])->findAll();
+        $arrLPJ = $this->lpjModel->where('id_user', $data['id_user'])->findAll();
         // dd(end($arrProp)['id_proposal']);
         $idProp = end($arrProp)['id_proposal'];
+        $idLPJ = end($arrLPJ)['id_lpj'];
         $data['id_proposal'] = $idProp;
         $this->kegiatan->insert($insert = [
             'id_user' => session()->get('id_user'),
@@ -101,7 +109,7 @@ class Kegiatan extends BaseController
             'id_ormawa' => $data['id_ormawa'],
             'id_bidang_divisi' => $data['id_bidang_divisi'],
             'id_proposal' => $idProp,
-            'id_lpj' => null,
+            'id_lpj' => $idLPJ,
             'id_user' => $data['id_user'],
             'tanggal_kegiatan' => $data['tanggal_kegiatan'],
             'bulan_kegiatan' => $data['bulan_kegiatan'],

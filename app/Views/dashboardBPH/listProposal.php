@@ -24,7 +24,6 @@ include(APPPATH . 'Views/temp/head.php');
                     <th scope="col">id</th>
                     <th scope="col">Nama Proposal</th>
                     <th scope="col">Kegiatan</th>
-                    <th scope="col">Organisasi</th>
                     <th scope="col">UPK</th>
                     <th scope="col">BAAK</th>
                     <th scope="col">Wadir 3</th>
@@ -38,7 +37,6 @@ include(APPPATH . 'Views/temp/head.php');
                             <th scope="row"><?= $prop['id_proposal'] ?></th>
                             <td><a href="<?= base_url(); ?>/proposal/download/<?= $prop['id_proposal']; ?>"><?= $prop['nama_proposal']; ?></a></td>
                             <td><?= $prop['nama_kegiatan'] ?></td>
-                            <td><?= $prop['nama_tampil'] ?></td>
                             <td>
                                 <?php
                                 if ($prop['acc_upk'] == 1) {
@@ -84,16 +82,6 @@ include(APPPATH . 'Views/temp/head.php');
                             </td>
                         </tr>
                     <?php endforeach ?>
-                <?php else : ?>
-                    <tr>
-                        <th scope="row">Tidak Ada Proposal yang Masuk</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
                 <?php endif ?>
             </tbody>
         </table>

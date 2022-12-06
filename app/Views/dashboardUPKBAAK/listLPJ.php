@@ -20,23 +20,26 @@
                     <th scope="col">id</th>
                     <th scope="col">Kegiatan</th>
                     <th scope="col">Organisasi</th>
+                    <th scope="col">LPJ</th>
                     <th scope="col">Detail</th>
                 </tr>
             </thead>
             <tbody>
-            <?php if (isset($proposal)) :?>
-                <?php foreach ($proposal as $prop) :?>
+            <?php if (isset($lpj)) :?>
+                <?php foreach ($lpj as $elpeje) :?>
                     <tr>
-                        <th scope="row"><?= $prop['id_lpj'] ?></th>
-                        <td><?= $prop['nama_kegiatan'] ?></td>
-                        <td><?= $prop['nama_organisasi'] ?></td>
+                        <th scope="row"><?= $elpeje['id_lpj'] ?></th>
+                        <td><?= $elpeje['nama_kegiatan'] ?></td>
+                        <td><?= $elpeje['nama_organisasi'] ?></td>
+                        <?php if (isset($elpeje['url_file'])) :?>
+                        <td><a href="<?= base_url(); ?>/lpj/download/<?= $elpeje['id_lpj']; ?>"><?= $elpeje['url_file']; ?></a></td>
+                        <?php else :?>
+                            <td>Belum Ada</td>
+                        <?php endif?>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $prop['id_proposal'] ?>" onclick="funcRole('role<?= $prop['id_proposal'] ?>','<?= $prop['role'] ?>')">
-                                Download PDF
-                            </button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?= $prop['id_proposal'] ?>">
-                                Detail
-                            </button>
+                            <a href="<?=base_url()?>/kegiatan/detail/<?= $elpeje['id_kegiatan'] ?>" class="btn btn-primary">
+                                Detail <i class="fa-solid fa-angle-right"></i>
+                            </a>
                         </td>
                     </tr>
                     <?php endforeach ?>
@@ -44,7 +47,7 @@
             </tbody>
         </table>
     </div>
-
+    
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>

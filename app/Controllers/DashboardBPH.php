@@ -72,7 +72,7 @@ class DashboardBPH extends BaseController
         $data = [
             'proposal' => $this->kegiatan->where('kegiatan.id_user', session()->get('id_user'))->join('proposal', 'proposal.id_proposal = kegiatan.id_proposal', 'left')->findAll(),
         ];
-        dd($data);
+        // dd($data);
         return view('dashboardBPH/listProposal', $data);
     }
 }
