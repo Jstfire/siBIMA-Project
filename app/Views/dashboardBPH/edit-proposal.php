@@ -65,7 +65,7 @@ include(APPPATH . 'Views/temp/nav.php');
     }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid w-75">
     <form action="<?= base_url(); ?>/proposal/edit_act/<?= $proposal['id_proposal']; ?>" method="post" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <div class="row">

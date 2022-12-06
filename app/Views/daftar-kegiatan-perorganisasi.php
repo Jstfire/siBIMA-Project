@@ -23,10 +23,6 @@ include('temp/nav.php');
                 <p class="display-4 fw-bold mb-0"><?= $nama_organisasi ?></p>
                 <p class="display-10 fw-bold mb-0">Kontak : +<?= $kontak_organisasi ?></p>
                 <p class="m-0 ms-1 mb-5 ukm-desc"><?= $desc_organisasi ?></p>
-                <div class="col d-flex justify-content-end">
-                    <a href="#" class="btn btn-primary rounded-5 border-0 fs-5">Lihat Jadwal</a>
-                    <a href="#anggota" class="btn btn-primary rounded-5 border-0 fs-5 ms-2">List Anggota</a>
-                </div>
             </div>
         </div>
     </div>

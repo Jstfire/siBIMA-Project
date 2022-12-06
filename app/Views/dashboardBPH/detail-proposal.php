@@ -65,7 +65,7 @@ include(APPPATH . 'Views/temp/nav.php');
     }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid w-75">
     <div class="row">
         <p class="fs-1 fw-bold text-center mb-1 mt-5">Detail Proposal</p>
         <hr class="hr m-auto" style="width:430px">
