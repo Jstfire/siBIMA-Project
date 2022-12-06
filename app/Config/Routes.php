@@ -67,6 +67,7 @@ $routes->match(['get', 'post'],'/DashboardUPKBAAK/RefuseProposalUPKBAAK', 'Dashb
 //BPH
 $routes->get('DashboardBPH', 'DashboardBPH::index', ['filter' => 'authGuard', 'filter' => 'authBPH']);
 $routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->get('DashboardBPH/ListLPJ', 'DashboardBPH::list_lpj', ['filter' => 'authGuard', 'filter' => 'authBPH']);
 
 //proposal
 $routes->get('/PengajuanProposal', 'PengajuanProposal::index', ['filter' =>'authGuard', 'filter' => 'authBPH']);
@@ -87,6 +88,7 @@ $routes->post('kegiatan/edit_act/(:segment)','Kegiatan::edit_act/$1', ['filter' 
 $routes->get('kegiatan/delete/(:segment)','Kegiatan::delete/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 
 //lpj
+$routes->get('lpj/download/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
 $routes->get('lpj/download/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
 
 /*

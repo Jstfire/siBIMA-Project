@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Kegiatan;
+use App\Models\LPJModel;
 use App\Models\Proposal;
 use App\Models\User;
 
@@ -13,10 +14,11 @@ class DashboardBPH extends BaseController
     protected $user;
     protected $user_model;
     protected $proposal;
-
+    protected $lpj;
 
     function __construct()
     {
+        $this->lpj = new LPJModel();
         $this->kegiatan = new Kegiatan();
         $this->user_model = new User();
         $this->proposal = new Proposal();
@@ -74,5 +76,14 @@ class DashboardBPH extends BaseController
         ];
         // dd($data);
         return view('dashboardBPH/listProposal', $data);
+    }
+
+    function list_lpj(){
+        $data = [
+            'lpj' => $this->kegiatan->where('kegiatan.id_user', session()->get('id_user'))->join('lpj', 'lpj.id_lpj = kegiatan.id_lpj', 'left')->findAll(),
+        ];
+
+        // dd($data);
+        return view('dashboardUPKBAAK/listLPJ', $data);
     }
 }
