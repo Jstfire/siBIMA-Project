@@ -65,26 +65,26 @@ $routes->match(['get', 'post'],'/DashboardUPKBAAK/AccProposalUPKBAAK', 'Dashboar
 $routes->match(['get', 'post'],'/DashboardUPKBAAK/RefuseProposalUPKBAAK', 'DashboardUPKBAAK::tolakUPKBAAK', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 
 //BPH
-$routes->get('DashboardBPH', 'DashboardBPH::index', ['filter' => 'authGuard']);
-$routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal', ['filter' => 'authGuard']);
+$routes->get('DashboardBPH', 'DashboardBPH::index', ['filter' => 'authGuard', 'filter' => 'authBPH']);
+$routes->get('DashboardBPH/ListProposal', 'DashboardBPH::list_proposal', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 
 //proposal
-$routes->get('/PengajuanProposal', 'PengajuanProposal::index', ['filter' => 'authGuard']);
-$routes->get('pengajuan_proposal', 'PengajuanProposal::index', ['filter' => 'authGuard']);
-$routes->post('proposal/add', 'PengajuanProposal::add', ['filter' => 'authGuard']);
+$routes->get('/PengajuanProposal', 'PengajuanProposal::index', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->get('pengajuan_proposal', 'PengajuanProposal::index', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->post('proposal/add', 'PengajuanProposal::add', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 $routes->get('proposal/download/(:segment)', 'PengajuanProposal::download/$1', ['filter' => 'authGuard']);
 $routes->get('proposal/detail/(:segment)', 'PengajuanProposal::detail/$1', ['filter' => 'authGuard']);
-$routes->get('proposal/edit/(:segment)', 'PengajuanProposal::edit/$1', ['filter' => 'authGuard']);
-$routes->post('proposal/edit_act/(:segment)', 'PengajuanProposal::edit_act/$1', ['filter' => 'authGuard']);
-$routes->get('proposal/delete/(:segment)', 'PengajuanProposal::delete/$1', ['filter' => 'authGuard']);
+$routes->get('proposal/edit/(:segment)', 'PengajuanProposal::edit/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->post('proposal/edit_act/(:segment)', 'PengajuanProposal::edit_act/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->get('proposal/delete/(:segment)', 'PengajuanProposal::delete/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 
 //kegiatan
-$routes->get('kegiatan/add', 'Kegiatan::add', ['filter' => 'authGuard']);
-$routes->post('kegiatan/add_act', 'Kegiatan::add_act', ['filter' => 'authGuard']);
+$routes->get('kegiatan/add', 'Kegiatan::add', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->post('kegiatan/add_act', 'Kegiatan::add_act', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 $routes->get('kegiatan/detail/(:segment)','Kegiatan::detail/$1', ['filter' => 'authGuard']);
-$routes->get('kegiatan/edit/(:segment)','Kegiatan::edit/$1', ['filter' => 'authGuard']);
-$routes->post('kegiatan/edit_act/(:segment)','Kegiatan::edit_act/$1', ['filter' => 'authGuard']);
-$routes->get('kegiatan/delete/(:segment)','Kegiatan::delete/$1', ['filter' => 'authGuard']);
+$routes->get('kegiatan/edit/(:segment)','Kegiatan::edit/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->post('kegiatan/edit_act/(:segment)','Kegiatan::edit_act/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
+$routes->get('kegiatan/delete/(:segment)','Kegiatan::delete/$1', ['filter' =>'authGuard', 'filter' => 'authBPH']);
 
 //lpj
 $routes->get('lpj/download/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);

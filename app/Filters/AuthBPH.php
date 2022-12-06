@@ -25,7 +25,12 @@ class AuthBPH implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
+        if (session()->get('role') !== "BPH") {
+            echo "<script>
+                alert('Restricted Access. Anda tidak memiliki akses ke halaman ini');
+                window.location.href='/';
+            </script>";
+        }
     }
 
     /**
