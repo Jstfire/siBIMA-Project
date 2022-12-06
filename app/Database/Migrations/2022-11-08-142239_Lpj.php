@@ -15,10 +15,6 @@ class Lpj extends Migration
                     'constraint' => 10,
                     'auto_increment' => true,
                 ],
-                'id_kegiatan' => [
-                    'type' => 'INT',
-                    'constraint' => 10,
-                ],
                 'id_user' => [
                     'type' => 'INT',
                     'constraint' => 10,
