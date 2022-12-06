@@ -4,7 +4,7 @@
     $session = session();
     include('temp/head.php');
 ?>
-    <link rel="stylesheet" href="<?php echo base_url();?>/assets/css/index.css">
+    <link rel="stylesheet" href="<?= base_url();?>/assets/css/index.css">
     <title>siBIMA - Halaman Utama</title>
 <?php
     if (isset($_SESSION["username"])) {
@@ -14,7 +14,7 @@
 ?>
     <div class="container">
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="<?php echo base_url();?>/assets/img/logoSTIS.png" alt="Logo STIS"></div>
+            <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="<?= base_url();?>/assets/img/logoSTIS.png" alt="Logo STIS"></div>
             <div class="col-lg-7">
                 <h1 class="fw-bold text-thumbnail">siBIMA</h1>
                 <h3 class="">Sistem Informasi Pembinaan Kemahasiswaan</h3>

@@ -101,7 +101,7 @@ include(APPPATH . 'Views/temp/nav.php');
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Organisasi/UKM penyelenggara</label>
                         <br>
-                        <input type="text" name="" id="" value="<?php echo session()->get('nama_tampil') ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly required>
+                        <input type="text" name="" id="" value="<?= session()->get('nama_tampil') ?>" class="bg-secondary p-2 text-dark bg-opacity-25 form-control form-control-line shadow" readonly required>
                     </div>
                     <div class="form-outline mt-4">
                         <label class="fw-bold">Contact Person</label>

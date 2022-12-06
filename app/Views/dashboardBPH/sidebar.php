@@ -29,7 +29,7 @@ $url .= $_SERVER['REQUEST_URI'];
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <a href="<?php echo base_url(); ?>/DashboardBPH" class="nav_logo text-white">
+                <a href="<?= base_url(); ?>/DashboardBPH" class="nav_logo text-white">
                     <i class="fa-solid fa-layer-group"></i>
                     <span class="nav_logo-name">Dashboard BPH</span>
                 </a>
@@ -121,7 +121,7 @@ $url .= $_SERVER['REQUEST_URI'];
                     ?>
                 </div>
             </div>
-            <a href="<?php echo base_url(); ?>" class="nav_link">
+            <a href="<?= base_url(); ?>" class="nav_link">
                 <i class="fa-solid fa-house"></i>
                 <span class="nav_name">Halaman Utama</span>
             </a>
