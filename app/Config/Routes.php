@@ -89,6 +89,7 @@ $routes->get('kegiatan/delete/(:segment)','Kegiatan::delete/$1', ['filter' =>'au
 
 //lpj
 $routes->get('lpj/download/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
+$routes->get('lpj/upload/(:segment)', 'LPJ::download/$1', ['filter' => 'authGuard']);
 
 /*
  * --------------------------------------------------------------------

@@ -7,6 +7,12 @@ use App\Models\LPJModel;
 
 class LPJ extends BaseController
 {
+    function upload($id){
+        $lpj = new LPJModel();
+        $data = $lpj->find($id);
+        
+        return $this->response->download('lpj/'.$data['url_file'], null);
+    }
     function download($id){
         $lpj = new LPJModel();
         $data = $lpj->find($id);
