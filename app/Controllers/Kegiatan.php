@@ -2,9 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Models\BidangDivisi;
 use App\Models\Kegiatan as ModelsKegiatan;
 use App\Models\LPJModel;
+use App\Models\Ormawa;
 use App\Models\Proposal;
+use App\Models\UKM;
 use App\Models\User;
 use CodeIgniter\I18n\Time;
 
@@ -195,26 +198,34 @@ class Kegiatan extends BaseController
     function list_per_organisasi($id){
         $this->kegiatan = new ModelsKegiatan();
         $data = array();
-        if ($id >= 2 && $id <= 5) {
-            $data['kegiatan'] = $this->kegiatan->where('id_ormawa', $this->user['id_ormawa'])->where('id_ukm', null)->findAll();
-            $data['foto'] = $this->user['id_ormawa'];
-            $data['nama_organisasi'] = $this->user['nama_ormawa'];
-            $data['kontak_organisasi'] = $this->user['kontak_ormawa'];
-            $data['desc_organisasi'] = $this->user['desc_ormawa'];
+        // dd(str_contains($id, 'OM'));
+        if (str_contains($id, 'OM')) {
+            $this->ormawa = new Ormawa();
+            $organisasi = $this->ormawa->where('id_ormawa', $id)->first();
+            // dd($organisasi);
+            $data['kegiatan'] = $this->kegiatan->where('id_ormawa', $id)->where('id_ukm', null)->findAll();
+            $data['foto'] = $organisasi['id_ormawa'];
+            $data['nama_organisasi'] = $organisasi['nama_ormawa'];
+            $data['kontak_organisasi'] = $organisasi['kontak_ormawa'];
+            $data['desc_organisasi'] = $organisasi['desc_ormawa'];
         }
-        if ($id >= 9 && $id <= 15) {
-            $data['kegiatan'] = $this->kegiatan->where('id_ukm', $this->user['id_ukm'])->where('id_bidang_divisi', null)->findAll();
-            $data['foto'] = $this->user['id_ukm'];
-            $data['nama_organisasi'] = $this->user['nama_ukm'];
-            $data['kontak_organisasi'] = $this->user['kontak_ukm'];
-            $data['desc_organisasi'] = $this->user['desc_ukm'];
+        if (str_contains($id, 'UKM')) {
+            $this->ukm = new UKM();
+            $organisasi = $this->ukm->where('id_ukm', $id)->first();
+            $data['kegiatan'] = $this->kegiatan->where('id_ukm', $id)->where('id_bidang_divisi', null)->findAll();
+            $data['foto'] = $organisasi['id_ukm'];
+            $data['nama_organisasi'] = $organisasi['nama_ukm'];
+            $data['kontak_organisasi'] = $organisasi['kontak_ukm'];
+            $data['desc_organisasi'] = $organisasi['desc_ukm'];
         }
-        if ($id >= 16 && $id <= 43) {
-            $data['kegiatan'] = $this->kegiatan->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->findAll();
-            $data['foto'] = $this->user['id_bidang_divisi'];
-            $data['nama_organisasi'] = $this->user['nama_bidang_divisi'];
-            $data['kontak_organisasi'] = $this->user['kontak_bidang_divisi'];
-            $data['desc_organisasi'] = $this->user['desc_bidang_divisi'];
+        if (str_contains($id, 'BD')) {
+            $this->bidang_divisi = new BidangDivisi();
+            $organisasi = $this->bidang_divisi->where('id_bidang_divisi', $id)->first();
+            $data['kegiatan'] = $this->kegiatan->where('id_bidang_divisi', $id)->findAll();
+            $data['foto'] = $organisasi['id_bidang_divisi'];
+            $data['nama_organisasi'] = $organisasi['nama_bidang_divisi'];
+            $data['kontak_organisasi'] = $organisasi['kontak_bidang_divisi'];
+            $data['desc_organisasi'] = $organisasi['desc_bidang_divisi'];
         }
         // dd($data);
 
