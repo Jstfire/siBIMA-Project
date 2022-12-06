@@ -5,8 +5,11 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Kegiatan;
 use App\Models\LPJModel;
+use App\Models\Mahasiswa;
 use App\Models\Proposal;
 use App\Models\User;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx as WriterXlsx;
 
 class DashboardBPH extends BaseController
 {
@@ -106,5 +109,101 @@ class DashboardBPH extends BaseController
             $i++;
         }
         return view('dashboardBPH/listLPJ', $data);
+    }
+
+    function anggota(){
+        $this->mahasiswa = new Mahasiswa();
+        $data = array();
+        if (session()->get('id_user') >= 2 && session()->get('id_user') <= 5) {
+            $data = [
+                'anggota' => $this->mahasiswa->where('id_ormawa', $this->user['id_ormawa'])->findAll(),
+            ];
+            return view('dashboardBPH/list-anggota', $data);
+        }
+        if (session()->get('id_user') >= 9 && session()->get('id_user') <= 15) {
+            $data = [
+                'anggota' => $this->mahasiswa->where('id_ukm', $this->user['id_ukm'])->findAll(),
+            ];
+            return view('dashboardBPH/list-anggota', $data);
+        }
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+            $data = [
+                'anggota' => $this->mahasiswa->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->findAll(),
+            ];
+            return view('dashboardBPH/list-anggota', $data);
+        }
+    }
+
+    function add_anggota(){
+        $this->mahasiswa = new Mahasiswa();
+        if (session()->get('id_user') >= 2 && session()->get('id_user') <= 5) {
+            $file_excel = $this->request->getFile('excelAnggota');
+            $ext = $file_excel->getClientExtension();
+            if ($ext == 'xls') {
+                $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            } else {
+                $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            }
+
+            $spreadsheet = $render->load($file_excel);
+            $data = $spreadsheet->getActiveSheet()->toArray();
+            foreach ($data as $x => $row) {
+                if ($x == 0) {
+                    continue;
+                }
+
+                $nim = $row[0];
+                $nama = $row[1];
+                $kelas = $row[2];
+                $angkatan = $row[3];
+                $jabatan = $row[4];
+
+                $db = \Config\Database::connect();
+
+                $cekNim = $db->table('mahasiswa')->getWhere(['nim_mahasiswa' => $nim])->getResult();
+
+                if (count($cekNim) > 0) {
+                    $simpandata = [
+                        'nim_mahasiswa' => $nim, 
+                        'nama_mahasiswa' => $nama, 
+                        'kelas_mahasiswa' => $kelas, 
+                        'angkatan_mahasiswa' => $angkatan, 
+                        'jabatan_mahasiswa' => $jabatan,
+                        'id_ormawa' => $this->user['id_ormawa'],
+                        'id_ukm' => null,
+                        'id_bidang_divisi' => null,
+                    ];
+
+                    $db->table('mahasiswa')->update($simpandata, $nim . '= nim_mahasiswa');
+                } else {
+                    $simpandata = [
+                        'nim_mahasiswa' => $nim, 
+                        'nama_mahasiswa' => $nama, 
+                        'kelas_mahasiswa' => $kelas, 
+                        'angkatan_mahasiswa' => $angkatan, 
+                        'jabatan_mahasiswa' => $jabatan,
+                        'id_ormawa' => $this->user['id_ormawa'],
+                        'id_ukm' => null,
+                        'id_bidang_divisi' => null,
+                    ];
+
+                    $db->table('mahasiswa')->insert($simpandata);
+                }
+            }
+            session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Mengupdate Anggota!", "success");</script>');
+            return redirect()->to('/DashboardBPH/anggota');
+        }
+        if (session()->get('id_user') >= 9 && session()->get('id_user') <= 15) {
+            $data = [
+                'kegiatan' => $this->mahasiswa->where('id_ukm', $this->user['id_ukm'])->findAll(),
+            ];
+            return view('dashboardBPH/list-anggota', $data);
+        }
+        if (session()->get('id_user') >= 16 && session()->get('id_user') <= 24) {
+            $data = [
+                'kegiatan' => $this->mahasiswa->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->findAll(),
+            ];
+            return view('dashboardBPH/list-anggota', $data);
+        }
     }
 }
