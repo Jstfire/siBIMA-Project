@@ -75,8 +75,8 @@ include(APPPATH . 'Views/temp/head.php');
                                 ?>
                             </td>
                             <td>
-                                <a href="<?= base_url(); ?>/proposal/detail/<?= $prop['id_proposal']; ?>" class="btn btn-primary">Detail</a>
                                 <a href="<?= base_url(); ?>/proposal/edit/<?= $prop['id_proposal']; ?>" class="btn btn-warning">Edit</a>
+                                <a href="<?= base_url(); ?>/proposal/detail/<?= $prop['id_proposal']; ?>" class="btn btn-primary">Detail <i class="fa-solid fa-angle-right"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
