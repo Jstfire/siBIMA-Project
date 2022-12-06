@@ -35,8 +35,8 @@
                 <select name="role" id="role" class="form-select">
                 <option value="0">--Pilih Role--</option>
                 <option>Admin</option>
-                <option>direktur</option>
-                <option>wadir</option>
+                <option>Direktur</option>
+                <option>Wadir 3</option>
                 <option>UPK</option>
                 <option>BAAK</option>
                 <option>BPH</option>

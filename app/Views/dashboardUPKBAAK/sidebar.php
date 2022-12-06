@@ -21,9 +21,6 @@
         <p class="user-detail m-0 text-end"><?= $session->get('nama_tampil') ?></p>
         <p class="user-detail m-0 text-end"><?= $session->get('role') ?></p>
       </div>
-      <!-- <div class="header_img">
-        <img src="https://i.imgur.com/hczKIze.jpg" alt="">
-      </div> -->
     </div>
   </header>
   <div class="l-navbar" id="nav-bar">
@@ -37,37 +34,37 @@
             <?php
               if ($url == base_url().'/DashboardUPKBAAK') {
                 echo '
-                  <a href="'.base_url().'/DashboardUPKBAAK" class="nav_link active">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">List Proposal</span>
-                  </a>
+                <a href="'.base_url().'/DashboardUPKBAAK" class="nav_link active">
+                <i class="fa-solid fa-list-ol"></i>
+                <span class="nav_name">Progres Kegiatan</span>
+                </a>
                 ';
               } else {
                 echo '
-                  <a href="'.base_url().'/DashboardUPKBAAK" class="nav_link">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">List Proposal</span>
-                  </a>
+                <a href="'.base_url().'/DashboardUPKBAAK" class="nav_link">
+                <i class="fa-solid fa-list-ol"></i>
+                <span class="nav_name">Progres Kegiatan</span>
+                </a>
                 ';
               }
-            ?>
-            <?php
-              if ($url == base_url().'/DashboardUPKBAAK/ProgresKegiatan') {
-                echo '
-                  <a href="'.base_url().'/DashboardUPKBAAK/ProgresKegiatan" class="nav_link active">
-                    <i class="fa-solid fa-list-ol"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
-                ';
-              } else {
-                echo '
-                  <a href="'.base_url().'/DashboardUPKBAAK/ProgresKegiatan" class="nav_link">
-                    <i class="fa-solid fa-list-ol"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
-                ';
-              }
-          ?>
+              ?>
+              <?php
+                if ($url == base_url().'/DashboardUPKBAAK/ListProposal') {
+                  echo '
+                    <a href="'.base_url().'/DashboardUPKBAAK/ListProposal" class="nav_link active">
+                      <i class="fa-solid fa-list-check"></i>
+                      <span class="nav_name">List Proposal</span>
+                    </a>
+                  ';
+                } else {
+                  echo '
+                    <a href="'.base_url().'/DashboardUPKBAAK/ListProposal" class="nav_link">
+                      <i class="fa-solid fa-list-check"></i>
+                      <span class="nav_name">List Proposal</span>
+                    </a>
+                  ';
+                }
+              ?>
             <?php
                 if ($url == base_url().'/DashboardUPKBAAK/ListLPJ') {
                   echo '

@@ -58,9 +58,9 @@ $routes->get('/DashboardAdmin/ListProposal', 'DashboardAdmin::listProposal', ['f
 $routes->get('/DashboardAdmin/ListLPJ', 'DashboardAdmin::listLPJ', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 
 //UPK BAAK
-$routes->get('/DashboardUPKBAAK', 'DashboardUPKBAAK::listProposal', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
+$routes->get('/DashboardUPKBAAK/ListProposal', 'DashboardUPKBAAK::listProposal', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 $routes->get('/DashboardUPKBAAK/ListLPJ', 'DashboardUPKBAAK::listLPJ', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
-$routes->get('/DashboardUPKBAAK/ProgresKegiatan', 'DashboardUPKBAAK::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
+$routes->get('/DashboardUPKBAAK', 'DashboardUPKBAAK::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 $routes->match(['get', 'post'],'/DashboardUPKBAAK/AccProposalUPKBAAK', 'DashboardUPKBAAK::setujuUPKBAAK', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 $routes->match(['get', 'post'],'/DashboardUPKBAAK/RefuseProposalUPKBAAK', 'DashboardUPKBAAK::tolakUPKBAAK', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 
