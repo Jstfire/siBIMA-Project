@@ -70,9 +70,11 @@ class Kegiatan extends BaseController
         $data['jam_kegiatan'] = $data['jam_mulai'] . " " . $data["jam_akhir"];
         $data['id_ukm'] = null;
         $data['id_bidang_divisi'] = null;
+
         if (isset($this->user['id_ukm'])) {
             $data['id_ukm'] = $this->user['id_ukm'];
         }
+
         if(isset($this->user['id_bidang_divisi'])){
             $data['id_bidang_divisi'] = $this->user['id_bidang_divisi'];
         }
@@ -84,7 +86,6 @@ class Kegiatan extends BaseController
             $data['link_proposal'] = $fileName;
             $data['nama_proposal'] = $fileName;
             $fileProposal->move('proposal', $fileName);
-            // dd($data);
             $this->proposal->insert($insert = [
                 'id_user' => $data['id_user'],
                 'link_proposal' => $data['link_proposal'],
@@ -94,39 +95,81 @@ class Kegiatan extends BaseController
                 'acc_baak' => 2,
                 'acc_wadir' => 2,
             ]);
+
+            $this->lpjModel->insert($insert = [
+                'id_user' => $data['id_user'],
+                'url_file' => null,
+            ]);
+
+            $arrProp = $this->proposal->where('id_user', $data['id_user'])->findAll();
+            $arrLPJ = $this->lpjModel->where('id_user', $data['id_user'])->findAll();
+
+            $idProp = null;
+            $idLPJ = end($arrLPJ)['id_lpj'];
+            $data['id_proposal'] = null;
+
+            if (isset(end($arrProp)['id_proposal'])) {
+                $idProp = end($arrProp)['id_proposal'];
+                $data['id_proposal'] = $idProp;
+            }
+
+            $this->kegiatan->insert($insert = [
+                'id_user' => session()->get('id_user'),
+                'id_ukm' => $data['id_ukm'],
+                'id_ormawa' => $data['id_ormawa'],
+                'id_bidang_divisi' => $data['id_bidang_divisi'],
+                'id_proposal' => $idProp,
+                'id_lpj' => $idLPJ,
+                'id_user' => $data['id_user'],
+                'tanggal_kegiatan' => $data['tanggal_kegiatan'],
+                'tahun_ajaran_kegiatan' => $data['tahun_ajaran_kegiatan'],
+                'bulan_kegiatan' => $data['bulan_kegiatan'],
+                'tempat_kegiatan' => $data['tempat_kegiatan'],
+                'penanggung_jawab_kegiatan' => $data['penanggung_jawab_kegiatan'],
+                'kontak_penanggung_jawab_kegiatan' => $data['kontak_penanggung_jawab_kegiatan'],
+                'nama_kegiatan' => $data['nama_kegiatan'],
+                'jam_mulai' => $data['jam_mulai'],
+                'jam_akhir' => $data['jam_akhir'],
+                'status' => false,
+            ]);
+        }else {
+            $this->lpjModel->insert($insert = [
+                'id_user' => $data['id_user'],
+                'url_file' => null,
+            ]);
+
+            $arrProp = $this->proposal->where('id_user', $data['id_user'])->findAll();
+            $arrLPJ = $this->lpjModel->where('id_user', $data['id_user'])->findAll();
+
+            $idProp = null;
+            $idLPJ = end($arrLPJ)['id_lpj'];
+            $data['id_proposal'] = null;
+
+            if (isset(end($arrProp)['id_proposal'])) {
+                $idProp = end($arrProp)['id_proposal'];
+                $data['id_proposal'] = $idProp;
+            }
+
+            $this->kegiatan->insert($insert = [
+                'id_user' => session()->get('id_user'),
+                'id_ukm' => $data['id_ukm'],
+                'id_ormawa' => $data['id_ormawa'],
+                'id_bidang_divisi' => $data['id_bidang_divisi'],
+                'id_proposal' => $idProp,
+                'id_lpj' => $idLPJ,
+                'id_user' => $data['id_user'],
+                'tanggal_kegiatan' => $data['tanggal_kegiatan'],
+                'tahun_ajaran_kegiatan' => $data['tahun_ajaran_kegiatan'],
+                'bulan_kegiatan' => $data['bulan_kegiatan'],
+                'tempat_kegiatan' => $data['tempat_kegiatan'],
+                'penanggung_jawab_kegiatan' => $data['penanggung_jawab_kegiatan'],
+                'kontak_penanggung_jawab_kegiatan' => $data['kontak_penanggung_jawab_kegiatan'],
+                'nama_kegiatan' => $data['nama_kegiatan'],
+                'jam_mulai' => $data['jam_mulai'],
+                'jam_akhir' => $data['jam_akhir'],
+                'status' => true,
+            ]);
         }
-        $this->lpjModel->insert($insert = [
-            'id_user' => $data['id_user'],
-            'url_file' => null,
-        ]);
-        $arrProp = $this->proposal->where('id_user', $data['id_user'])->findAll();
-        $arrLPJ = $this->lpjModel->where('id_user', $data['id_user'])->findAll();
-        // dd(end($arrProp)['id_proposal']);
-        $idProp = null;
-        $idLPJ = end($arrLPJ)['id_lpj'];
-        $data['id_proposal'] = null;
-        if(isset(end($arrProp)['id_proposal'])){
-            $idProp = end($arrProp)['id_proposal'];
-            $data['id_proposal'] = $idProp;
-        }
-        $this->kegiatan->insert($insert = [
-            'id_user' => session()->get('id_user'),
-            'id_ukm' => $data['id_ukm'],
-            'id_ormawa' => $data['id_ormawa'],
-            'id_bidang_divisi' => $data['id_bidang_divisi'],
-            'id_proposal' => $idProp,
-            'id_lpj' => $idLPJ,
-            'id_user' => $data['id_user'],
-            'tanggal_kegiatan' => $data['tanggal_kegiatan'],
-            'tahun_ajaran_kegiatan' => $data['tahun_ajaran_kegiatan'] ,
-            'bulan_kegiatan' => $data['bulan_kegiatan'],
-            'tempat_kegiatan' => $data['tempat_kegiatan'],
-            'penanggung_jawab_kegiatan' => $data['penanggung_jawab_kegiatan'],
-            'kontak_penanggung_jawab_kegiatan' => $data['kontak_penanggung_jawab_kegiatan'],
-            'nama_kegiatan' => $data['nama_kegiatan'],
-            'jam_mulai' => $data['jam_mulai'],
-            'jam_akhir' => $data['jam_akhir'],
-        ]);
 
         session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Menambah Kegiatan!", "success");</script>');
         return redirect()->to('/DashboardBPH');
@@ -146,7 +189,6 @@ class Kegiatan extends BaseController
             $namaOrganisasi = $this->kegiatan->getOrmawa($data['kegiatan']['id_ormawa']);
             $data['kegiatan']['penyelenggara'] = $namaOrganisasi;
         }
-        // dd($data['kegiatan']);
         
         if (session()->get('role') == "BPH")
         {
@@ -190,11 +232,11 @@ class Kegiatan extends BaseController
         $lpj = $this->lpjModel->find($act['id_lpj']);
         if (isset($act['id_proposal'])) {
             $prop = $this->proposal->find($act['id_proposal']);
-            $fileProp = base_url()."/proposal/".$prop['link_proposal'];
+            $fileProp = FCPATH."proposal/".$prop['link_proposal'];
             unlink($fileProp);
         }
         if (isset($prop['url_file'])) {
-            $fileLPJ = base_url()."/lpj/".$lpj['url_file'];
+            $fileLPJ = FCPATH."lpj/".$lpj['url_file'];
             unlink($fileLPJ);
         }
 
@@ -202,7 +244,7 @@ class Kegiatan extends BaseController
         if (isset($act['id_proposal'])) {
             $this->proposal->delete($act['id_proposal']);
         }
-        // dd($act);
+
         $this->lpjModel->delete($act['id_lpj']);
         session()->setFlashdata('pesan', '<script>swal("Berhasil!", "Berhasil Menghapus Kegiatan!", "success");</script>');
         return redirect()->to('/DashboardBPH');
@@ -216,7 +258,7 @@ class Kegiatan extends BaseController
         if (str_contains($id, 'OM')) {
             $this->ormawa = new Ormawa();
             $organisasi = $this->ormawa->where('id_ormawa', $id)->first();
-            $data['kegiatan'] = $this->kegiatan->where('id_ormawa', $id)->where('id_ukm', null)->findAll();
+            $data['kegiatan'] = $this->kegiatan->where('id_ormawa', $id)->where('id_ukm', null)->where('status', true)->findAll();
             $data['foto'] = $organisasi['id_ormawa'];
             $data['nama_organisasi'] = $organisasi['nama_ormawa'];
             $data['kontak_organisasi'] = $organisasi['kontak_ormawa'];
@@ -226,7 +268,7 @@ class Kegiatan extends BaseController
         if (str_contains($id, 'UKM')) {
             $this->ukm = new UKM();
             $organisasi = $this->ukm->where('id_ukm', $id)->first();
-            $data['kegiatan'] = $this->kegiatan->where('id_ukm', $id)->where('id_bidang_divisi', null)->findAll();
+            $data['kegiatan'] = $this->kegiatan->where('id_ukm', $id)->where('id_bidang_divisi', null)->where('status', true)->findAll();
             $data['foto'] = $organisasi['id_ukm'];
             $data['nama_organisasi'] = $organisasi['nama_ukm'];
             $data['kontak_organisasi'] = $organisasi['kontak_ukm'];
@@ -235,7 +277,7 @@ class Kegiatan extends BaseController
 
         if (str_contains($id, 'BD')) {
             $this->bidang_divisi = new BidangDivisi();
-            $organisasi = $this->bidang_divisi->where('id_bidang_divisi', $id)->first();
+            $organisasi = $this->bidang_divisi->where('id_bidang_divisi', $id)->where('status', true)->first();
             $data['kegiatan'] = $this->kegiatan->where('id_bidang_divisi', $id)->findAll();
             $data['foto'] = $organisasi['id_bidang_divisi'];
             $data['nama_organisasi'] = $organisasi['nama_bidang_divisi'];
