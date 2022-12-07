@@ -196,19 +196,20 @@ class Kegiatan extends BaseController
     }
 
     function list_per_organisasi($id){
+
         $this->kegiatan = new ModelsKegiatan();
         $data = array();
-        // dd(str_contains($id, 'OM'));
+
         if (str_contains($id, 'OM')) {
             $this->ormawa = new Ormawa();
             $organisasi = $this->ormawa->where('id_ormawa', $id)->first();
-            // dd($organisasi);
             $data['kegiatan'] = $this->kegiatan->where('id_ormawa', $id)->where('id_ukm', null)->findAll();
             $data['foto'] = $organisasi['id_ormawa'];
             $data['nama_organisasi'] = $organisasi['nama_ormawa'];
             $data['kontak_organisasi'] = $organisasi['kontak_ormawa'];
             $data['desc_organisasi'] = $organisasi['desc_ormawa'];
         }
+
         if (str_contains($id, 'UKM')) {
             $this->ukm = new UKM();
             $organisasi = $this->ukm->where('id_ukm', $id)->first();
@@ -218,6 +219,7 @@ class Kegiatan extends BaseController
             $data['kontak_organisasi'] = $organisasi['kontak_ukm'];
             $data['desc_organisasi'] = $organisasi['desc_ukm'];
         }
+
         if (str_contains($id, 'BD')) {
             $this->bidang_divisi = new BidangDivisi();
             $organisasi = $this->bidang_divisi->where('id_bidang_divisi', $id)->first();
@@ -227,7 +229,6 @@ class Kegiatan extends BaseController
             $data['kontak_organisasi'] = $organisasi['kontak_bidang_divisi'];
             $data['desc_organisasi'] = $organisasi['desc_bidang_divisi'];
         }
-        // dd($data);
 
         return view('daftar-kegiatan-perorganisasi', $data);
     }
