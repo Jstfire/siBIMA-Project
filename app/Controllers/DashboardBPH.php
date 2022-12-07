@@ -58,19 +58,20 @@ class DashboardBPH extends BaseController
     {
         if(session()->get('id_user') >= 2 && session()->get('id_user') <= 5){
             $data = [
-                'kegiatan' => $this->kegiatan->where('status', '1')->where('id_ormawa', $this->user['id_ormawa'])->where('id_user', session()->get('id_user'))->findAll(),
+                'kegiatan' => $this->kegiatan->where('status', true)->where('id_ormawa', $this->user['id_ormawa'])->where('id_user', session()->get('id_user'))->findAll(),
             ];
+            // dd($data);
             return view('dashboardBPH/progresKegiatan', $data);
         }
         if (session()->get('id_user') >= 9 && session()->get('id_user') <= 15) {
             $data = [
-                'kegiatan' => $this->kegiatan->where('status', '1')->where('id_ukm', $this->user['id_ukm'])->where('id_user', session()->get('id_user'))->findAll(),
+                'kegiatan' => $this->kegiatan->where('status', true)->where('id_ukm', $this->user['id_ukm'])->where('id_user', session()->get('id_user'))->findAll(),
             ];
             return view('dashboardBPH/progresKegiatan', $data);
         }
         if (session()->get('id_user') >= 16 && session()->get('id_user') <= 43) {
             $data = [
-                'kegiatan' => $this->kegiatan->where('status', '1')->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->where('id_user', session()->get('id_user'))->findAll(),
+                'kegiatan' => $this->kegiatan->where('status', true)->where('id_bidang_divisi', $this->user['id_bidang_divisi'])->where('id_user', session()->get('id_user'))->findAll(),
             ];
             return view('dashboardBPH/progresKegiatan', $data);
         }
@@ -78,7 +79,11 @@ class DashboardBPH extends BaseController
 
     function list_proposal(){
         $data = [
-            'proposal' => $this->kegiatan->where('kegiatan.id_user', session()->get('id_user'))->where('kegiatan.id_proposal', !null)->join('proposal', 'proposal.id_proposal = kegiatan.id_proposal', 'left')->findAll(),
+            'proposal' => $this->kegiatan
+            ->where('kegiatan.id_user', session()->get('id_user'))
+            ->where('kegiatan.id_proposal !=', null)
+            ->join('proposal', 'proposal.id_proposal = kegiatan.id_proposal', 'left')
+            ->findAll(),
         ];
         // dd($data);
         return view('dashboardBPH/listProposal', $data);
