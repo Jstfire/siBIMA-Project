@@ -10,7 +10,7 @@ class Home extends BaseController
         $session = session();
         $today = date("Y-m-d");
         $activity = new Kegiatan();
-        $data['act'] = $activity->orderBy('tanggal_kegiatan', 'ASC')->orderBy('jam_mulai', 'ASC')->findAll();
+        $data['act'] = $activity->where('status', '1')->orderBy('tanggal_kegiatan', 'ASC')->orderBy('jam_mulai', 'ASC')->findAll();
         // dd($data['act'][0]);
         $i = 0;
         foreach ($data['act'] as $act) {

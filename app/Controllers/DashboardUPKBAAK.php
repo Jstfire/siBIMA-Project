@@ -8,6 +8,8 @@ use App\Models\Kegiatan;
 use App\Models\User;
 use App\Models\LPJModel;
 
+use function PHPUnit\Framework\isNull;
+
 class DashboardUPKBAAK extends BaseController
 {
     protected $kegiatan;
@@ -24,6 +26,53 @@ class DashboardUPKBAAK extends BaseController
             ->join('bidang_divisi', 'bidang_divisi.id_user = users.id_user', 'left')
             ->where('users.id_user', session()->get('id_user'))
             ->first();
+        $this->checking = $this->kegiatan
+            ->join('lpj', 'lpj.id_lpj = kegiatan.id_lpj')
+            ->findAll();
+        foreach ($this->checking as $cek) {
+            if (!isset($cek['id_proposal'])) {
+                $data = [
+                    'status'     => true,
+                ];
+                $this->kegiatan->update($cek['id_kegiatan'], $data);
+            } else {
+                $this->validKegiatan = $this->kegiatan
+                ->join('proposal', 'proposal.id_proposal = kegiatan.id_proposal')
+                ->join('lpj', 'lpj.id_lpj = kegiatan.id_lpj')
+                ->find($cek['id_kegiatan']);
+                // dd($this->validKegiatan);
+                // $tes = '2';
+                // print_r($tes);
+                if ($this->validKegiatan['untuk_wadir'] == 0) {
+                    if ($this->validKegiatan['acc_upk'] == 1 && $this->validKegiatan['acc_baak'] == 1) {
+                        $data = [
+                            'status'     => '1',
+                        ];
+                        $this->kegiatan->update($cek['id_kegiatan'], $data);
+                    } else {
+                        $data = [
+                            'status'     => '0',
+                        ];
+                        $this->kegiatan->update($cek['id_kegiatan'], $data);
+                    }
+                } else {
+                    if ($this->validKegiatan['acc_upk'] == 1 && $this->validKegiatan['acc_baak'] == 1 && $this->validKegiatan['acc_wadir'] == 1) {
+                        $data = [
+                            'status'     => '1',
+                        ];
+                        $this->kegiatan->update($cek['id_kegiatan'], $data);
+                    } else {
+                        $data = [
+                            'status'     => '0',
+                        ];
+                        $this->kegiatan->update($cek['id_kegiatan'], $data);
+                    }
+                }    
+            }
+        }
+        // dd($this->validKegiatan);
+        // dd($tes);
+        
     }
 
     public function listProposal()

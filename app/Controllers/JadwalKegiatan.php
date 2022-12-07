@@ -22,13 +22,13 @@ class JadwalKegiatan extends BaseController
         $saturday   = date('Y-m-d', strtotime('+5 days', $baseday));
         $sunday     = date('Y-m-d', strtotime('+6 days', $baseday));
         $data = [
-            'monday' => $this->kegiatan->where('tanggal_kegiatan', $monday)->findAll(),
-            'tuesday' => $this->kegiatan->where('tanggal_kegiatan', $tuesday)->findAll(),
-            'wednesday' => $this->kegiatan->where('tanggal_kegiatan', $wednesday)->findAll(),
-            'thursday' => $this->kegiatan->where('tanggal_kegiatan', $thursday)->findAll(),
-            'friday' => $this->kegiatan->where('tanggal_kegiatan', $friday)->findAll(),
-            'saturday' => $this->kegiatan->where('tanggal_kegiatan', $saturday)->findAll(),
-            'sunday' => $this->kegiatan->where('tanggal_kegiatan', $sunday)->findAll(),
+            'monday' => $this->kegiatan->where('status', '1')->where('tanggal_kegiatan', $monday)->findAll(),
+            'tuesday' => $this->kegiatan->where('status', '1')->where('tanggal_kegiatan', $tuesday)->findAll(),
+            'wednesday' => $this->kegiatan->where('status', '1')->where('tanggal_kegiatan', $wednesday)->findAll(),
+            'thursday' => $this->kegiatan->where('status', '1')->where('tanggal_kegiatan', $thursday)->findAll(),
+            'friday' => $this->kegiatan->where('status', '1')->where('tanggal_kegiatan', $friday)->findAll(),
+            'saturday' => $this->kegiatan->where('status', '1')->where('tanggal_kegiatan', $saturday)->findAll(),
+            'sunday' => $this->kegiatan->where('status', '1')->where('tanggal_kegiatan', $sunday)->findAll(),
         ];
         $i = 0;
         foreach ($data['monday'] as $act) {
