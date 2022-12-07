@@ -77,6 +77,11 @@ class Kegiatan extends Migration
             'jam_akhir' => [
                 'type' => 'time'
             ],
+            'status' => [
+                'type' => 'boolean',
+                'default' => false,
+                'null' => true,
+            ],
         ]);
         $this->forge->addPrimaryKey('id_kegiatan', true);
         $this->forge->addForeignKey('id_ormawa', 'ormawa', 'id_ormawa');

@@ -16,7 +16,6 @@ include(APPPATH . 'Views/temp/nav.php');
         pdffile = document.getElementById("uploadPDF").files[0];
         pdffile_url = URL.createObjectURL(pdffile);
         $('#viewer').attr('src', pdffile_url);
-        document.getElementById("preview-pdf").style.display = "inline";
     }
 </script>
 
@@ -63,10 +62,6 @@ include(APPPATH . 'Views/temp/nav.php');
     #preview:hover {
         background-color: #3488AC;
     }
-
-    #preview-pdf {
-        display:none;
-    }
 </style>
 
 <div class="container-fluid">
@@ -76,9 +71,9 @@ include(APPPATH . 'Views/temp/nav.php');
             <hr class="hr m-auto" style="width:430px">
             <div class="row mt-5">
                 <?php csrf_field(); ?>
-                <div class="col text-center" id="preview-pdf">
+                <div class="col-md-4 text-center">
                     <div style="clear:both">
-                        <iframe id="viewer" frameborder="0" scrolling="no" width="600" height="600"></iframe>
+                        <iframe id="viewer" frameborder="0" scrolling="no" width="400" height="600"></iframe>
                     </div>
                 </div>
                 <div class="col">
