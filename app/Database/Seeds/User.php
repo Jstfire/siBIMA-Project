@@ -321,14 +321,14 @@ class User extends Seeder
                 'id_user' => '45',
                 'username' => 'wadir3',
                 'password' => '$2y$10$PausAngEI/fBjRZ5djHwEOj2ws8ylPFqBicXCpmvBBbknQrVcbuv6',
-                'role' => 'wadir',
+                'role' => 'Wadir 3',
                 'nama_tampil' => 'Wakil Direktur III',
             ],
             [
                 'id_user' => '46',
                 'username' => 'direktur',
                 'password' => '$2y$10$PausAngEI/fBjRZ5djHwEOj2ws8ylPFqBicXCpmvBBbknQrVcbuv6',
-                'role' => 'direktur',
+                'role' => 'Direktur',
                 'nama_tampil' => 'Direktur Polstat STIS',
             ],
         ];

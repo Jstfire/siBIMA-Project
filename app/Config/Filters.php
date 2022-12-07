@@ -11,6 +11,8 @@ use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\AuthGuard;
 use App\Filters\AuthAdmin;
 use App\Filters\AuthUPKBAAK;
+use App\Filters\AuthWadir3;
+use App\Filters\AuthDirektur;
 use App\Filters\AuthBPH;
 use App\Filters\AuthLogin;
 
@@ -31,6 +33,8 @@ class Filters extends BaseConfig
         'authGuard'     => AuthGuard::class,
         'authAdmin'     => AuthAdmin::class,
         'authUPKBAAK'     => AuthUPKBAAK::class,
+        'authWadir3'     => AuthWadir3::class,
+        'authDirektur'     => AuthDirektur::class,
         'authBPH'     => AuthBPH::class,
         'authLogin'     => AuthLogin::class,
     ];

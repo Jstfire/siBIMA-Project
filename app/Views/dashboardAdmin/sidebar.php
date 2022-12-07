@@ -37,53 +37,53 @@
           <?php
               if ($url == base_url().'/DashboardAdmin') {
                 echo '
-                  <a href="'.base_url().'/DashboardAdmin" class="nav_link active">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
+                <a href="'.base_url().'/DashboardAdmin" class="nav_link active">
+                <i class="fa-solid fa-user-plus"></i>
+                <span class="nav_name">Akun Baru</span>
+                </a>
                 ';
               } else {
                 echo '
-                  <a href="'.base_url().'/DashboardAdmin" class="nav_link">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="nav_name">Progres Kegiatan</span>
-                  </a>
+                <a href="'.base_url().'/DashboardAdmin" class="nav_link">
+                <i class="fa-solid fa-user-plus"></i>
+                <span class="nav_name">Akun Baru</span>
+                </a>
                 ';
               }
-          ?>
-          <?php
-              if ($url == base_url().'/DashboardAdmin/TambahAkun') {
-                echo '
-                <a href="'.base_url().'/DashboardAdmin/TambahAkun" class="nav_link active">
-                    <i class="fa-solid fa-user-plus"></i>
-                    <span class="nav_name">Akun Baru</span>
-                  </a>
+              ?>
+              <?php
+                if ($url == base_url().'/DashboardAdmin/ListAkun') {
+                  echo '
+                    <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link active">
+                      <i class="fa-solid fa-table-list"></i>
+                      <span class="nav_name">List Akun</span>
+                    </a>
                   ';
-              } else {
-                echo '
-                  <a href="'.base_url().'/DashboardAdmin/TambahAkun" class="nav_link">
-                    <i class="fa-solid fa-user-plus"></i>
-                    <span class="nav_name">Akun Baru</span>
-                  </a>
-                ';
-              }
-          ?>
-          <?php
-              if ($url == base_url().'/DashboardAdmin/ListAkun') {
-                echo '
-                  <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link active">
-                    <i class="fa-solid fa-table-list"></i>
-                    <span class="nav_name">List Akun</span>
-                  </a>
-                ';
-              } else {
-                echo '
-                  <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link">
-                    <i class="fa-solid fa-table-list"></i>
-                    <span class="nav_name">List Akun</span>
-                  </a>
-                ';
-              }
+                } else {
+                  echo '
+                    <a href="'.base_url().'/DashboardAdmin/ListAkun" class="nav_link">
+                      <i class="fa-solid fa-table-list"></i>
+                      <span class="nav_name">List Akun</span>
+                    </a>
+                  ';
+                }
+              ?>
+              <?php
+                if ($url == base_url().'/DashboardAdmin/ProgresKegiatan') {
+                  echo '
+                    <a href="'.base_url().'/DashboardAdmin" class="nav_link active">
+                      <i class="fa-solid fa-list-check"></i>
+                      <span class="nav_name">Progres Kegiatan</span>
+                    </a>
+                  ';
+                } else {
+                  echo '
+                    <a href="'.base_url().'/DashboardAdmin/ProgresKegiatan" class="nav_link">
+                      <i class="fa-solid fa-list-check"></i>
+                      <span class="nav_name">Progres Kegiatan</span>
+                    </a>
+                  ';
+                }
             ?>
             <?php
                 if ($url == base_url().'/DashboardAdmin/ListProposal') {

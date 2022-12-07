@@ -48,9 +48,9 @@ $routes->get('/Login', 'Login::index', ['filter' => 'authLogin']);
 $routes->get('/Logout', 'Logout::index');
 $routes->match(['get', 'post'], '/Login/LoginAuth', 'Login::loginAuth');
 
-$routes->get('/DashboardAdmin', 'DashboardAdmin::index', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin/ProgresKegiatan', 'DashboardAdmin::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'], '/DashboardAdmin/ListAkun', 'DashboardAdmin::listAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
-$routes->get('/DashboardAdmin/TambahAkun', 'DashboardAdmin::tambahAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
+$routes->get('/DashboardAdmin', 'DashboardAdmin::tambahAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'],'/DashboardAdmin/TambahAkunPost', 'DashboardAdmin::tambahAkunPost', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'],'/DashboardAdmin/UpdateAkun', 'DashboardAdmin::updateAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 $routes->match(['get', 'post'],'/DashboardAdmin/DeleteAkun', 'DashboardAdmin::deleteAkun', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
@@ -58,11 +58,20 @@ $routes->get('/DashboardAdmin/ListProposal', 'DashboardAdmin::listProposal', ['f
 $routes->get('/DashboardAdmin/ListLPJ', 'DashboardAdmin::listLPJ', ['filter' => 'authGuard', 'filter' => 'authAdmin']);
 
 //UPK BAAK
-$routes->get('/DashboardUPKBAAK', 'DashboardUPKBAAK::listProposal', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
+$routes->get('/DashboardUPKBAAK/ListProposal', 'DashboardUPKBAAK::listProposal', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
+$routes->get('/DashboardUPKBAAK/SerahProposal/(:segment)', 'DashboardUPKBAAK::serahKeWadir3/$1', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
+$routes->get('/DashboardUPKBAAK/cancelSerahProposal/(:segment)', 'DashboardUPKBAAK::cancelSerahKeWadir3/$1', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 $routes->get('/DashboardUPKBAAK/ListLPJ', 'DashboardUPKBAAK::listLPJ', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
-$routes->get('/DashboardUPKBAAK/ProgresKegiatan', 'DashboardUPKBAAK::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
+$routes->get('/DashboardUPKBAAK', 'DashboardUPKBAAK::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 $routes->match(['get', 'post'],'/DashboardUPKBAAK/AccProposalUPKBAAK', 'DashboardUPKBAAK::setujuUPKBAAK', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
 $routes->match(['get', 'post'],'/DashboardUPKBAAK/RefuseProposalUPKBAAK', 'DashboardUPKBAAK::tolakUPKBAAK', ['filter' => 'authGuard', 'filter' => 'authUPKBAAK']);
+
+//Wadir 3
+$routes->get('/DashboardWadir3/ListProposal', 'DashboardWadir3::listProposal', ['filter' => 'authGuard', 'filter' => 'authWadir3']);
+$routes->get('/DashboardWadir3/ListLPJ', 'DashboardWadir3::listLPJ', ['filter' => 'authGuard', 'filter' => 'authWadir3']);
+$routes->get('/DashboardWadir3', 'DashboardWadir3::progresKegiatan', ['filter' => 'authGuard', 'filter' => 'authWadir3']);
+$routes->match(['get', 'post'],'/DashboardWadir3/AccProposalWadir3', 'DashboardWadir3::setujuWadir3', ['filter' => 'authGuard', 'filter' => 'authWadir3']);
+$routes->match(['get', 'post'],'/DashboardWadir3/RefuseProposalWadir3', 'DashboardWadir3::tolakWadir3', ['filter' => 'authGuard', 'filter' => 'authWadir3']);
 
 //BPH
 $routes->get('DashboardBPH', 'DashboardBPH::index', ['filter' => 'authGuard', 'filter' => 'authBPH']);

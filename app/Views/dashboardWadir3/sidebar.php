@@ -26,22 +26,22 @@
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
-        <a href="<?= base_url();?>/DashboardUPKBAAK" class="nav_logo text-white">
+        <a href="<?= base_url();?>/DashboardWadir3" class="nav_logo text-white">
           <i class="fa-solid fa-layer-group"></i>
           <span class="nav_logo-name">Dashboard <?=session()->get('role')?></span>
         </a>
         <div class="nav_list">
             <?php
-              if ($url == base_url().'/DashboardUPKBAAK') {
+              if ($url == base_url().'/DashboardWadir3') {
                 echo '
-                <a href="'.base_url().'/DashboardUPKBAAK" class="nav_link active">
+                <a href="'.base_url().'/DashboardWadir3" class="nav_link active">
                 <i class="fa-solid fa-list-ol"></i>
                 <span class="nav_name">Progres Kegiatan</span>
                 </a>
                 ';
               } else {
                 echo '
-                <a href="'.base_url().'/DashboardUPKBAAK" class="nav_link">
+                <a href="'.base_url().'/DashboardWadir3" class="nav_link">
                 <i class="fa-solid fa-list-ol"></i>
                 <span class="nav_name">Progres Kegiatan</span>
                 </a>
@@ -49,16 +49,16 @@
               }
               ?>
               <?php
-                if ($url == base_url().'/DashboardUPKBAAK/ListProposal') {
+                if ($url == base_url().'/DashboardWadir3/ListProposal') {
                   echo '
-                    <a href="'.base_url().'/DashboardUPKBAAK/ListProposal" class="nav_link active">
+                    <a href="'.base_url().'/DashboardWadir3/ListProposal" class="nav_link active">
                       <i class="fa-solid fa-list-check"></i>
                       <span class="nav_name">List Proposal</span>
                     </a>
                   ';
                 } else {
                   echo '
-                    <a href="'.base_url().'/DashboardUPKBAAK/ListProposal" class="nav_link">
+                    <a href="'.base_url().'/DashboardWadir3/ListProposal" class="nav_link">
                       <i class="fa-solid fa-list-check"></i>
                       <span class="nav_name">List Proposal</span>
                     </a>
@@ -66,16 +66,16 @@
                 }
               ?>
             <?php
-                if ($url == base_url().'/DashboardUPKBAAK/ListLPJ') {
+                if ($url == base_url().'/DashboardWadir3/ListLPJ') {
                   echo '
-                    <a href="'.base_url().'/DashboardUPKBAAK/ListLPJ" class="nav_link active">
+                    <a href="'.base_url().'/DashboardWadir3/ListLPJ" class="nav_link active">
                       <i class="fa-regular fa-clipboard"></i>
                       <span class="nav_name">List LPJ</span>
                     </a>
                   ';
                 } else {
                   echo '
-                    <a href="'.base_url().'/DashboardUPKBAAK/ListLPJ" class="nav_link">
+                    <a href="'.base_url().'/DashboardWadir3/ListLPJ" class="nav_link">
                     <i class="fa-regular fa-clipboard"></i>
                       <span class="nav_name">List LPJ</span>
                     </a>
