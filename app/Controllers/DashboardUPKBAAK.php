@@ -82,22 +82,27 @@ class DashboardUPKBAAK extends BaseController
         $i = 0;
         foreach ($data['proposal'] as $prop) {
             $activity = new Kegiatan();
-            $act = $activity->find($prop['id_proposal']);
-            if (isset($act['id_ukm']))  {
-                if (isset($act['id_bidang_divisi']))  {
-                    $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
-                    $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
-                } else {
-                    $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+            // dd($prop['id_proposal']);
+            $act = $activity->where('id_proposal', $prop['id_proposal'])->first();
+            // dd($act);
+            if (isset($act)) {
+                // dd('masuk');
+                if (isset($act['id_ukm']))  {
+                    if (isset($act['id_bidang_divisi']))  {
+                        $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
+                        $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
+                    } else {
+                        $namaOrganisasi = $activity->getUKM($act['id_ukm']);
+                        $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
+                    }
+                } else if (isset($act['id_ormawa'])) {
+                    $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
                     $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
                 }
-            } else {
-                $namaOrganisasi = $activity->getOrmawa($act['id_ormawa']);
-                $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
+    
+                // $namaKegiatan = $proposal->getKegiatan($act['id_kegiatan']);
+                $data['proposal'][$i]['nama_kegiatan'] = $act['nama_kegiatan'];
             }
-
-            $namaKegiatan = $proposal->getKegiatan($act['id_kegiatan']);
-            $data['proposal'][$i]['nama_kegiatan'] = $namaKegiatan;
             
             $i++;
         }
@@ -112,7 +117,7 @@ class DashboardUPKBAAK extends BaseController
         $i = 0;
         foreach ($data['lpj'] as $elpeje) {
             $activity = new Kegiatan();
-            $act = $activity->find($elpeje['id_lpj']);
+            $act = $activity->where('id_lpj',$elpeje['id_lpj'])->first();
 
             if (isset($act['id_ukm']))  {
                 if (isset($act['id_bidang_divisi']))  {

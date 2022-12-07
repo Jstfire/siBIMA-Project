@@ -77,7 +77,7 @@ class DashboardWadir3 extends BaseController
         $i = 0;
         foreach ($data['proposal'] as $prop) {
             $activity = new Kegiatan();
-            $act = $activity->find($prop['id_proposal']);
+            $act = $activity->where('id_proposal',$prop['id_proposal'])->first();
             if (isset($act['id_ukm']))  {
                 if (isset($act['id_bidang_divisi']))  {
                     $namaOrganisasi = $activity->getBidangDivisi($act['id_bidang_divisi']);
@@ -91,8 +91,8 @@ class DashboardWadir3 extends BaseController
                 $data['proposal'][$i]['nama_organisasi'] = $namaOrganisasi;
             }
 
-            $namaKegiatan = $proposal->getKegiatan($act['id_kegiatan']);
-            $data['proposal'][$i]['nama_kegiatan'] = $namaKegiatan;
+            // $namaKegiatan = $proposal->getKegiatan($act['id_kegiatan']);
+            $data['proposal'][$i]['nama_kegiatan'] = $act['nama_kegiatan'];
             
             $i++;
         }
