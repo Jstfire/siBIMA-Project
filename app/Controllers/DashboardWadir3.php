@@ -135,7 +135,7 @@ class DashboardWadir3 extends BaseController
     public function progresKegiatan()
     {
         $data = [
-                'kegiatan' => $this->kegiatan->findAll(),
+                'kegiatan' => $this->kegiatan->where('status', '1')->findAll(),
             ];
         return view('dashboardWadir3/progresKegiatan', $data);
     }

@@ -140,7 +140,7 @@ class DashboardUPKBAAK extends BaseController
     public function progresKegiatan()
     {
         $data = [
-                'kegiatan' => $this->kegiatan->findAll(),
+                'kegiatan' => $this->kegiatan->where('status', '1')->findAll(),
             ];
         return view('dashboardUPKBAAK/progresKegiatan', $data);
     }
