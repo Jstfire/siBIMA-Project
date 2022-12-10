@@ -58,7 +58,7 @@ class Kegiatan extends BaseController
     public function add()
     {
         $data['user'] = $this->user;
-        return view('DashboardBPH/tambahKegiatan', $data);
+        return view('dashboardBPH/tambahKegiatan', $data);
     }
 
     public function add_act()
