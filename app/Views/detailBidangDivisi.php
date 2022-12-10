@@ -52,7 +52,7 @@ include('temp/nav.php');
                         <?php foreach ($member as $mbr) : ?>
                             <tr>
                                 <td><?= $mbr['nama_mahasiswa'] ?></td>
-                                <td><?= $mbr['NIM_mahasiswa'] ?></td>
+                                <td><?= $mbr['nim_mahasiswa'] ?></td>
                                 <td><?= $mbr['kelas_mahasiswa'] ?></td>
                                 <td><?= $mbr['jabatan_mahasiswa'] ?></td>
                             </tr>
